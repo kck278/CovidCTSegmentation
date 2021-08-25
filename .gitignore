@@ -129,6 +129,7 @@ dmypy.json
 .pyre/
 
 .idea/
+lightning_logs/
 
 # images
 data/images/
