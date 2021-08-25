@@ -41,5 +41,6 @@ class UNetCovid(pl.LightningModule):
 
     def cross_entropy_loss(self, logits, labels):
         criterion = nn.CrossEntropyLoss()
-        loss = criterion(logits, labels.type(torch.LongTensor))
+        # attention: this might crash when not using GPUs for training. In this case, remove .to(device='cuda')
+        loss = criterion(logits, labels.type(torch.LongTensor).to(device='cuda'))
         return loss

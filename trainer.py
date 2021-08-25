@@ -36,5 +36,5 @@ class CovidDataModule(pl.LightningDataModule):
 
 dm = CovidDataModule()
 model = UNetCovid()
-trainer = pl.Trainer(max_epochs=1, gpus=0, progress_bar_refresh_rate=20)
+trainer = pl.Trainer(max_epochs=1, gpus=1, progress_bar_refresh_rate=20)
 trainer.fit(model, dm)
