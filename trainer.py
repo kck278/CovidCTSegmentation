@@ -1,11 +1,12 @@
 import pytorch_lightning as pl
 from dataset import CovidDataset
 from torch.utils.data import random_split, DataLoader
-from models import UNetCovid
+from models.UNetCovid import UNetCovid
+from models.SegNet import SegNet
 
 class CovidDataModule(pl.LightningDataModule):
-    def __init__(self, images_dir="/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/lung",
-                 masks_dir="/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/binary_mask",
+    def __init__(self, images_dir="C:/Users/sophi/Documents/0_Master/AML/CovidCTSegmentation/data/images/lung",
+                 masks_dir="C:/Users/sophi/Documents/0_Master/AML/CovidCTSegmentation/data/images/binary_mask",
                  batch_size=12):
         super().__init__()
         self.images_dir = images_dir
@@ -35,6 +36,6 @@ class CovidDataModule(pl.LightningDataModule):
 
 
 dm = CovidDataModule()
-model = UNetCovid()
+model = SegNet()
 trainer = pl.Trainer(max_epochs=1, gpus=0, progress_bar_refresh_rate=20)
 trainer.fit(model, dm)
