@@ -36,6 +36,8 @@ class CovidDataModule(pl.LightningDataModule):
 
 
 dm = CovidDataModule()
+torch.set_grad_enabled(False)
+logger = TensorBoardLogger('tb_logs', name = 'SegNet_model')
 model = SegNet()
-trainer = pl.Trainer(max_epochs=1, gpus=0, progress_bar_refresh_rate=20)
+trainer = pl.Trainer(auto_lr_find=True, max_epochs=3, gpus=1, progress_bar_refresh_rate=5, logger=logger)
 trainer.fit(model, dm)

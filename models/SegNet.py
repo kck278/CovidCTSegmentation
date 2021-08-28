@@ -2,6 +2,9 @@ import torch
 from torch import nn
 import pytorch_lightning as pl
 from torch.nn import functional as F
+import torchmetrics
+from pytorch_lightning.loggers import TensorBoardLogger
+
 
 class SegNet(pl.LightningModule):
     def __init__(self):
@@ -70,6 +73,9 @@ class SegNet(pl.LightningModule):
         self.bn12d = nn.BatchNorm2d(64, momentum=batchNorm_momentum)
         self.conv11d = nn.Conv2d(64, 2, kernel_size=3, padding=1)
 
+        # softmax stimmt noch nicht - output needs to be k-channels, where k is number of classes
+        self.softmax = nn.Softmax(dim=0)
+
     def forward(self, x):
         # Stage 1e
         x11 = F.relu(self.bn11(self.conv11(x)))
@@ -127,14 +133,24 @@ class SegNet(pl.LightningModule):
         x12d = F.relu(self.bn12d(self.conv12d(x1d)))
         x11d = self.conv11d(x12d)
 
-        return x11d
+        xsoftmax = self.softmax(x11d)
+
+        return xsoftmax
 
     def training_step(self, batch, batch_idx):
         x, y = batch
         y_hat = self(x)
         loss = self.cross_entropy_loss(y_hat, y)
+        correct = y_hat.argmax(dim=1).eq(y).sum().item()
+        # accuracy = torchmetrics.functional.accuracy(y_hat, y)
+        total = len(y)
         tensorboard_logs = {'train_loss': loss}
-        return {'loss': loss, 'log': tensorboard_logs.detach()}
+        logger.experiment.add_scalar("Loss/Train", loss, batch_idx)
+        logger.experiment.add_scalar("Correct/Train", correct, batch_idx)
+        # print("y_hat:", y_hat)
+        # print("y:", y)
+        # logger.experiment.add_scalar("Accuracy/Train", accuracy, batch_idx)
+        return {'loss': loss, 'log': tensorboard_logs}
 
     def validation_step(self, batch, batch_nb):
         # OPTIONAL
@@ -147,5 +163,5 @@ class SegNet(pl.LightningModule):
 
     def cross_entropy_loss(self, logits, labels):
         criterion = nn.CrossEntropyLoss()
-        loss = criterion(logits, labels.type(torch.LongTensor))
+        loss = criterion(logits, labels.type(torch.LongTensor).to(device='cuda'))
         return loss
