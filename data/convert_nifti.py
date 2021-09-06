@@ -1,10 +1,9 @@
 import os
 import numpy as np
 import nibabel as nib
-import matplotlib.pyplot as plt
 from tqdm import tqdm
 
-def convert_nifi_to_png(nifti_path, png_path, binary=False):
+def convert_nifi_to_single_slice(nifti_path, new_path, binary=False):
     img = nib.load(nifti_path)
 
     #'C:/Users/sophi/Documents/0_Master/AML/CovidCTSegmentation/data/images/lung/lung_{}.png'
@@ -16,12 +15,14 @@ def convert_nifi_to_png(nifti_path, png_path, binary=False):
 
     for i in tqdm(range(1, slices+1)):
         number = str(i).zfill(fill)
-        image_name = png_path.format(number)
-        image_save = np.rot90(img_arr[:, :, i-1], k=3)
+        image_name = new_path.format(number)
+        image_save = img_arr[:, :, i-1]
         image_save = np.fliplr(image_save)
         if binary:
             image_save = np.clip(image_save, 0, 1)
-        plt.imsave(fname=image_name, arr=image_save, cmap='gray', format='png')
+        img_nifti = nib.Nifti1Image(image_save, img.affine, img.header)
+        nib.save(img_nifti, image_name)
+
 
 # specify the directory where you want to store images/ maksks/ binary masks
 if not os.path.exists('images/lung'):
@@ -35,12 +36,12 @@ if not os.path.exists('images/binary_mask'):
 # (therefore add {} in filename)
 
 # image conversion
-convert_nifi_to_png('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/tr_im.nii.gz',
-                    'images/lung/lung_{}.png')
+convert_nifi_to_single_slice('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/tr_im.nii.gz',
+                             'images/lung/lung_{}.nii.gz')
 # mask conversion
-convert_nifi_to_png('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/tr_mask.nii.gz',
-                    'images/mask/mask_{}.png')
+convert_nifi_to_single_slice('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/tr_mask.nii.gz',
+                             'images/mask/mask_{}.nii.gz')
 # binary mask conversion
-convert_nifi_to_png('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/tr_mask.nii.gz',
-                    'images/binary_mask/binary_mask_{}.png',
-                    binary=True)
+convert_nifi_to_single_slice('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/tr_mask.nii.gz',
+                             'images/binary_mask/binary_mask_{}.nii.gz',
+                             binary=True)

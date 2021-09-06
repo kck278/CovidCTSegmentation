@@ -145,8 +145,8 @@ class SegNet(pl.LightningModule):
         # accuracy = torchmetrics.functional.accuracy(y_hat, y)
         total = len(y)
         tensorboard_logs = {'train_loss': loss}
-        logger.experiment.add_scalar("Loss/Train", loss, batch_idx)
-        logger.experiment.add_scalar("Correct/Train", correct, batch_idx)
+        self.logger.experiment.add_scalar("Loss/Train", loss, batch_idx)
+        self.logger.experiment.add_scalar("Correct/Train", correct, batch_idx)
         # print("y_hat:", y_hat)
         # print("y:", y)
         # logger.experiment.add_scalar("Accuracy/Train", accuracy, batch_idx)

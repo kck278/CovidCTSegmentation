@@ -1,12 +1,13 @@
 import pytorch_lightning as pl
 from dataset import CovidDataset
 from torch.utils.data import random_split, DataLoader
+from pytorch_lightning.loggers import TensorBoardLogger
 from models.UNetCovid import UNetCovid
 from models.SegNet import SegNet
 
 class CovidDataModule(pl.LightningDataModule):
-    def __init__(self, images_dir="C:/Users/sophi/Documents/0_Master/AML/CovidCTSegmentation/data/images/lung",
-                 masks_dir="C:/Users/sophi/Documents/0_Master/AML/CovidCTSegmentation/data/images/binary_mask",
+    def __init__(self, images_dir="/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/lung",
+                 masks_dir="/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/binary_mask",
                  batch_size=12):
         super().__init__()
         self.images_dir = images_dir
@@ -35,9 +36,10 @@ class CovidDataModule(pl.LightningDataModule):
         return DataLoader(self.covid_test, batch_size=self.batch_size)
 
 
+logger = TensorBoardLogger('lightning_logs', name = 'UNet_model')
+# logger = TensorBoardLogger('lightning_logs', name = 'SegNet_model')
 dm = CovidDataModule()
-torch.set_grad_enabled(False)
-logger = TensorBoardLogger('tb_logs', name = 'SegNet_model')
-model = SegNet()
-trainer = pl.Trainer(auto_lr_find=True, max_epochs=3, gpus=1, progress_bar_refresh_rate=5, logger=logger)
+model = UNetCovid()
+# model = SegNet()
+trainer = pl.Trainer(max_epochs=5, gpus=1, progress_bar_refresh_rate=20, log_every_n_steps=1, logger=logger)
 trainer.fit(model, dm)
