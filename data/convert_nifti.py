@@ -3,10 +3,10 @@ import numpy as np
 import nibabel as nib
 from tqdm import tqdm
 
-
 def convert_nifi_to_single_slice(nifti_path, new_path, binary=False):
     img = nib.load(nifti_path)
 
+    #'C:/Users/sophi/Documents/0_Master/AML/CovidCTSegmentation/data/images/lung/lung_{}.png'
     img_arr = np.array(img.dataobj)
     print(img_arr.shape)
     print(img_arr[:, :, 0].shape)

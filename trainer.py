@@ -1,8 +1,9 @@
 import pytorch_lightning as pl
 from dataset import CovidDataset
 from torch.utils.data import random_split, DataLoader
-from models import UNetCovid
 from pytorch_lightning.loggers import TensorBoardLogger
+from models.UNetCovid import UNetCovid
+from models.SegNet import SegNet
 
 class CovidDataModule(pl.LightningDataModule):
     def __init__(self, images_dir="/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/lung",
@@ -36,7 +37,9 @@ class CovidDataModule(pl.LightningDataModule):
 
 
 logger = TensorBoardLogger('lightning_logs', name = 'UNet_model')
+# logger = TensorBoardLogger('lightning_logs', name = 'SegNet_model')
 dm = CovidDataModule()
 model = UNetCovid()
+# model = SegNet()
 trainer = pl.Trainer(max_epochs=5, gpus=1, progress_bar_refresh_rate=20, log_every_n_steps=1, logger=logger)
 trainer.fit(model, dm)
