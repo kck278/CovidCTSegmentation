@@ -5,7 +5,7 @@ from skimage import io
 import nibabel as nib
 import pandas as pd
 
-mask_dir = "C:/Users/kim-c/PythonProjects/Covid-CT-Segmentation/data/images/mask"
+mask_dir = "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/mask"
 mask_names = sorted(os.listdir(mask_dir))
 pixel_c0 = 0
 pixel_c1 = 0

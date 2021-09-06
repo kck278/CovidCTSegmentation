@@ -25,23 +25,23 @@ def convert_nifi_to_single_slice(nifti_path, new_path, binary=False):
 
 
 # specify the directory where you want to store images/ maksks/ binary masks
-if not os.path.exists('C:/Users/kim-c/PythonProjects/Covid-CT-Segmentation/data/images/lung'):
-    os.makedirs('C:/Users/kim-c/PythonProjects/Covid-CT-Segmentation/data/images/lung')
-if not os.path.exists('C:/Users/kim-c/PythonProjects/Covid-CT-Segmentation/data/images/mask'):
-    os.makedirs('C:/Users/kim-c/PythonProjects/Covid-CT-Segmentation/data/images/mask')
-if not os.path.exists('C:/Users/kim-c/PythonProjects/Covid-CT-Segmentation/data/images/binary_mask'):
-    os.makedirs('C:/Users/kim-c/PythonProjects/Covid-CT-Segmentation/data/images/binary_mask')
+if not os.path.exists('images/lung'):
+    os.makedirs('images/lung')
+if not os.path.exists('images/mask'):
+    os.makedirs('images/mask')
+if not os.path.exists('images/binary_mask'):
+    os.makedirs('images/binary_mask')
 
 # specify the directory where nifty files are stored and where png files should be stored. png files are enumerated
 # (therefore add {} in filename)
 
 # image conversion
-convert_nifi_to_single_slice('C:/Users/kim-c/PythonProjects/Covid-CT-Segmentation/data/images/tr_im.nii.gz',
-                             'C:/Users/kim-c/PythonProjects/Covid-CT-Segmentation/data/images/lung/lung_{}.nii.gz')
+convert_nifi_to_single_slice('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/tr_im.nii.gz',
+                             'images/lung/lung_{}.nii.gz')
 # mask conversion
-convert_nifi_to_single_slice('C:/Users/kim-c/PythonProjects/Covid-CT-Segmentation/data/images/tr_mask.nii.gz',
-                             'C:/Users/kim-c/PythonProjects/Covid-CT-Segmentation/data/images/mask/mask_{}.nii.gz')
+convert_nifi_to_single_slice('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/tr_mask.nii.gz',
+                             'images/mask/mask_{}.nii.gz')
 # binary mask conversion
-convert_nifi_to_single_slice('C:/Users/kim-c/PythonProjects/Covid-CT-Segmentation/data/images/tr_mask.nii.gz',
-                             'C:/Users/kim-c/PythonProjects/Covid-CT-Segmentation/data/images/binary_mask/binary_mask_{}.nii.gz',
+convert_nifi_to_single_slice('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/tr_mask.nii.gz',
+                             'images/binary_mask/binary_mask_{}.nii.gz',
                              binary=True)

@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 def heatmap_paper():
-    img = nib.load('C:/Users/kim-c/PythonProjects/Covid-CT-Segmentation/data/images/tr_mask.nii.gz')
+    img = nib.load('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/tr_mask.nii.gz')
     img_arr = np.array(img.dataobj)
     print(img_arr.shape)
 
@@ -13,13 +13,13 @@ def heatmap_paper():
 
     plt.imshow(summed, cmap='hot', interpolation='nearest')
     plt.axis('off')
-    plt.savefig('C:/Users/kim-c/PythonProjects/Covid-CT-Segmentation/data/heatmap_paper.png',
+    plt.savefig('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/heatmap_paper.png',
                 bbox_inches='tight',
                 pad_inches=0)
 
 
 def heatmap_class_specific(class_number):
-    img = nib.load('C:/Users/kim-c/PythonProjects/Covid-CT-Segmentation/data/images/tr_mask.nii.gz')
+    img = nib.load('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/tr_mask.nii.gz')
     img_arr = np.array(img.dataobj)
     img_arr = (img_arr == class_number).astype(int)
     print(img_arr.shape)
@@ -29,13 +29,13 @@ def heatmap_class_specific(class_number):
 
     plt.imshow(summed, cmap='hot', interpolation='nearest')
     plt.axis('off')
-    plt.savefig('C:/Users/kim-c/PythonProjects/Covid-CT-Segmentation/data/heatmap_class_{}.png'.format(class_number),
+    plt.savefig('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/heatmap_class_{}.png'.format(class_number),
                 bbox_inches='tight',
                 pad_inches=0)
 
 
 def heatmap_infected_tissue():
-    img = nib.load('C:/Users/kim-c/PythonProjects/Covid-CT-Segmentation/data/images/tr_mask.nii.gz')
+    img = nib.load('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/tr_mask.nii.gz')
     img_arr = np.array(img.dataobj)
     img_arr = (img_arr > 0).astype(int)
     print(img_arr.shape)
@@ -45,7 +45,7 @@ def heatmap_infected_tissue():
 
     plt.imshow(summed, cmap='hot', interpolation='nearest')
     plt.axis('off')
-    plt.savefig('C:/Users/kim-c/PythonProjects/Covid-CT-Segmentation/data/heatmap_infected_tissue.png',
+    plt.savefig('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/heatmap_infected_tissue.png',
                 bbox_inches='tight',
                 pad_inches=0)
 

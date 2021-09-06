@@ -3,6 +3,7 @@ from torch import nn
 from monai.networks.nets import UNet
 import pytorch_lightning as pl
 from torch.nn import functional as F
+from pytorch_lightning.loggers import TensorBoardLogger
 
 class UNetCovid(pl.LightningModule):
 
@@ -26,7 +27,10 @@ class UNetCovid(pl.LightningModule):
         x, y = batch
         y_hat = self(x)
         loss = self.cross_entropy_loss(y_hat,y)
+        correct = y_hat.argmax(dim=1).eq(y).sum().item()
         tensorboard_logs = {'train_loss': loss}
+        self.logger.experiment.add_scalar("Loss/Train", loss, batch_nb)
+        self.logger.experiment.add_scalar("Correct/Train", correct, batch_nb)
         return {'loss': loss, 'log': tensorboard_logs}
 
     def validation_step(self, batch, batch_nb):
