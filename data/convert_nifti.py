@@ -2,14 +2,12 @@ import os
 import numpy as np
 import nibabel as nib
 from tqdm import tqdm
+import SimpleITK as sitk
+from PIL import Image
 
 def convert_nifi_to_single_slice(nifti_path, new_path, binary=False):
     img = nib.load(nifti_path)
-
-    #'C:/Users/sophi/Documents/0_Master/AML/CovidCTSegmentation/data/images/lung/lung_{}.png'
     img_arr = np.array(img.dataobj)
-    print(img_arr.shape)
-    print(img_arr[:, :, 0].shape)
     slices = img_arr.shape[-1]
     fill = len(str(slices))
 
@@ -24,24 +22,74 @@ def convert_nifi_to_single_slice(nifti_path, new_path, binary=False):
         nib.save(img_nifti, image_name)
 
 
-# specify the directory where you want to store images/ maksks/ binary masks
-if not os.path.exists('images/lung'):
-    os.makedirs('images/lung')
-if not os.path.exists('images/mask'):
-    os.makedirs('images/mask')
-if not os.path.exists('images/binary_mask'):
-    os.makedirs('images/binary_mask')
+def crop_lungmask(png_lung_dir, lung_mask_dir, new_path):
+    # find all images
+    lung_names = sorted(os.listdir(png_lung_dir))
+    lung_mask_names = sorted(os.listdir(lung_mask_dir))
+    assert len(lung_names) == len(lung_mask_names)
+    fill = len(str(len(lung_names)))
 
-# specify the directory where nifty files are stored and where png files should be stored. png files are enumerated
-# (therefore add {} in filename)
+    for i, (lung, mask) in tqdm(enumerate(zip(lung_names, lung_mask_names))):
+        lung_img = sitk.ReadImage(os.path.join(png_lung_dir, lung))
+        mask_img = sitk.ReadImage(os.path.join(lung_mask_dir, mask))
+
+        lung_arr = sitk.GetArrayFromImage(lung_img)
+        mask_arr = sitk.GetArrayFromImage(mask_img)
+
+        lung_arr[mask_arr==0] = 0
+
+        number = str(i+1).zfill(fill)
+        save_itk_png(lung_arr, new_path + "/lung_{}.png".format(number))
+
+def mask_to_png(mask_path, new_path, binary=False):
+    img = sitk.ReadImage(mask_path)
+    img_arr = sitk.GetArrayFromImage(img)
+
+    if binary:
+        new_path += "/binary/mask_{}.png"
+    else:
+        new_path += "/multilabel/mask_{}.png"
+
+    slices = img_arr.shape[0]
+    fill = len(str(slices))
+
+    for i in tqdm(range(0, slices)):
+        number = str(i + 1).zfill(fill)
+        image_path = new_path.format(number)
+        image_save = img_arr[i, :, :]
+
+        if binary:
+            image_save = np.clip(image_save, 0, 1)
+            image_save *= 255
+        else:
+            image_save *= 85 
+
+        save_pil_png(image_save, image_path)
+
+def save_itk_png(img_array, save_path):
+    img = sitk.GetImageFromArray(img_array)
+    sitk.WriteImage(img, save_path)
+
+    img = Image.open(save_path)
+    img.thumbnail((256, 256), Image.ANTIALIAS)
+    img.save(save_path)
+
+def save_pil_png(img_array, save_path):
+    img = Image.fromarray(img_array)
+    img = img.convert('RGB')
+    img.thumbnail((256, 256), Image.ANTIALIAS)
+    img.save(save_path)
 
 # image conversion
-convert_nifi_to_single_slice('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/tr_im.nii.gz',
-                             'images/lung/lung_{}.nii.gz')
+# crop_lungmask(
+#     "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/scan",
+#     "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/lung_mask",
+#     "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/lung"
+# )
+
 # mask conversion
-convert_nifi_to_single_slice('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/tr_mask.nii.gz',
-                             'images/mask/mask_{}.nii.gz')
-# binary mask conversion
-convert_nifi_to_single_slice('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/tr_mask.nii.gz',
-                             'images/binary_mask/binary_mask_{}.nii.gz',
-                             binary=True)
+mask_to_png(
+     "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/tr_mask.nii.gz",
+     "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/mask",
+    True
+)

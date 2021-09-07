@@ -19,12 +19,12 @@ class CovidDataModule(pl.LightningDataModule):
     def setup(self, stage=None):
         # Assign train/val datasets for use in dataloaders
         if stage == 'fit' or stage is None:
-            mnist_full = CovidDataset(images_dir=self.images_dir, masks_dir=self.masks_dir)
-            self.covid_train, self.covid_val = random_split(mnist_full, [80, 20])
+            covid_full = CovidDataset(images_dir=self.images_dir, masks_dir=self.masks_dir)
+            self.covid_train, self.covid_val, self.covid_test = random_split(covid_full, [72, 10, 18])
 
         # Assign test dataset for use in dataloader(s)
-        if stage == 'test' or stage is None:
-            self.covid_test = CovidDataset(images_dir=self.images_dir, masks_dir=self.masks_dir)
+        # if stage == 'test' or stage is None:
+        #     self.covid_test = CovidDataset(images_dir=self.images_dir, masks_dir=self.masks_dir)
 
     def train_dataloader(self):
         return DataLoader(self.covid_train, batch_size=self.batch_size)
