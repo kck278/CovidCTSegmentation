@@ -6,8 +6,8 @@ from models.UNetCovid import UNetCovid
 from models.SegNet import SegNet
 
 class CovidDataModule(pl.LightningDataModule):
-    def __init__(self, images_dir="/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/lung",
-                 masks_dir="/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/binary_mask",
+    def __init__(self, images_dir="/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/lung",
+                 masks_dir="/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/mask/binary",
                  batch_size=12):
         super().__init__()
         self.images_dir = images_dir

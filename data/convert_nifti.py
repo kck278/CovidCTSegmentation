@@ -57,6 +57,8 @@ def mask_to_png(mask_path, new_path, binary=False):
         number = str(i + 1).zfill(fill)
         image_path = new_path.format(number)
         image_save = img_arr[i, :, :]
+        image_save = np.rot90(image_save)
+        image_save = np.flipud(image_save)
 
         if binary:
             image_save = np.clip(image_save, 0, 1)
