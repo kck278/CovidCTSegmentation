@@ -1,42 +1,64 @@
 import os
-import matplotlib.pyplot as plt
 import numpy as np
-from skimage import io
 import nibabel as nib
 import pandas as pd
 
-mask_dir = "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/mask"
-mask_names = sorted(os.listdir(mask_dir))
-pixel_c0 = 0
-pixel_c1 = 0
-pixel_c2 = 0
-pixel_c3 = 0
 
-img_pixel_c0 = 0
-img_pixel_c1 = 0
-img_pixel_c2 = 0
-img_pixel_c3 = 0
-for mask in mask_names:
-    img_path = os.path.join(mask_dir, mask)
-    img = nib.load(img_path)
-    img_np = np.array(img.dataobj)
+def calculate_statistics(binary: bool=False) -> pd.DataFrame:
+    mask_dir = '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/mask'
+    mask_names = sorted(os.listdir(mask_dir))
 
-    unique, counts = np.unique(img_np, return_counts=True)
-    occurrences = dict(zip(unique, counts))
-    if np.any(img_np == 0):
-        pixel_c0 += occurrences[0.0]
-        img_pixel_c0 += img_np.size
-    if np.any(img_np == 1):
-        pixel_c1 += occurrences[1.0]
-        img_pixel_c1 += img_np.size
-    if np.any(img_np == 2):
-        pixel_c2 += occurrences[2.0]
-        img_pixel_c2 += img_np.size
-    if np.any(img_np == 3):
-        pixel_c3 += occurrences[3.0]
-        img_pixel_c3 += img_np.size
+    pixel_dict = {}
+    img_dict = {}
 
-d = {'class': ['C0', 'C1', 'C2', 'C3'], 'Pixel count': [pixel_c0, pixel_c1, pixel_c2, pixel_c3],
-     'Image pixel count': [img_pixel_c0, img_pixel_c1, img_pixel_c2, img_pixel_c3]}
-df = pd.DataFrame(data=d)
-print(df)
+    for mask in mask_names:
+        img_path = os.path.join(mask_dir, mask)
+        img = nib.load(img_path)
+        img_arr = np.array(img.dataobj)
+
+        if binary:
+            img_arr = np.clip(img_arr, 0, 1)
+
+        unique, counts = np.unique(img_arr, return_counts=True)
+
+        for i in range(len(unique)):
+            if unique[i] in pixel_dict.keys():
+                img_dict[unique[i]] += img_arr.size
+                pixel_dict[unique[i]] += counts[i]
+            else:
+                pixel_dict[unique[i]] = counts[i]
+                img_dict[unique[i]] = img_arr.size
+
+    freqs = []
+
+    for i in range(len(unique)):
+        freq = pixel_dict[i] / img_dict[i]
+        freqs.append(freq)
+
+    med_freq = np.median(np.array(freqs))
+    class_weigts = []
+
+    for freq in freqs:
+        class_weigt = med_freq / freq
+        class_weigts.append(class_weigt)
+
+    data = []
+
+    for i in range(len(unique)):
+        data.append(['C' + str(i), pixel_dict[i], img_dict[i], class_weigts[i]])
+
+    return pd.DataFrame(data=np.array(data), columns=['Class', 'Pixel Count', 'Image Pixel count', 'Class Weight'])
+
+
+def print_statistics():
+    print('-----------------------------------------------------------')
+    print('MULTILABEL')
+    df_multilabel = calculate_statistics()
+    print(df_multilabel)
+    print('-----------------------------------------------------------')
+    print('BINARY')
+    df_binary = calculate_statistics(binary=True)
+    print(df_binary)
+    print('-----------------------------------------------------------')
+
+# print_statistics()
