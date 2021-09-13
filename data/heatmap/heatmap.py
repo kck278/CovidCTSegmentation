@@ -13,12 +13,14 @@ def heatmap_paper():
 
     plt.imshow(summed, cmap='hot', interpolation='nearest')
     plt.axis('off')
-    plt.savefig('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/heatmap_paper.png',
-                bbox_inches='tight',
-                pad_inches=0)
+    plt.savefig(
+        '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/heatmap/heatmap_paper.png',
+        bbox_inches='tight',
+        pad_inches=0
+    )
 
 
-def heatmap_class_specific(class_number):
+def heatmap_class_specific(class_number: float):
     img = nib.load('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/tr_mask.nii.gz')
     img_arr = np.array(img.dataobj)
     img_arr = (img_arr == class_number).astype(int)
@@ -29,9 +31,11 @@ def heatmap_class_specific(class_number):
 
     plt.imshow(summed, cmap='hot', interpolation='nearest')
     plt.axis('off')
-    plt.savefig('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/heatmap_class_{}.png'.format(class_number),
-                bbox_inches='tight',
-                pad_inches=0)
+    plt.savefig(
+        '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/heatmap/heatmap_class_{}.png'.format(class_number),
+        bbox_inches='tight',
+        pad_inches=0
+    )
 
 
 def heatmap_infected_tissue():
@@ -45,9 +49,11 @@ def heatmap_infected_tissue():
 
     plt.imshow(summed, cmap='hot', interpolation='nearest')
     plt.axis('off')
-    plt.savefig('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/heatmap_infected_tissue.png',
-                bbox_inches='tight',
-                pad_inches=0)
+    plt.savefig(
+        '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/heatmap/heatmap_infected_tissue.png',
+        bbox_inches='tight',
+        pad_inches=0
+    )
 
 
 heatmap_paper()
@@ -55,4 +61,3 @@ heatmap_infected_tissue()
 heatmap_class_specific(1.0)
 heatmap_class_specific(2.0)
 heatmap_class_specific(3.0)
-

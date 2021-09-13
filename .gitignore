@@ -135,3 +135,6 @@ lightning_logs/
 data/images/
 *.png
 *.nii.gz
+
+# Logs
+slurm-*.out
