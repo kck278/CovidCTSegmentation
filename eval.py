@@ -21,14 +21,11 @@ def eval_img(version: int, img_number: str):
 
     y_hat = model(x)
     y_hat = y_hat.squeeze(0)
-    y_pred = y_hat.argmax(dim=0)
-
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    y_pred = y_pred.type(torch.FloatTensor).to(device=device)
+    y_pred = y_hat.argmax(dim=0).type(torch.FloatTensor)
 
     toPil = transforms.ToPILImage()
     img = toPil(y_pred)
     img.save('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/prediction/lung_' + img_number + '.png')
 
 
-eval_img(version=3, img_number='001')
+eval_img(version=34, img_number='018')

@@ -10,6 +10,7 @@ from metrics import calculate_accuracy_metrics, calculate_metrics, class_weights
 class UNet(pl.LightningModule):
     def __init__(self, num_classes, epochs, learning_rate, batch_size):
         super(UNet, self).__init__()
+        self.save_hyperparameters()
 
         # Encoder
         self.encoder1 = EncoderBlock(1, 64)

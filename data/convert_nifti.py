@@ -85,7 +85,7 @@ def save_itk_png(img_array: str, save_path: str):
 def save_pil_png(img_array: np.ndarray, save_path: str):
     img = Image.fromarray(img_array)
     img = img.convert('RGB')
-    img.thumbnail((256, 256), Image.ANTIALIAS)
+    img.thumbnail((256, 256), Image.NEAREST)
     img.save(save_path)
 
 
@@ -100,5 +100,5 @@ def save_pil_png(img_array: np.ndarray, save_path: str):
 mask_to_png(
      '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/tr_mask.nii.gz',
      '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/mask',
-    True
+    num_classes=2
 )
