@@ -9,20 +9,12 @@ from models.segnet import SegNet
 
 
 class CovidDataModule(pl.LightningDataModule):
-    def __init__(self, 
-                images_dir: str='/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/lung',
-                masks_dir: str='/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/mask/binary',
-                batch_size: int=2,
-                binary: bool=False):
+    def __init__(self, images_dir: str, masks_dir: str, batch_size: int=8):
         super().__init__()
         self.images_dir = images_dir
         self.masks_dir = masks_dir
         self.batch_size = batch_size
-
-        if not binary and masks_dir == '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/mask/binary':
-            self.masks_dir='/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/mask/multilabel'
-
-        self.dims = (1, 512, 512)
+        self.dims = (1, 256, 256)
 
 
     def setup(self, stage: Optional[str]=None):
@@ -44,18 +36,30 @@ class CovidDataModule(pl.LightningDataModule):
 
 
     def test_dataloader(self):
-        return DataLoader(self.covid_test, batch_size=self.batch_size)
+        return DataLoader(self.covid_test, batch_size=1)
 
 
 gpus = 1 if torch.cuda.is_available() else 0
 logger = TensorBoardLogger('lightning_logs', name = 'UNet_model')
 # logger = TensorBoardLogger('lightning_logs', name = 'SegNet_model')
 
-binary = True
-covid_data_module = CovidDataModule(binary=binary)
-model = UNet(binary=binary)
+# hyperparameters
+num_classes = 2
+epochs = 5
+learning_rate = 5e-4
+batch_size = 2
+
+images_dir='/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/lung'
+
+if num_classes == 2:
+    masks_dir='/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/mask/binary'
+else:
+    masks_dir='/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/mask/multilabel'
+
+covid_data_module = CovidDataModule(images_dir=images_dir, masks_dir=masks_dir, batch_size=batch_size)
+model = UNet(num_classes=num_classes, epochs=epochs, learning_rate=learning_rate, batch_size=batch_size)
 # model = SegNet()
 
-trainer = pl.Trainer(max_epochs=160, gpus=gpus, progress_bar_refresh_rate=20, log_every_n_steps=1, logger=logger)
+trainer = pl.Trainer(max_epochs=epochs, gpus=gpus, log_every_n_steps=1, logger=logger)
 trainer.fit(model, covid_data_module)
 trainer.test(model)

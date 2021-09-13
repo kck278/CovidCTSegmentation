@@ -6,7 +6,7 @@ import SimpleITK as sitk
 from PIL import Image
 
 
-def convert_nifi_to_single_slice(nifti_path: str, new_path: str, binary: bool=False):
+def convert_nifi_to_single_slice(nifti_path: str, new_path: str, num_classes: int=2):
     img = nib.load(nifti_path)
     img_arr = np.array(img.dataobj)
     slices = img_arr.shape[-1]
@@ -18,7 +18,7 @@ def convert_nifi_to_single_slice(nifti_path: str, new_path: str, binary: bool=Fa
         image_save = img_arr[:, :, i-1]
         image_save = np.fliplr(image_save)
 
-        if binary:
+        if num_classes == 2:
             image_save = np.clip(image_save, 0, 1)
             
         img_nifti = nib.Nifti1Image(image_save, img.affine, img.header)
@@ -45,11 +45,11 @@ def crop_lungmask(png_lung_dir: str, lung_mask_dir: str, new_path: str):
         save_itk_png(lung_arr, new_path + '/lung_{}.png'.format(number))
 
 
-def mask_to_png(mask_path: str, new_path: str, binary: bool=False):
+def mask_to_png(mask_path: str, new_path: str, num_classes: int=2):
     img = sitk.ReadImage(mask_path)
     img_arr = sitk.GetArrayFromImage(img)
 
-    if binary:
+    if num_classes == 2:
         new_path += '/binary/mask_{}.png'
     else:
         new_path += '/multilabel/mask_{}.png'
@@ -64,7 +64,7 @@ def mask_to_png(mask_path: str, new_path: str, binary: bool=False):
         image_save = np.rot90(image_save)
         image_save = np.flipud(image_save)
 
-        if binary:
+        if num_classes == 2:
             image_save = np.clip(image_save, 0, 1)
             image_save *= 255
         else:

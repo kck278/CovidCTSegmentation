@@ -5,7 +5,7 @@ from torch import nn
 from data.pixel_count import calculate_statistics
 
 
-def calculate_metrics(y_hat: torch.FloatTensor, y, weights: torch.FloatTensor, step: str):
+def calculate_metrics(y_hat: torch.FloatTensor, y, num_classes: int, weights: torch.FloatTensor, step: str) -> dict:
     '''Calculates different metrices for given batch.
 
     Args:
@@ -17,27 +17,56 @@ def calculate_metrics(y_hat: torch.FloatTensor, y, weights: torch.FloatTensor, s
         sorensen dice, geometric mean, precision, f2-score).
     '''
     y_pred = y_hat.argmax(dim=1)
-    tp, tn, fp, fn = confusion_matrix(y_pred, y)
     loss = cross_entropy_loss(y_hat, y, weights)
 
-    acc = accuracy(tp, tn, fp, fn)
-    sens = sensitivity(tp, fn)
-    spec = specificity(tn, fp)
-    dice = sorensen_dice(tp, fp, fn)
-    mean = g_mean(sens, spec)
-    prec = precision(tp, fp)
-    f2 = f2_score(prec, sens)
+    metrics = { step + '_loss': loss}
 
+    for i in range(1, num_classes):
+        y_pred_copy = y_pred.detach().clone()
+        y_copy = y.detach().clone()
+
+        # print(y_pred_copy.count_nonzero())
+        
+        if num_classes > 2:
+            y_pred_copy[y_pred_copy != i] = 0
+            y_copy[y_copy != i] = 0
+
+        tp, tn, fp, fn = confusion_matrix(y_pred_copy, y_copy)
+        loss = cross_entropy_loss(y_hat, y_copy, weights)
+
+        acc = accuracy(tp, tn, fp, fn)
+        sens = sensitivity(tp, fn)
+        spec = specificity(tn, fp)
+        dice = sorensen_dice(tp, fp, fn)
+        mean = g_mean(sens, spec)
+        prec = precision(tp, fp)
+        f2 = f2_score(prec, sens)
+
+        metrics[step + '_acc_c' + str(i)] = acc
+        metrics[step + '_sens_c' + str(i)] = sens
+        metrics[step + '_spec_c' + str(i)] = spec
+        metrics[step + '_dice_c' + str(i)] = dice
+        metrics[step + '_mean_c' + str(i)] = mean
+        metrics[step + '_prec_c' + str(i)] = prec
+        metrics[step + '_f2_c' + str(i)] = f2
+    
+    return metrics
+
+
+def calculate_accuracy_metrics(accuracies: np.ndarray) -> dict:
+    '''Calculates the mean, standard deviation and variance over all accuracies.
+    Higher values indicate better performance.
+
+    Args:
+        accuracies: Array of accuracies.
+    Returns:
+        Dict containing the mean, standard deviation and variance over all accuracies.
+    '''
     return {
-        step + '_loss': loss, 
-        step + '_acc': acc, 
-        step + '_sens': sens, 
-        step + '_spec': spec, 
-        step + '_dice': dice,
-        step +  '_mean': mean, 
-        step + '_f2': f2
+        "_mean_accuracy": np.mean(accuracies), 
+        "_standard_dev_accuracy": np.std(accuracies),
+        "_variance_accuracy": np.var(accuracies)
     }
-
 
 def cross_entropy_loss(y_hat: torch.LongTensor, y: torch.FloatTensor, weight: Optional[torch.FloatTensor]):
     '''Calculates the difference between two probability distributions.
@@ -59,7 +88,7 @@ def confusion_matrix(y_pred: torch.LongTensor, y: torch.FloatTensor):
     '''Calculates confusion matrix for further metric evaluation
 
     Args:
-        y_hat: Tensor containing the predicted class probabilities.
+        y_pred: Tensor containing the predicted class probabilities.
         y: Tensor containing the true labels.
     Returns:
         Tuple containing the number of true positives, number of true negatives, 
@@ -170,15 +199,15 @@ def f2_score(prec: float, sens: float):
     return (5 * prec * sens) / (4 * prec + sens)
 
 
-def class_weights(binary: bool=False) -> torch.FloatTensor:
+def class_weights(num_classes: int=2) -> torch.FloatTensor:
     '''Calculates the class weights according to their occurence in the dataset.
 
     Args:
-        binary: Binary or multilabel segmentation.
+        num_classes: Number of classes of the segmentation.
     Returns:
         Tensor containing the class weights.
     '''
-    df = calculate_statistics(binary=binary)
+    df = calculate_statistics(num_classes=num_classes)
     arr = np.array(df.loc[:, 'Class Weight'], dtype=np.float32)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     return torch.FloatTensor(arr).to(device=device)

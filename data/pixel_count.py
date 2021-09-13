@@ -4,7 +4,7 @@ import nibabel as nib
 import pandas as pd
 
 
-def calculate_statistics(binary: bool=False) -> pd.DataFrame:
+def calculate_statistics(num_classes: int=2) -> pd.DataFrame:
     mask_dir = '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/mask'
     mask_names = sorted(os.listdir(mask_dir))
 
@@ -16,7 +16,7 @@ def calculate_statistics(binary: bool=False) -> pd.DataFrame:
         img = nib.load(img_path)
         img_arr = np.array(img.dataobj)
 
-        if binary:
+        if num_classes == 2:
             img_arr = np.clip(img_arr, 0, 1)
 
         unique, counts = np.unique(img_arr, return_counts=True)
@@ -53,11 +53,11 @@ def calculate_statistics(binary: bool=False) -> pd.DataFrame:
 def print_statistics():
     print('-----------------------------------------------------------')
     print('MULTILABEL')
-    df_multilabel = calculate_statistics()
+    df_multilabel = calculate_statistics(num_classes=4)
     print(df_multilabel)
     print('-----------------------------------------------------------')
     print('BINARY')
-    df_binary = calculate_statistics(binary=True)
+    df_binary = calculate_statistics(num_classes=2)
     print(df_binary)
     print('-----------------------------------------------------------')
 
