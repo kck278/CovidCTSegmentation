@@ -5,7 +5,12 @@ from torch import nn
 from data.pixel_count import calculate_statistics
 
 
-def calculate_metrics(y_hat: torch.FloatTensor, y, num_classes: int, weights: torch.FloatTensor, step: str) -> dict:
+def calculate_metrics(
+    y_hat: torch.FloatTensor, 
+    y, num_classes: int, 
+    class_weights: torch.FloatTensor, 
+    step: str
+) -> dict:
     '''Calculates different metrices for given batch.
 
     Args:
@@ -17,24 +22,30 @@ def calculate_metrics(y_hat: torch.FloatTensor, y, num_classes: int, weights: to
         sorensen dice, geometric mean, precision, f2-score).
     '''
     y_pred = y_hat.argmax(dim=1)
-    loss = cross_entropy_loss(y_hat, y, weights)
+    loss = cross_entropy_loss(y_hat, y, class_weights)
 
     metrics = { step + '_loss': loss}
+    tp_count = 0
 
-    for i in range(1, num_classes):
+    for i in range(num_classes):
         y_pred_copy = y_pred.detach().clone()
         y_copy = y.detach().clone()
-
-        # print(y_pred_copy.count_nonzero())
         
-        if num_classes > 2:
-            y_pred_copy[y_pred_copy != i] = 0
-            y_copy[y_copy != i] = 0
+        if i == 0:
+            y_pred_copy[y_pred_copy == 0] = -1
+            y_copy[y_copy == 0] = -1
+
+        y_pred_copy[(y_pred_copy != i) & (y_pred_copy != -1)] = 0
+        y_copy[(y_copy != i) & (y_copy != -1)] = 0
+
+        if i == 0:
+            y_pred_copy *= -1
+            y_copy *= -1
 
         tp, tn, fp, fn = confusion_matrix(y_pred_copy, y_copy)
-        loss = cross_entropy_loss(y_hat, y_copy, weights)
+        tp_count += tp
+        loss = cross_entropy_loss(y_hat, y_copy, class_weights)
 
-        acc = accuracy(tp, tn, fp, fn)
         sens = sensitivity(tp, fn)
         spec = specificity(tn, fp)
         dice = sorensen_dice(tp, fp, fn)
@@ -42,7 +53,6 @@ def calculate_metrics(y_hat: torch.FloatTensor, y, num_classes: int, weights: to
         prec = precision(tp, fp)
         f2 = f2_score(prec, sens)
 
-        metrics[step + '_acc_c' + str(i)] = acc
         metrics[step + '_sens_c' + str(i)] = sens
         metrics[step + '_spec_c' + str(i)] = spec
         metrics[step + '_dice_c' + str(i)] = dice
@@ -50,6 +60,8 @@ def calculate_metrics(y_hat: torch.FloatTensor, y, num_classes: int, weights: to
         metrics[step + '_prec_c' + str(i)] = prec
         metrics[step + '_f2_c' + str(i)] = f2
     
+    all = y_pred.numel()
+    metrics[step + '_acc'] = tp_count / all
     return metrics
 
 

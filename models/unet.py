@@ -28,7 +28,7 @@ class UNet(pl.LightningModule):
         self.conv = nn.Conv2d(64, num_classes, kernel_size=1, padding=0)
         self.softmax = nn.Softmax2d()
 
-        self.weights = class_weights(num_classes=num_classes)
+        self.class_weights = class_weights(num_classes=num_classes)
         self.num_classes = num_classes
         self.epochs = epochs
         self.learning_rate = learning_rate
@@ -67,7 +67,7 @@ class UNet(pl.LightningModule):
     def training_step(self, batch, batch_nb):
         x, y = batch
         y_hat = self(x)
-        loss = cross_entropy_loss(y_hat, y, self.weights)
+        loss = cross_entropy_loss(y_hat, y, self.class_weights)
         self.log('train_loss', loss, on_step=True, on_epoch=True, prog_bar=True, logger=True)
         return loss
 
@@ -75,7 +75,7 @@ class UNet(pl.LightningModule):
     def validation_step(self, batch, batch_idx):
         x, y = batch
         y_hat = self(x)
-        metrics = calculate_metrics(y_hat, y, self.num_classes, self.weights, 'val')
+        metrics = calculate_metrics(y_hat, y, self.num_classes, self.class_weights, 'val')
         self.log_dict(metrics)
         return metrics
 
@@ -83,13 +83,13 @@ class UNet(pl.LightningModule):
     def test_step(self, batch, batch_idx):
         x, y = batch
         y_hat = self(x)
-        metrics = calculate_metrics(y_hat, y, self.num_classes, self.weights, 'test')
+        metrics = calculate_metrics(y_hat, y, self.num_classes, self.class_weights, 'test')
         self.log_dict(metrics)
         return metrics
 
 
     def test_epoch_end(self, outputs) -> None:
-        accuracies = np.array([out['test_acc_c1'] for out in outputs])
+        accuracies = np.array([out['test_acc'] for out in outputs])
         metrics = calculate_accuracy_metrics(accuracies)
         self.log_dict(metrics)
         return metrics
