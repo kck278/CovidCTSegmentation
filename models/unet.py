@@ -53,6 +53,7 @@ class UNet(pl.LightningModule):
         out = self.softmax(c)
         return out
 
+
     def on_train_start(self) -> None:
         self.logger.log_hyperparams(
             self.hparams, 
@@ -63,6 +64,7 @@ class UNet(pl.LightningModule):
                 "hp/num_classes": self.num_classes
             }
         )
+
 
     def training_step(self, batch, batch_nb):
         x, y = batch

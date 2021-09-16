@@ -3,7 +3,7 @@ from argparse import ArgumentParser
 
 def parse_arguments():
     parser = ArgumentParser()
-    parser.add_argument("-m", "--model", dest="model_name", help="model type", required=True)
+    parser.add_argument("-m", "--model", dest="model_name", help="model type", default="UNet")
     parser.add_argument(
         "-c", "--num-classes", dest="num_classes", help="number of classes to predict", type=int, default=2
     )
@@ -22,7 +22,7 @@ def parse_arguments():
         "--learning-rate", 
         dest="learning_rate", 
         help="Initial learning rate", 
-        type=int, 
+        type=float, 
         default=1e-4
     )
 
