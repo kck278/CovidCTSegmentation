@@ -9,16 +9,25 @@ def parse_arguments():
     )
 
     parser.add_argument(
+        "-r",
+        "--resolution",
+        dest="resolution",
+        help="resolution of images",
+        type=int,
+        default=256
+    )
+
+    parser.add_argument(
         "-e",
         "--epochs",
         dest="epochs",
         help="number of epochs for training",
         type=int,
-        default=160,
+        default=160
     )
 
     parser.add_argument(
-        "-lr", 
+        "-l", 
         "--learning-rate", 
         dest="learning_rate", 
         help="Initial learning rate", 
@@ -32,7 +41,16 @@ def parse_arguments():
         dest="batch_size",
         help="batch size for training",
         type=int,
-        default=2,
+        default=2
+    )
+
+    parser.add_argument(
+        "-ext",
+        "--extended",
+        dest="extended",
+        help="use extended dataset",
+        type=bool,
+        default=False
     )
     
     return parser.parse_args()

@@ -8,9 +8,9 @@ from pytorch_lightning.loggers import TensorBoardLogger
 from metrics import calculate_accuracy_metrics, calculate_metrics, class_weights, cross_entropy_loss
 
 
-class SegNet(pl.LightningModule):
-    def __init__(self, num_classes, epochs, learning_rate, batch_size):
-        super(SegNet, self).__init__()
+class SegNetOriginal(pl.LightningModule):
+    def __init__(self, num_classes: int, epochs: int, learning_rate: float, batch_size: int, resolution: int, extended: bool):
+        super(SegNetOriginal, self).__init__()
         self.save_hyperparameters()
 
         batchNorm_momentum = 0.1
@@ -76,14 +76,15 @@ class SegNet(pl.LightningModule):
         self.bn12d = nn.BatchNorm2d(64, momentum=batchNorm_momentum)
         self.conv11d = nn.Conv2d(64, num_classes, kernel_size=3, padding=1)
 
-        # softmax stimmt noch nicht - output needs to be k-channels, where k is number of classes
         self.softmax = nn.Softmax2d()
 
-        self.weights = class_weights(num_classes=2)
+        self.class_weights = class_weights(num_classes=num_classes, extended=extended)
         self.num_classes = num_classes
         self.epochs = epochs
         self.learning_rate = learning_rate
         self.batch_size = batch_size
+        self.resolution = resolution
+        self.extended = extended
 
     def forward(self, x):
         # Stage 1e
@@ -99,57 +100,57 @@ class SegNet(pl.LightningModule):
         # Stage 3e
         x31 = F.relu(self.bn31(self.conv31(x2p)))
         x32 = F.relu(self.bn32(self.conv32(x31)))
-        #x33 = F.relu(self.bn33(self.conv33(x32)))
-        x3p, id3 = F.max_pool2d(x32, kernel_size=2, stride=2, return_indices=True)
+        x33 = F.relu(self.bn33(self.conv33(x32)))
+        x3p, id3 = F.max_pool2d(x33, kernel_size=2, stride=2, return_indices=True)
 
         # Stage 4e
-        #x41 = F.relu(self.bn41(self.conv41(x3p)))
-        #x42 = F.relu(self.bn42(self.conv42(x41)))
-        #x43 = F.relu(self.bn43(self.conv43(x42)))
-        #x4p, id4 = F.max_pool2d(x43, kernel_size=2, stride=2, return_indices=True)
+        x41 = F.relu(self.bn41(self.conv41(x3p)))
+        x42 = F.relu(self.bn42(self.conv42(x41)))
+        x43 = F.relu(self.bn43(self.conv43(x42)))
+        x4p, id4 = F.max_pool2d(x43, kernel_size=2, stride=2, return_indices=True)
 
         # Stage 5e
-        #x51 = F.relu(self.bn51(self.conv51(x4p)))
-        #x52 = F.relu(self.bn52(self.conv52(x51)))
-        #x53 = F.relu(self.bn53(self.conv53(x52)))
-        #x5p, id5 = F.max_pool2d(x53, kernel_size=2, stride=2, return_indices=True)
+        x51 = F.relu(self.bn51(self.conv51(x4p)))
+        x52 = F.relu(self.bn52(self.conv52(x51)))
+        x53 = F.relu(self.bn53(self.conv53(x52)))
+        x5p, id5 = F.max_pool2d(x53, kernel_size=2, stride=2, return_indices=True)
 
         # Stage 5d
-        x5d = F.max_unpool2d(x3p, id3, kernel_size=2, stride=2)
+        x5d = F.max_unpool2d(x5p, id5, kernel_size=2, stride=2)
         x53d = F.relu(self.bn53d(self.conv53d(x5d)))
         x52d = F.relu(self.bn52d(self.conv52d(x53d)))
-        #x51d = F.relu(self.bn51d(self.conv51d(x52d)))
+        x51d = F.relu(self.bn51d(self.conv51d(x52d)))
 
         # Stage 4d
-        x4d = F.max_unpool2d(x52d, id2, kernel_size=2, stride=2)
+        x4d = F.max_unpool2d(x51d, id4, kernel_size=2, stride=2)
         x43d = F.relu(self.bn43d(self.conv43d(x4d)))
         x42d = F.relu(self.bn42d(self.conv42d(x43d)))
-        #x41d = F.relu(self.bn41d(self.conv41d(x42d)))
+        x41d = F.relu(self.bn41d(self.conv41d(x42d)))
 
         # Stage 3d
-        x3d = F.max_unpool2d(x42d, id1, kernel_size=2, stride=2)
+        x3d = F.max_unpool2d(x41d, id3, kernel_size=2, stride=2)
         x33d = F.relu(self.bn33d(self.conv33d(x3d)))
         x32d = F.relu(self.bn32d(self.conv32d(x33d)))
-        #x31d = F.relu(self.bn31d(self.conv31d(x32d)))
+        x31d = F.relu(self.bn31d(self.conv31d(x32d)))
 
         # Stage 2d
-        #x2d = F.max_unpool2d(x31d, id2, kernel_size=2, stride=2)
-        #x22d = F.relu(self.bn22d(self.conv22d(x2d)))
-        #x21d = F.relu(self.bn21d(self.conv21d(x22d)))
+        x2d = F.max_unpool2d(x31d, id2, kernel_size=2, stride=2)
+        x22d = F.relu(self.bn22d(self.conv22d(x2d)))
+        x21d = F.relu(self.bn21d(self.conv21d(x22d)))
 
         # Stage 1d
-        #x1d = F.max_unpool2d(x21d, id1, kernel_size=2, stride=2)
-        #x12d = F.relu(self.bn12d(self.conv12d(x1d)))
-        #x11d = self.conv11d(x12d)
+        x1d = F.max_unpool2d(x21d, id1, kernel_size=2, stride=2)
+        x12d = F.relu(self.bn12d(self.conv12d(x1d)))
+        x11d = self.conv11d(x12d)
 
-        xsoftmax = self.softmax(x32d)
+        xsoftmax = self.softmax(x11d)
 
         return xsoftmax
 
     def training_step(self, batch, batch_nb):
         x, y = batch
         y_hat = self(x)
-        loss = self.cross_entropy_loss(y_hat, y, self.class_weights)
+        loss = cross_entropy_loss(y_hat, y, self.class_weights)
         self.log('train_loss', loss, on_step=True, on_epoch=True, prog_bar=True, logger=True)
         return loss
 
@@ -169,7 +170,7 @@ class SegNet(pl.LightningModule):
         return metrics
 
     def test_epoch_end(self, outputs) -> None:
-        accuracies = np.array([out['test_acc_c1'] for out in outputs])
+        accuracies = np.array([out['test_acc'] for out in outputs])
         metrics = calculate_accuracy_metrics(accuracies)
         self.log_dict(metrics)
         return metrics

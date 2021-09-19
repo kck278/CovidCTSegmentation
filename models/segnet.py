@@ -9,7 +9,7 @@ from metrics import calculate_accuracy_metrics, calculate_metrics, class_weights
 
 
 class SegNet(pl.LightningModule):
-    def __init__(self, num_classes, epochs, learning_rate, batch_size):
+    def __init__(self, num_classes: int, epochs: int, learning_rate: float, batch_size: int, resolution: int, extended: bool):
         super(SegNet, self).__init__()
         self.save_hyperparameters()
 
@@ -45,45 +45,50 @@ class SegNet(pl.LightningModule):
         self.conv11d = nn.Conv2d(64, num_classes, kernel_size=3, padding=1)
         self.bn11d = nn.BatchNorm2d(num_classes, momentum=batchNorm_momentum)
         
-        # softmax stimmt noch nicht - output needs to be k-channels, where k is number of classes
         self.softmax = nn.Softmax2d()
 
-        self.class_weights = class_weights(num_classes=2)
+        self.relu = nn.ReLU()
+        self.maxpool2d = nn.MaxPool2d(kernel_size=2, stride=2, return_indices=True)
+        self.maxunpool2d = nn.MaxUnpool2d(kernel_size=2, stride=2)
+
+        self.class_weights = class_weights(num_classes=num_classes, extended=extended)
         self.num_classes = num_classes
         self.epochs = epochs
         self.learning_rate = learning_rate
         self.batch_size = batch_size
+        self.resolution = resolution
+        self.extended = extended
 
     def forward(self, x):
         # Stage 1e
-        x11 = F.relu(self.bn11(self.conv11(x)))
-        x12 = F.relu(self.bn12(self.conv12(x11)))
-        x1p, id1 = F.max_pool2d(x12, kernel_size=2, stride=2, return_indices=True)
+        x11 = self.relu(self.bn11(self.conv11(x)))
+        x12 = self.relu(self.bn12(self.conv12(x11)))
+        x1p, id1 = self.maxpool2d(x12)
 
         # Stage 2e
-        x21 = F.relu(self.bn21(self.conv21(x1p)))
-        x22 = F.relu(self.bn22(self.conv22(x21)))
-        x2p, id2 = F.max_pool2d(x22, kernel_size=2, stride=2, return_indices=True)
+        x21 = self.relu(self.bn21(self.conv21(x1p)))
+        x22 = self.relu(self.bn22(self.conv22(x21)))
+        x2p, id2 = self.maxpool2d(x22)
 
         # Stage 3e
-        x31 = F.relu(self.bn31(self.conv31(x2p)))
-        x32 = F.relu(self.bn32(self.conv32(x31)))
-        x3p, id3 = F.max_pool2d(x32, kernel_size=2, stride=2, return_indices=True)
+        x31 = self.relu(self.bn31(self.conv31(x2p)))
+        x32 = self.relu(self.bn32(self.conv32(x31)))
+        x3p, id3 = self.maxpool2d(x32)
 
         # Stage 3d
-        x3d = F.max_unpool2d(x3p, id3, kernel_size=2, stride=2)
-        x32d = F.relu(self.bn32d(self.conv32d(x3d)))
-        x31d = F.relu(self.bn31d(self.conv31d(x32d)))
+        x3d = self.maxunpool2d(x3p, id3)
+        x32d = self.relu(self.bn32d(self.conv32d(x3d)))
+        x31d = self.relu(self.bn31d(self.conv31d(x32d)))
 
         # Stage 2d
-        x2d = F.max_unpool2d(x31d, id2, kernel_size=2, stride=2)
-        x22d = F.relu(self.bn22d(self.conv22d(x2d)))
-        x21d = F.relu(self.bn21d(self.conv21d(x22d)))
+        x2d = self.maxunpool2d(x31d, id2)
+        x22d = self.relu(self.bn22d(self.conv22d(x2d)))
+        x21d = self.relu(self.bn21d(self.conv21d(x22d)))
 
         # Stage 1d
-        x3d = F.max_unpool2d(x21d, id1, kernel_size=2, stride=2)
-        x33d = F.relu(self.bn12d(self.conv12d(x3d)))
-        x32d = F.relu(self.bn11d(self.conv11d(x33d)))
+        x3d = self.maxunpool2d(x21d, id1)
+        x33d = self.relu(self.bn12d(self.conv12d(x3d)))
+        x32d = self.relu(self.bn11d(self.conv11d(x33d)))
 
         xsoftmax = self.softmax(x32d)
 

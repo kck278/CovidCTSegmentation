@@ -1,20 +1,33 @@
 import os
 import numpy as np
-import nibabel as nib
 import pandas as pd
+from PIL import Image
 
 
-def calculate_statistics(num_classes: int=2) -> pd.DataFrame:
-    mask_dir = '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/mask'
-    mask_names = sorted(os.listdir(mask_dir))
+def calculate_statistics(num_classes: int=2, extended: bool=False) -> pd.DataFrame:
+    mask_dir = '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/mask/multilabel/512'
+    mask_names = []
+
+    if extended:
+        for root, _, files in os.walk(mask_dir):
+            for name in files:
+                mask_name = os.path.join(root, name)
+                mask_name = os.path.relpath(mask_name, mask_dir)
+                mask_names.append(mask_name)
+    else:
+        mask_names = [f for f in os.listdir(mask_dir) if os.path.isfile(os.path.join(mask_dir, f))]
+    
+    mask_names = sorted(mask_names)
 
     pixel_dict = {}
     img_dict = {}
 
     for mask in mask_names:
         img_path = os.path.join(mask_dir, mask)
-        img = nib.load(img_path)
-        img_arr = np.array(img.dataobj)
+        img_arr = np.asarray(Image.open(img_path).convert('L'))
+        img_arr[img_arr == 85] = 1
+        img_arr[img_arr == 170] = 2
+        img_arr[img_arr == 255] = 3
 
         if num_classes == 2:
             img_arr = np.clip(img_arr, 0, 1)
@@ -31,7 +44,7 @@ def calculate_statistics(num_classes: int=2) -> pd.DataFrame:
 
     freqs = []
 
-    for i in range(len(unique)):
+    for i in range(len(pixel_dict)):
         freq = pixel_dict[i] / img_dict[i]
         freqs.append(freq)
 
@@ -44,7 +57,7 @@ def calculate_statistics(num_classes: int=2) -> pd.DataFrame:
 
     data = []
 
-    for i in range(len(unique)):
+    for i in range(len(pixel_dict)):
         data.append(['C' + str(i), pixel_dict[i], img_dict[i], class_weigts[i]])
 
     return pd.DataFrame(data=np.array(data), columns=['Class', 'Pixel Count', 'Image Pixel count', 'Class Weight'])
@@ -52,13 +65,25 @@ def calculate_statistics(num_classes: int=2) -> pd.DataFrame:
 
 def print_statistics():
     print('-----------------------------------------------------------')
-    print('MULTILABEL')
-    df_multilabel = calculate_statistics(num_classes=4)
-    print(df_multilabel)
     print('-----------------------------------------------------------')
     print('BINARY')
-    df_binary = calculate_statistics(num_classes=2)
+    df_binary = calculate_statistics(num_classes=2, extended=False)
     print(df_binary)
     print('-----------------------------------------------------------')
+    print('MULTILABEL')
+    df_multilabel = calculate_statistics(num_classes=4, extended=False)
+    print(df_multilabel)
+    print('-----------------------------------------------------------')
+    print('-----------------------------------------------------------')
+    print('BINARY - EXTENDED')
+    df_binary = calculate_statistics(num_classes=2, extended=True)
+    print(df_binary)
+    print('-----------------------------------------------------------')
+    print('MULTILABEL - EXTENDED')
+    df_multilabel = calculate_statistics(num_classes=4, extended=True)
+    print(df_multilabel)
+    print('-----------------------------------------------------------')
+    print('-----------------------------------------------------------')
+
 
 # print_statistics()

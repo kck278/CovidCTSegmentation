@@ -1,104 +1,143 @@
 import os
 import numpy as np
 import nibabel as nib
+import matplotlib.pyplot as plt
+from typing import List
 from tqdm import tqdm
-import SimpleITK as sitk
 from PIL import Image
+from util import sorted_alphanumeric
 
 
-def convert_nifi_to_single_slice(nifti_path: str, new_path: str, num_classes: int=2):
+def niftis_to_png(input: str, resolution: int=512, binary: bool=True):
+    base_dir = '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images'
+    nifti_path = os.path.join(base_dir, 'nifti', input, 'tr_' + input + '.nii.gz')
+    extended_nifti_dir = os.path.join(base_dir, 'nifti', input, 'extended')
+    save_dir = os.path.join(base_dir, 'png', input)
+    is_mask = input == 'mask'
+
+    if is_mask:
+        if binary:
+            save_dir = os.path.join(save_dir, 'binary', str(resolution))
+        else:
+            save_dir = os.path.join(save_dir, 'multilabel', str(resolution))
+    
+    nifti_to_png(input=input, nifti_path=nifti_path, save_dir=save_dir, binary=binary, resolution=resolution)
+    extended_nifti_names = sorted_alphanumeric(os.listdir(extended_nifti_dir))
+
+    for index, extended_name in enumerate(extended_nifti_names):
+        extended_path = os.path.join(extended_nifti_dir, extended_name)
+        extended_save_dir = os.path.join(save_dir, 'extended', str(index + 1))
+
+        nifti_to_png(
+            input=input,
+            nifti_path=extended_path, 
+            save_dir=extended_save_dir,
+            binary=binary,
+            resolution=resolution
+        )
+
+
+def nifti_to_png(input: str, nifti_path: str, save_dir: str, binary: bool, resolution: int):
+    is_mask = input == 'mask'
+
     img = nib.load(nifti_path)
     img_arr = np.array(img.dataobj)
+
     slices = img_arr.shape[-1]
     fill = len(str(slices))
 
-    for i in tqdm(range(1, slices+1)):
-        number = str(i).zfill(fill)
-        image_name = new_path.format(number)
-        image_save = img_arr[:, :, i-1]
-        image_save = np.fliplr(image_save)
+    if not os.path.exists(save_dir):
+        os.makedirs(save_dir)
 
-        if num_classes == 2:
-            image_save = np.clip(image_save, 0, 1)
-            
-        img_nifti = nib.Nifti1Image(image_save, img.affine, img.header)
-        nib.save(img_nifti, image_name)
+    for i in tqdm(range(0, slices)):
+        image_save = img_arr[:, :, i - 1]
+
+        if is_mask:
+            if binary:
+                image_save = np.clip(image_save, 0, 1)
+                image_save *= 255
+            else:
+                image_save *= 85 
+
+        number = str(i + 1).zfill(fill)
+        file_name = input + '_{}.png'
+        save_path = os.path.join(save_dir, file_name.format(number))
+
+        if is_mask:
+            img = Image.fromarray(image_save)
+            img = img.convert('RGB')
+            img.thumbnail((resolution, resolution), Image.NEAREST)
+            img.save(save_path)
+        else:
+            plt.imsave(fname=save_path, arr=image_save, cmap='gray', format='png')
 
 
-def crop_lungmask(png_lung_dir: str, lung_mask_dir: str, new_path: str):
-    # find all images
-    lung_names = sorted(os.listdir(png_lung_dir))
-    lung_mask_names = sorted(os.listdir(lung_mask_dir))
+def crop_lungmask(scan_dir: str, lung_mask_dir: str, save_dir: str, resolution: int, extended: bool=False):
+    lung_names = sorted_alphanumeric(os.listdir(scan_dir))
+    lung_mask_names = sorted_alphanumeric(os.listdir(lung_mask_dir))
     assert len(lung_names) == len(lung_mask_names)
     fill = len(str(len(lung_names)))
 
+    if not extended:
+        save_dir = os.path.join(save_dir, str(resolution))
+
     for i, (lung_name, mask_name) in tqdm(enumerate(zip(lung_names, lung_mask_names))):
-        lung_img = sitk.ReadImage(os.path.join(png_lung_dir, lung_name))
-        mask_img = sitk.ReadImage(os.path.join(lung_mask_dir, mask_name))
+        if lung_name == "extended":
+            extended_scan_dir = os.path.join(scan_dir, 'extended')
+            extended_lung_mask_dir = os.path.join(lung_mask_dir, 'extended')
+            extended_scan_dir_names = sorted_alphanumeric(os.listdir(extended_scan_dir))
+            extended_lung_mask_dir_names = sorted_alphanumeric(os.listdir(extended_lung_mask_dir))
 
-        lung_arr = sitk.GetArrayFromImage(lung_img)
-        mask_arr = sitk.GetArrayFromImage(mask_img)
+            for (scan_dir_name, lung_mask_dir_name) in zip(extended_scan_dir_names, extended_lung_mask_dir_names):
+                crop_lungmask(
+                    scan_dir=os.path.join(extended_scan_dir, scan_dir_name), 
+                    lung_mask_dir=os.path.join(extended_lung_mask_dir, lung_mask_dir_name),
+                    save_dir=os.path.join(save_dir, 'extended', scan_dir_name),
+                    resolution=resolution,
+                    extended=True
+                )
+            continue
+        
+        lung_img = Image.open(os.path.join(scan_dir, lung_name))
+        lung_arr = np.asarray(lung_img)
 
-        lung_arr[mask_arr==0] = 0
+        mask_img = Image.open(os.path.join(lung_mask_dir, mask_name))
+        mask_arr = np.asarray(mask_img)
 
-        number = str(i+1).zfill(fill)
-        save_itk_png(lung_arr, new_path + '/lung_{}.png'.format(number))
+        lung_arr[mask_arr == 0] = 0
 
+        number = str(i + 1 if extended else i).zfill(fill)
 
-def mask_to_png(mask_path: str, new_path: str, num_classes: int=2):
-    img = sitk.ReadImage(mask_path)
-    img_arr = sitk.GetArrayFromImage(img)
+        if not os.path.exists(save_dir):
+            os.makedirs(save_dir)
 
-    if num_classes == 2:
-        new_path += '/binary/mask_{}.png'
-    else:
-        new_path += '/multilabel/mask_{}.png'
+        save_path = os.path.join(save_dir, 'lung_{}.png'.format(number))
 
-    slices = img_arr.shape[0]
-    fill = len(str(slices))
-
-    for i in tqdm(range(0, slices)):
-        number = str(i + 1).zfill(fill)
-        image_path = new_path.format(number)
-        image_save = img_arr[i, :, :]
-        image_save = np.rot90(image_save)
-        image_save = np.flipud(image_save)
-
-        if num_classes == 2:
-            image_save = np.clip(image_save, 0, 1)
-            image_save *= 255
-        else:
-            image_save *= 85 
-
-        save_pil_png(image_save, image_path)
+        img = Image.fromarray(lung_arr)
+        img = img.convert('RGB')
+        img.thumbnail((resolution, resolution), Image.ANTIALIAS)
+        img.save(save_path)
 
 
-def save_itk_png(img_array: str, save_path: str):
-    img = sitk.GetImageFromArray(img_array)
-    sitk.WriteImage(img, save_path)
+# Nifti to PNG
+niftis_to_png(input='scan', resolution=512)
+niftis_to_png(input='lung_mask', resolution=512)
+niftis_to_png(input='mask', binary=True, resolution=256)
+niftis_to_png(input='mask', binary=True, resolution=512)
+niftis_to_png(input='mask', binary=False, resolution=256)
+niftis_to_png(input='mask', binary=False, resolution=512)
 
-    img = Image.open(save_path)
-    img.thumbnail((256, 256), Image.ANTIALIAS)
-    img.save(save_path)
+# Image conversion
+crop_lungmask(
+    scan_dir='/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/scan',
+    lung_mask_dir='/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/lung_mask',
+    save_dir='/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/lung',
+    resolution=256
+)
 
-
-def save_pil_png(img_array: np.ndarray, save_path: str):
-    img = Image.fromarray(img_array)
-    img = img.convert('RGB')
-    img.thumbnail((256, 256), Image.NEAREST)
-    img.save(save_path)
-
-
-# image conversion
-# crop_lungmask(
-#     '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/scan',
-#     '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/lung_mask',
-#     '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/lung'
-# )
-
-# mask conversion
-mask_to_png(
-     '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/tr_mask.nii.gz',
-     '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/mask',
-    num_classes=2
+crop_lungmask(
+    scan_dir='/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/scan',
+    lung_mask_dir='/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/lung_mask',
+    save_dir='/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/lung',
+    resolution=512
 )
