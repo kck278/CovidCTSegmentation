@@ -131,6 +131,11 @@ dmypy.json
 .idea/
 
 nnUNet/
-data/
 lightning_logs/
 slurm_output/
+
+# Exclude too big files
+**/extended/
+tr_lung_mask.nii.gz
+tr_mask.nii.gz
+tr_scan.nii.gz
