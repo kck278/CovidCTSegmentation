@@ -1,0 +1,56 @@
+
+
+Please cite the following paper when using nnUNet:
+
+Isensee, F., Jaeger, P.F., Kohl, S.A.A. et al. "nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation." Nat Methods (2020). https://doi.org/10.1038/s41592-020-01008-z
+
+
+If you have questions or suggestions, feel free to open an issue at https://github.com/MIC-DKFZ/nnUNet
+
+###############################################
+I am running the following nnUNet: 2d
+My trainer class is:  <class 'nnunet.training.network_training.nnUNetTrainerOwn.nnUNetTrainerOwn'>
+For that I will be using the following configuration:
+num_classes:  3
+modalities:  {0: 'CT'}
+use_mask_for_norm OrderedDict([(0, False)])
+keep_only_largest_region None
+min_region_size_per_class None
+min_size_per_class None
+normalization_schemes OrderedDict([(0, 'CT')])
+stages...
+
+stage:  0
+{'batch_size': 4, 'num_pool_per_axis': [7, 7], 'patch_size': array([512, 512]), 'median_patient_size_in_voxels': array([  1, 512, 512]), 'current_spacing': array([1., 1., 1.]), 'original_spacing': array([1., 1., 1.]), 'pool_op_kernel_sizes': [[2, 2], [2, 2], [2, 2], [2, 2], [2, 2], [2, 2], [2, 2]], 'conv_kernel_sizes': [[3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3]], 'do_dummy_2D_data_aug': False}
+
+I am using stage 0 from these plans
+I am using batch dice + CE loss
+
+I am using data from this folder:  /home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task503_CovidMultilabel/nnUNetData_plans_v2.1_2D
+###############################################
+loading dataset
+loading all case properties
+2021-09-21 14:27:38.158659: Creating new 5-fold cross-validation split...
+2021-09-21 14:27:38.186191: Desired fold for training: 5
+2021-09-21 14:27:38.186692: INFO: You requested fold 5 for training but splits contain only 5 folds. I am now creating a random (but seeded) 80:20 split!
+2021-09-21 14:27:38.219618: This random 80:20 split has 65 training and 17 validation cases.
+unpacking dataset
+done
+2021-09-21 14:27:54.758329: lr: 0.01
+using pin_memory on device 0
+slurmstepd: error: *** JOB 19859918 ON uc2n483 CANCELLED AT 2021-09-21T14:33:58 ***
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n483
+Job ID: 19859918
+Cluster: uc2
+User/Group: hd_ei260/hd_hd
+State: CANCELLED (exit code 0)
+Nodes: 1
+Cores per node: 20
+CPU Utilized: 00:24:34
+CPU Efficiency: 15.48% of 02:38:40 core-walltime
+Job Wall-clock time: 00:07:56
+Memory Utilized: 42.15 GB
+Memory Efficiency: 421.49% of 10.00 GB

@@ -1,0 +1,25 @@
+Traceback (most recent call last):
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/trainer_5_fold_cross_validation.py", line 103, in <module>
+    covid_full = CovidDataset(images_dir=images_dir, masks_dir=masks_dir, num_classes=num_classes, extended=extended)
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/dataset.py", line 31, in __init__
+    self.image_names, self.mask_names = self.make_dataset()
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/dataset.py", line 91, in make_dataset
+    image_names, mask_names = self.make_dataset_small()
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/dataset.py", line 82, in make_dataset_small
+    [f for f in os.listdir(self.masks_dir) if os.path.isfile(os.path.join(self.masks_dir, f))]
+FileNotFoundError: [Errno 2] No such file or directory: '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/mask/multilabel/256'
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n487
+Job ID: 19954446
+Cluster: uc2
+User/Group: hd_ei260/hd_hd
+State: FAILED (exit code 1)
+Nodes: 1
+Cores per node: 80
+CPU Utilized: 00:00:07
+CPU Efficiency: 0.05% of 03:36:00 core-walltime
+Job Wall-clock time: 00:02:42
+Memory Utilized: 280.85 MB
+Memory Efficiency: 2.74% of 10.00 GB

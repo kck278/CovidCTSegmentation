@@ -1,0 +1,40 @@
+
+
+Please cite the following paper when using nnUNet:
+
+Isensee, F., Jaeger, P.F., Kohl, S.A.A. et al. "nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation." Nat Methods (2020). https://doi.org/10.1038/s41592-020-01008-z
+
+
+If you have questions or suggestions, feel free to open an issue at https://github.com/MIC-DKFZ/nnUNet
+
+###############################################
+I am running the following nnUNet: 2d
+My trainer class is:  <class 'nnunet.training.network_training.nnUNetTrainerV2.nnUNetTrainerV2'>
+For that I will be using the following configuration:
+num_classes:  1
+modalities:  {0: 'CT'}
+use_mask_for_norm OrderedDict([(0, False)])
+keep_only_largest_region None
+min_region_size_per_class None
+min_size_per_class None
+normalization_schemes OrderedDict([(0, 'CT')])
+stages...
+
+stage:  0
+{'batch_size': 4, 'num_pool_per_axis': [7, 7], 'patch_size': array([512, 512]), 'median_patient_size_in_voxels': array([  1, 512, 512]), 'current_spacing': array([1., 1., 1.]), 'original_spacing': array([1., 1., 1.]), 'pool_op_kernel_sizes': [[2, 2], [2, 2], [2, 2], [2, 2], [2, 2], [2, 2], [2, 2]], 'conv_kernel_sizes': [[3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3]], 'do_dummy_2D_data_aug': False}
+
+I am using stage 0 from these plans
+I am using batch dice + CE loss
+
+I am using data from this folder:  /home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/nnUNetData_plans_v2.1_2D
+###############################################
+loading dataset
+loading all case properties
+unpacking dataset
+done
+2021-09-22 02:36:05.168292: lr: 0.01
+using pin_memory on device 0
+/pfs/data5/home/hd/hd_hd/hd_ei260/nnUNet/nnunet/training/network_training/nnUNetTrainerV2.py:254: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  torch.nn.utils.clip_grad_norm_(self.network.parameters(), 12)
+/var/spool/slurmd/job19860649/slurm_script: line 8: 1353275 Killed                  nnUNet_train 2d nnUNetTrainerV2 Task504_CovidBinary all
+slurmstepd: error: Detected 1 oom-kill event(s) in step 19860649.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.

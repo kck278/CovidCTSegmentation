@@ -1,0 +1,640 @@
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Set SLURM handle signals.
+
+   | Name    | Type        | Params
+-----------------------------------------
+0  | conv11  | Conv2d      | 640   
+1  | bn11    | BatchNorm2d | 128   
+2  | conv12  | Conv2d      | 36.9 K
+3  | bn12    | BatchNorm2d | 128   
+4  | conv21  | Conv2d      | 73.9 K
+5  | bn21    | BatchNorm2d | 256   
+6  | conv22  | Conv2d      | 147 K 
+7  | bn22    | BatchNorm2d | 256   
+8  | conv31  | Conv2d      | 295 K 
+9  | bn31    | BatchNorm2d | 512   
+10 | conv32  | Conv2d      | 590 K 
+11 | bn32    | BatchNorm2d | 512   
+12 | conv32d | Conv2d      | 590 K 
+13 | bn32d   | BatchNorm2d | 512   
+14 | conv31d | Conv2d      | 295 K 
+15 | bn31d   | BatchNorm2d | 256   
+16 | conv22d | Conv2d      | 147 K 
+17 | bn22d   | BatchNorm2d | 256   
+18 | conv21d | Conv2d      | 73.8 K
+19 | bn21d   | BatchNorm2d | 128   
+20 | conv12d | Conv2d      | 36.9 K
+21 | bn12d   | BatchNorm2d | 128   
+22 | conv11d | Conv2d      | 1.2 K 
+23 | bn11d   | BatchNorm2d | 4     
+24 | softmax | Softmax2d   | 0     
+-----------------------------------------
+2.3 M     Trainable params
+0         Non-trainable params
+2.3 M     Total params
+9.168     Total estimated model params size (MB)
+Validation sanity check: 0it [00:00, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, val dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Validation sanity check:   0%|          | 0/2 [00:00<?, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py:693: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448238472/work/c10/core/TensorImpl.h:1156.)
+  return torch._C._nn.max_pool2d_with_indices(input, kernel_size, stride, padding, dilation, ceil_mode)
+Validation sanity check:  50%|█████     | 1/2 [00:05<00:05,  5.89s/it]Validation sanity check: 100%|██████████| 2/2 [00:06<00:00,  2.57s/it]                                                                      /home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, train dataloader, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Training: -1it [00:00, ?it/s]Training:   0%|          | 0/21 [00:00<00:00, 28926.23it/s]Epoch 0:   0%|          | 0/21 [00:00<00:00, 6017.65it/s]  Epoch 0:   5%|▍         | 1/21 [00:01<00:11,  1.81it/s]  Epoch 0:   5%|▍         | 1/21 [00:01<00:11,  1.79it/s, loss=0.746, v_num=42, train_loss_step=0.746]Epoch 0:  10%|▉         | 2/21 [00:01<00:08,  2.25it/s, loss=0.746, v_num=42, train_loss_step=0.746]Epoch 0:  10%|▉         | 2/21 [00:01<00:08,  2.25it/s, loss=0.721, v_num=42, train_loss_step=0.695]Epoch 0:  14%|█▍        | 3/21 [00:01<00:06,  2.73it/s, loss=0.721, v_num=42, train_loss_step=0.695]Epoch 0:  14%|█▍        | 3/21 [00:01<00:06,  2.73it/s, loss=0.703, v_num=42, train_loss_step=0.669]Epoch 0:  19%|█▉        | 4/21 [00:01<00:05,  3.13it/s, loss=0.703, v_num=42, train_loss_step=0.669]Epoch 0:  19%|█▉        | 4/21 [00:01<00:05,  3.12it/s, loss=0.688, v_num=42, train_loss_step=0.642]Epoch 0:  24%|██▍       | 5/21 [00:01<00:04,  3.50it/s, loss=0.688, v_num=42, train_loss_step=0.642]Epoch 0:  24%|██▍       | 5/21 [00:01<00:04,  3.50it/s, loss=0.678, v_num=42, train_loss_step=0.639]Epoch 0:  29%|██▊       | 6/21 [00:01<00:03,  3.77it/s, loss=0.678, v_num=42, train_loss_step=0.639]Epoch 0:  29%|██▊       | 6/21 [00:01<00:03,  3.77it/s, loss=0.663, v_num=42, train_loss_step=0.589]Epoch 0:  33%|███▎      | 7/21 [00:01<00:03,  4.04it/s, loss=0.663, v_num=42, train_loss_step=0.589]Epoch 0:  33%|███▎      | 7/21 [00:01<00:03,  4.03it/s, loss=0.654, v_num=42, train_loss_step=0.599]Epoch 0:  38%|███▊      | 8/21 [00:02<00:03,  4.26it/s, loss=0.654, v_num=42, train_loss_step=0.599]Epoch 0:  38%|███▊      | 8/21 [00:02<00:03,  4.23it/s, loss=0.642, v_num=42, train_loss_step=0.556]Epoch 0:  43%|████▎     | 9/21 [00:02<00:02,  4.48it/s, loss=0.642, v_num=42, train_loss_step=0.556]Epoch 0:  43%|████▎     | 9/21 [00:02<00:02,  4.48it/s, loss=0.634, v_num=42, train_loss_step=0.568]Epoch 0:  48%|████▊     | 10/21 [00:02<00:02,  4.67it/s, loss=0.634, v_num=42, train_loss_step=0.568]Epoch 0:  48%|████▊     | 10/21 [00:02<00:02,  4.67it/s, loss=0.626, v_num=42, train_loss_step=0.556]Epoch 0:  52%|█████▏    | 11/21 [00:02<00:02,  4.81it/s, loss=0.626, v_num=42, train_loss_step=0.556]Epoch 0:  52%|█████▏    | 11/21 [00:02<00:02,  4.81it/s, loss=0.618, v_num=42, train_loss_step=0.544]Epoch 0:  57%|█████▋    | 12/21 [00:02<00:01,  4.95it/s, loss=0.618, v_num=42, train_loss_step=0.544]Epoch 0:  57%|█████▋    | 12/21 [00:02<00:01,  4.95it/s, loss=0.62, v_num=42, train_loss_step=0.633] Epoch 0:  62%|██████▏   | 13/21 [00:02<00:01,  5.11it/s, loss=0.62, v_num=42, train_loss_step=0.633]Epoch 0:  62%|██████▏   | 13/21 [00:02<00:01,  5.11it/s, loss=0.616, v_num=42, train_loss_step=0.567]Epoch 0:  67%|██████▋   | 14/21 [00:02<00:01,  5.23it/s, loss=0.616, v_num=42, train_loss_step=0.567]Epoch 0:  67%|██████▋   | 14/21 [00:02<00:01,  5.23it/s, loss=0.612, v_num=42, train_loss_step=0.569]Epoch 0:  71%|███████▏  | 15/21 [00:02<00:01,  5.42it/s, loss=0.608, v_num=42, train_loss_step=0.543]Epoch 0:  76%|███████▌  | 16/21 [00:03<00:00,  5.57it/s, loss=0.608, v_num=42, train_loss_step=0.543]Epoch 0:  76%|███████▌  | 16/21 [00:03<00:00,  5.57it/s, loss=0.604, v_num=42, train_loss_step=0.556]Epoch 0:  81%|████████  | 17/21 [00:03<00:00,  5.69it/s, loss=0.599, v_num=42, train_loss_step=0.512]Epoch 0:  86%|████████▌ | 18/21 [00:03<00:00,  5.93it/s, loss=0.599, v_num=42, train_loss_step=0.512]Epoch 0:  86%|████████▌ | 18/21 [00:03<00:00,  5.93it/s, loss=0.596, v_num=42, train_loss_step=0.541]
+Validating: 0it [00:00, ?it/s][A
+Validating:   0%|          | 0/3 [00:00<?, ?it/s][A
+Validating:  33%|███▎      | 1/3 [00:00<00:00,  6.82it/s][AEpoch 0:  95%|█████████▌| 20/21 [00:03<00:00,  6.26it/s, loss=0.596, v_num=42, train_loss_step=0.541]
+Validating:  67%|██████▋   | 2/3 [00:00<00:00,  6.87it/s][A
+Validating: 100%|██████████| 3/3 [00:00<00:00,  7.70it/s][AEpoch 0: 100%|██████████| 21/21 [00:03<00:00,  6.09it/s, loss=0.596, v_num=42, train_loss_step=0.541]
+                                                         [AEpoch 0: 100%|██████████| 21/21 [00:03<00:00,  5.83it/s, loss=0.596, v_num=42, train_loss_step=0.541]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/core/datamodule.py:423: LightningDeprecationWarning: DataModule.prepare_data has already been called, so it will not be called again. In v1.6 this behavior will change to always call DataModule.prepare_data.
+  rank_zero_deprecation(
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, test dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+
+Testing: 0it [00:00, ?it/s]Testing:  11%|█         | 2/18 [00:00<00:00, 16.05it/s]Testing:  28%|██▊       | 5/18 [00:00<00:00, 19.89it/s]Testing:  44%|████▍     | 8/18 [00:00<00:00, 20.69it/s]Testing:  61%|██████    | 11/18 [00:00<00:00, 20.09it/s]Testing:  78%|███████▊  | 14/18 [00:00<00:00, 19.26it/s]Testing:  94%|█████████▍| 17/18 [00:00<00:00, 18.96it/s]--------------------------------------------------------------------------------
+DATALOADER:0 TEST RESULTS
+{'_mean_accuracy': 0.9009806513786316,
+ '_standard_dev_accuracy': 0.05361536890268326,
+ '_variance_accuracy': 0.0028746076859533787,
+ 'test_acc': 0.9009806513786316,
+ 'test_dice_c1': 0.03043580800294876,
+ 'test_f2_c1': 0.024938352406024933,
+ 'test_loss': 0.6856372356414795,
+ 'test_mean_c1': 0.1478879600763321,
+ 'test_prec_c1': 0.06642317026853561,
+ 'test_sens_c1': 0.02268791012465954,
+ 'test_spec_c1': 0.9734413623809814}
+--------------------------------------------------------------------------------
+Testing: 100%|██████████| 18/18 [00:00<00:00, 19.09it/s]
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Set SLURM handle signals.
+
+   | Name    | Type        | Params
+-----------------------------------------
+0  | conv11  | Conv2d      | 640   
+1  | bn11    | BatchNorm2d | 128   
+2  | conv12  | Conv2d      | 36.9 K
+3  | bn12    | BatchNorm2d | 128   
+4  | conv21  | Conv2d      | 73.9 K
+5  | bn21    | BatchNorm2d | 256   
+6  | conv22  | Conv2d      | 147 K 
+7  | bn22    | BatchNorm2d | 256   
+8  | conv31  | Conv2d      | 295 K 
+9  | bn31    | BatchNorm2d | 512   
+10 | conv32  | Conv2d      | 590 K 
+11 | bn32    | BatchNorm2d | 512   
+12 | conv32d | Conv2d      | 590 K 
+13 | bn32d   | BatchNorm2d | 512   
+14 | conv31d | Conv2d      | 295 K 
+15 | bn31d   | BatchNorm2d | 256   
+16 | conv22d | Conv2d      | 147 K 
+17 | bn22d   | BatchNorm2d | 256   
+18 | conv21d | Conv2d      | 73.8 K
+19 | bn21d   | BatchNorm2d | 128   
+20 | conv12d | Conv2d      | 36.9 K
+21 | bn12d   | BatchNorm2d | 128   
+22 | conv11d | Conv2d      | 1.2 K 
+23 | bn11d   | BatchNorm2d | 4     
+24 | softmax | Softmax2d   | 0     
+-----------------------------------------
+2.3 M     Trainable params
+0         Non-trainable params
+2.3 M     Total params
+9.168     Total estimated model params size (MB)
+Validation sanity check: 0it [00:00, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, val dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Validation sanity check:   0%|          | 0/2 [00:00<?, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py:693: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448238472/work/c10/core/TensorImpl.h:1156.)
+  return torch._C._nn.max_pool2d_with_indices(input, kernel_size, stride, padding, dilation, ceil_mode)
+Validation sanity check:  50%|█████     | 1/2 [00:00<00:00,  1.76it/s]                                                                      /home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, train dataloader, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Training: -1it [00:00, ?it/s]Training:   0%|          | 0/11 [00:00<00:00, 25420.02it/s]Epoch 0:   0%|          | 0/11 [00:00<00:00, 5363.56it/s]  Epoch 0:   9%|▉         | 1/11 [00:00<00:00, 15.30it/s]  Epoch 0:   9%|▉         | 1/11 [00:00<00:00, 15.26it/s, loss=0.653, v_num=43, train_loss_step=0.653]Epoch 0:  18%|█▊        | 2/11 [00:00<00:00, 12.77it/s, loss=0.653, v_num=43, train_loss_step=0.653]Epoch 0:  18%|█▊        | 2/11 [00:00<00:00, 12.75it/s, loss=0.641, v_num=43, train_loss_step=0.629]Epoch 0:  27%|██▋       | 3/11 [00:00<00:00, 11.81it/s, loss=0.641, v_num=43, train_loss_step=0.629]Epoch 0:  27%|██▋       | 3/11 [00:00<00:00, 11.80it/s, loss=0.626, v_num=43, train_loss_step=0.597]Epoch 0:  36%|███▋      | 4/11 [00:00<00:00, 11.39it/s, loss=0.626, v_num=43, train_loss_step=0.597]Epoch 0:  36%|███▋      | 4/11 [00:00<00:00, 11.39it/s, loss=0.613, v_num=43, train_loss_step=0.573]Epoch 0:  45%|████▌     | 5/11 [00:00<00:00, 11.17it/s, loss=0.609, v_num=43, train_loss_step=0.592]Epoch 0:  55%|█████▍    | 6/11 [00:00<00:00, 11.00it/s, loss=0.609, v_num=43, train_loss_step=0.592]Epoch 0:  55%|█████▍    | 6/11 [00:00<00:00, 11.00it/s, loss=0.596, v_num=43, train_loss_step=0.531]Epoch 0:  64%|██████▎   | 7/11 [00:00<00:00, 10.88it/s, loss=0.589, v_num=43, train_loss_step=0.548]Epoch 0:  73%|███████▎  | 8/11 [00:00<00:00, 10.80it/s, loss=0.589, v_num=43, train_loss_step=0.548]Epoch 0:  73%|███████▎  | 8/11 [00:00<00:00, 10.79it/s, loss=0.587, v_num=43, train_loss_step=0.571]Epoch 0:  82%|████████▏ | 9/11 [00:00<00:00, 10.98it/s, loss=0.581, v_num=43, train_loss_step=0.533]
+Validating: 0it [00:00, ?it/s][A
+Validating:   0%|          | 0/2 [00:00<?, ?it/s][A
+Validating:  50%|█████     | 1/2 [00:00<00:00,  2.83it/s][AEpoch 0: 100%|██████████| 11/11 [00:01<00:00,  9.46it/s, loss=0.581, v_num=43, train_loss_step=0.533]Epoch 0: 100%|██████████| 11/11 [00:01<00:00,  8.83it/s, loss=0.581, v_num=43, train_loss_step=0.533]
+                                                         [AEpoch 0: 100%|██████████| 11/11 [00:01<00:00,  8.45it/s, loss=0.581, v_num=43, train_loss_step=0.533]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/core/datamodule.py:423: LightningDeprecationWarning: DataModule.prepare_data has already been called, so it will not be called again. In v1.6 this behavior will change to always call DataModule.prepare_data.
+  rank_zero_deprecation(
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, test dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+
+Testing: 0it [00:00, ?it/s]Testing:  17%|█▋        | 3/18 [00:00<00:00, 22.41it/s]Testing:  33%|███▎      | 6/18 [00:00<00:00, 23.28it/s]Testing:  50%|█████     | 9/18 [00:00<00:00, 23.44it/s]Testing:  67%|██████▋   | 12/18 [00:00<00:00, 23.68it/s]Testing:  83%|████████▎ | 15/18 [00:00<00:00, 23.76it/s]Testing: 100%|██████████| 18/18 [00:00<00:00, 23.78it/s]--------------------------------------------------------------------------------
+DATALOADER:0 TEST RESULTS
+{'_mean_accuracy': 0.9354095458984375,
+ '_standard_dev_accuracy': 0.06137620285153389,
+ '_variance_accuracy': 0.0037670384626835585,
+ 'test_acc': 0.9354095458984375,
+ 'test_dice_c1': 0.0,
+ 'test_f2_c1': 0.0,
+ 'test_loss': 0.681646466255188,
+ 'test_mean_c1': 0.0,
+ 'test_prec_c1': 0.0,
+ 'test_sens_c1': 0.0,
+ 'test_spec_c1': 1.0}
+--------------------------------------------------------------------------------
+Testing: 100%|██████████| 18/18 [00:00<00:00, 23.45it/s]
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Set SLURM handle signals.
+
+   | Name    | Type        | Params
+-----------------------------------------
+0  | conv11  | Conv2d      | 640   
+1  | bn11    | BatchNorm2d | 128   
+2  | conv12  | Conv2d      | 36.9 K
+3  | bn12    | BatchNorm2d | 128   
+4  | conv21  | Conv2d      | 73.9 K
+5  | bn21    | BatchNorm2d | 256   
+6  | conv22  | Conv2d      | 147 K 
+7  | bn22    | BatchNorm2d | 256   
+8  | conv31  | Conv2d      | 295 K 
+9  | bn31    | BatchNorm2d | 512   
+10 | conv32  | Conv2d      | 590 K 
+11 | bn32    | BatchNorm2d | 512   
+12 | conv32d | Conv2d      | 590 K 
+13 | bn32d   | BatchNorm2d | 512   
+14 | conv31d | Conv2d      | 295 K 
+15 | bn31d   | BatchNorm2d | 256   
+16 | conv22d | Conv2d      | 147 K 
+17 | bn22d   | BatchNorm2d | 256   
+18 | conv21d | Conv2d      | 73.8 K
+19 | bn21d   | BatchNorm2d | 128   
+20 | conv12d | Conv2d      | 36.9 K
+21 | bn12d   | BatchNorm2d | 128   
+22 | conv11d | Conv2d      | 1.2 K 
+23 | bn11d   | BatchNorm2d | 4     
+24 | softmax | Softmax2d   | 0     
+-----------------------------------------
+2.3 M     Trainable params
+0         Non-trainable params
+2.3 M     Total params
+9.168     Total estimated model params size (MB)
+Validation sanity check: 0it [00:00, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, val dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Validation sanity check:   0%|          | 0/1 [00:00<?, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py:693: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448238472/work/c10/core/TensorImpl.h:1156.)
+  return torch._C._nn.max_pool2d_with_indices(input, kernel_size, stride, padding, dilation, ceil_mode)
+Validation sanity check: 100%|██████████| 1/1 [00:00<00:00,  1.75it/s]                                                                      /home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, train dataloader, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Training: -1it [00:00, ?it/s]Training:   0%|          | 0/7 [00:00<00:00, 30840.47it/s]Epoch 0:   0%|          | 0/7 [00:00<00:00, 6364.65it/s]  Epoch 0:  14%|█▍        | 1/7 [00:00<00:00, 11.11it/s]  Epoch 0:  14%|█▍        | 1/7 [00:00<00:00, 11.09it/s, loss=0.747, v_num=44, train_loss_step=0.747]Epoch 0:  29%|██▊       | 2/7 [00:00<00:00,  9.29it/s, loss=0.747, v_num=44, train_loss_step=0.747]Epoch 0:  29%|██▊       | 2/7 [00:00<00:00,  9.28it/s, loss=0.717, v_num=44, train_loss_step=0.687]Epoch 0:  43%|████▎     | 3/7 [00:00<00:00,  8.58it/s, loss=0.717, v_num=44, train_loss_step=0.687]Epoch 0:  43%|████▎     | 3/7 [00:00<00:00,  8.57it/s, loss=0.696, v_num=44, train_loss_step=0.653]Epoch 0:  57%|█████▋    | 4/7 [00:00<00:00,  8.19it/s, loss=0.696, v_num=44, train_loss_step=0.653]Epoch 0:  57%|█████▋    | 4/7 [00:00<00:00,  8.19it/s, loss=0.683, v_num=44, train_loss_step=0.644]Epoch 0:  71%|███████▏  | 5/7 [00:00<00:00,  7.94it/s, loss=0.683, v_num=44, train_loss_step=0.644]Epoch 0:  71%|███████▏  | 5/7 [00:00<00:00,  7.93it/s, loss=0.671, v_num=44, train_loss_step=0.621]Epoch 0:  86%|████████▌ | 6/7 [00:00<00:00,  8.08it/s, loss=0.671, v_num=44, train_loss_step=0.621]Epoch 0:  86%|████████▌ | 6/7 [00:00<00:00,  8.08it/s, loss=0.657, v_num=44, train_loss_step=0.591]
+Validating: 0it [00:00, ?it/s][A
+Validating:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validating: 100%|██████████| 1/1 [00:00<00:00,  2.87it/s][AEpoch 0: 100%|██████████| 7/7 [00:01<00:00,  6.55it/s, loss=0.657, v_num=44, train_loss_step=0.591]
+                                                         [AEpoch 0: 100%|██████████| 7/7 [00:01<00:00,  6.14it/s, loss=0.657, v_num=44, train_loss_step=0.591]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/core/datamodule.py:423: LightningDeprecationWarning: DataModule.prepare_data has already been called, so it will not be called again. In v1.6 this behavior will change to always call DataModule.prepare_data.
+  rank_zero_deprecation(
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, test dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+
+Testing: 0it [00:00, ?it/s]Testing:  17%|█▋        | 3/18 [00:00<00:00, 25.19it/s]Testing:  33%|███▎      | 6/18 [00:00<00:00, 27.31it/s]Testing:  50%|█████     | 9/18 [00:00<00:00, 28.17it/s]Testing:  67%|██████▋   | 12/18 [00:00<00:00, 28.58it/s]Testing:  83%|████████▎ | 15/18 [00:00<00:00, 28.64it/s]Testing: 100%|██████████| 18/18 [00:00<00:00, 28.88it/s]--------------------------------------------------------------------------------
+DATALOADER:0 TEST RESULTS
+{'_mean_accuracy': 0.06724294275045395,
+ '_standard_dev_accuracy': 0.05604949966073036,
+ '_variance_accuracy': 0.0031415463890880346,
+ 'test_acc': 0.06724294275045395,
+ 'test_dice_c1': 0.12117796391248703,
+ 'test_f2_c1': 0.23882323503494263,
+ 'test_loss': 0.6964834928512573,
+ 'test_mean_c1': 0.00021891275537200272,
+ 'test_prec_c1': 0.0672421082854271,
+ 'test_sens_c1': 1.0,
+ 'test_spec_c1': 8.626103635833715e-07}
+--------------------------------------------------------------------------------
+Testing: 100%|██████████| 18/18 [00:00<00:00, 28.15it/s]
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Set SLURM handle signals.
+
+   | Name    | Type        | Params
+-----------------------------------------
+0  | conv11  | Conv2d      | 640   
+1  | bn11    | BatchNorm2d | 128   
+2  | conv12  | Conv2d      | 36.9 K
+3  | bn12    | BatchNorm2d | 128   
+4  | conv21  | Conv2d      | 73.9 K
+5  | bn21    | BatchNorm2d | 256   
+6  | conv22  | Conv2d      | 147 K 
+7  | bn22    | BatchNorm2d | 256   
+8  | conv31  | Conv2d      | 295 K 
+9  | bn31    | BatchNorm2d | 512   
+10 | conv32  | Conv2d      | 590 K 
+11 | bn32    | BatchNorm2d | 512   
+12 | conv32d | Conv2d      | 590 K 
+13 | bn32d   | BatchNorm2d | 512   
+14 | conv31d | Conv2d      | 295 K 
+15 | bn31d   | BatchNorm2d | 256   
+16 | conv22d | Conv2d      | 147 K 
+17 | bn22d   | BatchNorm2d | 256   
+18 | conv21d | Conv2d      | 73.8 K
+19 | bn21d   | BatchNorm2d | 128   
+20 | conv12d | Conv2d      | 36.9 K
+21 | bn12d   | BatchNorm2d | 128   
+22 | conv11d | Conv2d      | 1.2 K 
+23 | bn11d   | BatchNorm2d | 4     
+24 | softmax | Softmax2d   | 0     
+-----------------------------------------
+2.3 M     Trainable params
+0         Non-trainable params
+2.3 M     Total params
+9.168     Total estimated model params size (MB)
+Validation sanity check: 0it [00:00, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, val dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Validation sanity check:   0%|          | 0/2 [00:00<?, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py:693: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448238472/work/c10/core/TensorImpl.h:1156.)
+  return torch._C._nn.max_pool2d_with_indices(input, kernel_size, stride, padding, dilation, ceil_mode)
+Validation sanity check:  50%|█████     | 1/2 [00:00<00:00,  2.87it/s]Validation sanity check: 100%|██████████| 2/2 [00:00<00:00,  4.42it/s]                                                                      /home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, train dataloader, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Training: -1it [00:00, ?it/s]Training:   0%|          | 0/21 [00:00<00:00, 24672.38it/s]Epoch 0:   0%|          | 0/21 [00:00<00:00, 5940.94it/s]  Epoch 0:   5%|▍         | 1/21 [00:00<00:00, 28.64it/s, loss=0.72, v_num=45, train_loss_step=0.720]Epoch 0:  10%|▉         | 2/21 [00:00<00:00, 24.21it/s, loss=0.72, v_num=45, train_loss_step=0.720]Epoch 0:  10%|▉         | 2/21 [00:00<00:00, 24.15it/s, loss=0.667, v_num=45, train_loss_step=0.614]Epoch 0:  14%|█▍        | 3/21 [00:00<00:00, 22.43it/s, loss=0.641, v_num=45, train_loss_step=0.589]Epoch 0:  19%|█▉        | 4/21 [00:00<00:00, 21.53it/s, loss=0.641, v_num=45, train_loss_step=0.589]Epoch 0:  19%|█▉        | 4/21 [00:00<00:00, 21.50it/s, loss=0.62, v_num=45, train_loss_step=0.556] Epoch 0:  24%|██▍       | 5/21 [00:00<00:00, 20.98it/s, loss=0.617, v_num=45, train_loss_step=0.607]Epoch 0:  29%|██▊       | 6/21 [00:00<00:00, 20.64it/s, loss=0.617, v_num=45, train_loss_step=0.607]Epoch 0:  29%|██▊       | 6/21 [00:00<00:00, 20.62it/s, loss=0.61, v_num=45, train_loss_step=0.573] Epoch 0:  33%|███▎      | 7/21 [00:00<00:00, 20.34it/s, loss=0.602, v_num=45, train_loss_step=0.555]Epoch 0:  38%|███▊      | 8/21 [00:00<00:00, 20.17it/s, loss=0.602, v_num=45, train_loss_step=0.555]Epoch 0:  38%|███▊      | 8/21 [00:00<00:00, 20.15it/s, loss=0.601, v_num=45, train_loss_step=0.591]Epoch 0:  43%|████▎     | 9/21 [00:00<00:00, 20.00it/s, loss=0.592, v_num=45, train_loss_step=0.519]Epoch 0:  48%|████▊     | 10/21 [00:00<00:00, 19.87it/s, loss=0.592, v_num=45, train_loss_step=0.519]Epoch 0:  48%|████▊     | 10/21 [00:00<00:00, 19.86it/s, loss=0.582, v_num=45, train_loss_step=0.497]Epoch 0:  52%|█████▏    | 11/21 [00:00<00:00, 19.79it/s, loss=0.58, v_num=45, train_loss_step=0.557] Epoch 0:  57%|█████▋    | 12/21 [00:00<00:00, 19.70it/s, loss=0.58, v_num=45, train_loss_step=0.557]Epoch 0:  57%|█████▋    | 12/21 [00:00<00:00, 19.69it/s, loss=0.581, v_num=45, train_loss_step=0.596]Epoch 0:  62%|██████▏   | 13/21 [00:00<00:00, 19.63it/s, loss=0.582, v_num=45, train_loss_step=0.587]Epoch 0:  67%|██████▋   | 14/21 [00:00<00:00, 19.56it/s, loss=0.582, v_num=45, train_loss_step=0.587]Epoch 0:  67%|██████▋   | 14/21 [00:00<00:00, 19.55it/s, loss=0.581, v_num=45, train_loss_step=0.574]Epoch 0:  71%|███████▏  | 15/21 [00:00<00:00, 19.49it/s, loss=0.578, v_num=45, train_loss_step=0.531]Epoch 0:  76%|███████▌  | 16/21 [00:00<00:00, 19.46it/s, loss=0.578, v_num=45, train_loss_step=0.531]Epoch 0:  76%|███████▌  | 16/21 [00:00<00:00, 19.45it/s, loss=0.573, v_num=45, train_loss_step=0.501]Epoch 0:  81%|████████  | 17/21 [00:00<00:00, 19.41it/s, loss=0.568, v_num=45, train_loss_step=0.488]Epoch 0:  86%|████████▌ | 18/21 [00:00<00:00, 19.59it/s, loss=0.564, v_num=45, train_loss_step=0.490]
+Validating: 0it [00:00, ?it/s][A
+Validating:   0%|          | 0/3 [00:00<?, ?it/s][A
+Validating:  33%|███▎      | 1/3 [00:00<00:00,  6.84it/s][AEpoch 0:  95%|█████████▌| 20/21 [00:01<00:00, 18.76it/s, loss=0.564, v_num=45, train_loss_step=0.490]
+Validating:  67%|██████▋   | 2/3 [00:00<00:00,  6.99it/s][AEpoch 0: 100%|██████████| 21/21 [00:01<00:00, 16.45it/s, loss=0.564, v_num=45, train_loss_step=0.490]
+                                                         [AEpoch 0: 100%|██████████| 21/21 [00:01<00:00, 15.48it/s, loss=0.564, v_num=45, train_loss_step=0.490]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/core/datamodule.py:423: LightningDeprecationWarning: DataModule.prepare_data has already been called, so it will not be called again. In v1.6 this behavior will change to always call DataModule.prepare_data.
+  rank_zero_deprecation(
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, test dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+
+Testing: 0it [00:00, ?it/s]Testing:  17%|█▋        | 3/18 [00:00<00:00, 27.57it/s]Testing:  33%|███▎      | 6/18 [00:00<00:00, 28.58it/s]Testing:  50%|█████     | 9/18 [00:00<00:00, 28.98it/s]Testing:  67%|██████▋   | 12/18 [00:00<00:00, 29.12it/s]Testing:  83%|████████▎ | 15/18 [00:00<00:00, 28.94it/s]Testing: 100%|██████████| 18/18 [00:00<00:00, 29.08it/s]--------------------------------------------------------------------------------
+DATALOADER:0 TEST RESULTS
+{'_mean_accuracy': 0.9402703046798706,
+ '_standard_dev_accuracy': 0.03317658603191376,
+ '_variance_accuracy': 0.0011006859131157398,
+ 'test_acc': 0.9402703046798706,
+ 'test_dice_c1': 0.4040829539299011,
+ 'test_f2_c1': 0.3671756088733673,
+ 'test_loss': 0.634347677230835,
+ 'test_mean_c1': 0.5218442678451538,
+ 'test_prec_c1': 0.5621798634529114,
+ 'test_sens_c1': 0.3514985740184784,
+ 'test_spec_c1': 0.9824533462524414}
+--------------------------------------------------------------------------------
+Testing: 100%|██████████| 18/18 [00:00<00:00, 28.69it/s]
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Set SLURM handle signals.
+
+   | Name    | Type        | Params
+-----------------------------------------
+0  | conv11  | Conv2d      | 640   
+1  | bn11    | BatchNorm2d | 128   
+2  | conv12  | Conv2d      | 36.9 K
+3  | bn12    | BatchNorm2d | 128   
+4  | conv21  | Conv2d      | 73.9 K
+5  | bn21    | BatchNorm2d | 256   
+6  | conv22  | Conv2d      | 147 K 
+7  | bn22    | BatchNorm2d | 256   
+8  | conv31  | Conv2d      | 295 K 
+9  | bn31    | BatchNorm2d | 512   
+10 | conv32  | Conv2d      | 590 K 
+11 | bn32    | BatchNorm2d | 512   
+12 | conv32d | Conv2d      | 590 K 
+13 | bn32d   | BatchNorm2d | 512   
+14 | conv31d | Conv2d      | 295 K 
+15 | bn31d   | BatchNorm2d | 256   
+16 | conv22d | Conv2d      | 147 K 
+17 | bn22d   | BatchNorm2d | 256   
+18 | conv21d | Conv2d      | 73.8 K
+19 | bn21d   | BatchNorm2d | 128   
+20 | conv12d | Conv2d      | 36.9 K
+21 | bn12d   | BatchNorm2d | 128   
+22 | conv11d | Conv2d      | 1.2 K 
+23 | bn11d   | BatchNorm2d | 4     
+24 | softmax | Softmax2d   | 0     
+-----------------------------------------
+2.3 M     Trainable params
+0         Non-trainable params
+2.3 M     Total params
+9.168     Total estimated model params size (MB)
+Validation sanity check: 0it [00:00, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, val dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Validation sanity check:   0%|          | 0/2 [00:00<?, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py:693: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448238472/work/c10/core/TensorImpl.h:1156.)
+  return torch._C._nn.max_pool2d_with_indices(input, kernel_size, stride, padding, dilation, ceil_mode)
+Validation sanity check:  50%|█████     | 1/2 [00:00<00:00,  1.76it/s]                                                                      /home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, train dataloader, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Training: -1it [00:00, ?it/s]Training:   0%|          | 0/11 [00:00<00:00, 17260.51it/s]Epoch 0:   0%|          | 0/11 [00:00<00:00, 4832.15it/s]  Epoch 0:   9%|▉         | 1/11 [00:00<00:00, 16.21it/s]  Epoch 0:   9%|▉         | 1/11 [00:00<00:00, 16.16it/s, loss=0.669, v_num=46, train_loss_step=0.669]Epoch 0:  18%|█▊        | 2/11 [00:00<00:00, 13.34it/s, loss=0.669, v_num=46, train_loss_step=0.669]Epoch 0:  18%|█▊        | 2/11 [00:00<00:00, 13.32it/s, loss=0.622, v_num=46, train_loss_step=0.574]Epoch 0:  27%|██▋       | 3/11 [00:00<00:00, 12.29it/s, loss=0.622, v_num=46, train_loss_step=0.574]Epoch 0:  27%|██▋       | 3/11 [00:00<00:00, 12.28it/s, loss=0.595, v_num=46, train_loss_step=0.541]Epoch 0:  36%|███▋      | 4/11 [00:00<00:00, 11.76it/s, loss=0.6, v_num=46, train_loss_step=0.614]  Epoch 0:  45%|████▌     | 5/11 [00:00<00:00, 11.45it/s, loss=0.6, v_num=46, train_loss_step=0.614]Epoch 0:  45%|████▌     | 5/11 [00:00<00:00, 11.45it/s, loss=0.584, v_num=46, train_loss_step=0.524]Epoch 0:  55%|█████▍    | 6/11 [00:00<00:00, 11.25it/s, loss=0.579, v_num=46, train_loss_step=0.550]Epoch 0:  64%|██████▎   | 7/11 [00:00<00:00, 11.06it/s, loss=0.579, v_num=46, train_loss_step=0.550]Epoch 0:  64%|██████▎   | 7/11 [00:00<00:00, 11.05it/s, loss=0.573, v_num=46, train_loss_step=0.539]Epoch 0:  73%|███████▎  | 8/11 [00:00<00:00, 10.93it/s, loss=0.565, v_num=46, train_loss_step=0.507]Epoch 0:  82%|████████▏ | 9/11 [00:00<00:00, 11.11it/s, loss=0.565, v_num=46, train_loss_step=0.507]Epoch 0:  82%|████████▏ | 9/11 [00:00<00:00, 11.11it/s, loss=0.56, v_num=46, train_loss_step=0.520] 
+Validating: 0it [00:00, ?it/s][A
+Validating:   0%|          | 0/2 [00:00<?, ?it/s][A
+Validating:  50%|█████     | 1/2 [00:00<00:00,  2.87it/s][AEpoch 0: 100%|██████████| 11/11 [00:01<00:00,  9.58it/s, loss=0.56, v_num=46, train_loss_step=0.520]Epoch 0: 100%|██████████| 11/11 [00:01<00:00,  8.93it/s, loss=0.56, v_num=46, train_loss_step=0.520]
+                                                         [AEpoch 0: 100%|██████████| 11/11 [00:01<00:00,  8.46it/s, loss=0.56, v_num=46, train_loss_step=0.520]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/core/datamodule.py:423: LightningDeprecationWarning: DataModule.prepare_data has already been called, so it will not be called again. In v1.6 this behavior will change to always call DataModule.prepare_data.
+  rank_zero_deprecation(
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, test dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+
+Testing: 0it [00:00, ?it/s]Testing:  17%|█▋        | 3/18 [00:00<00:00, 22.43it/s]Testing:  33%|███▎      | 6/18 [00:00<00:00, 23.16it/s]Testing:  50%|█████     | 9/18 [00:00<00:00, 23.26it/s]Testing:  67%|██████▋   | 12/18 [00:00<00:00, 23.44it/s]Testing:  83%|████████▎ | 15/18 [00:00<00:00, 23.61it/s]Testing: 100%|██████████| 18/18 [00:00<00:00, 23.78it/s]--------------------------------------------------------------------------------
+DATALOADER:0 TEST RESULTS
+{'_mean_accuracy': 0.9459397792816162,
+ '_standard_dev_accuracy': 0.048462849110364914,
+ '_variance_accuracy': 0.0023486476857215166,
+ 'test_acc': 0.9459397792816162,
+ 'test_dice_c1': 0.021290581673383713,
+ 'test_f2_c1': 0.014917471446096897,
+ 'test_loss': 0.6749590039253235,
+ 'test_mean_c1': 0.043427418917417526,
+ 'test_prec_c1': 0.21842028200626373,
+ 'test_sens_c1': 0.012450838461518288,
+ 'test_spec_c1': 0.9995822906494141}
+--------------------------------------------------------------------------------
+Testing: 100%|██████████| 18/18 [00:00<00:00, 23.37it/s]
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Set SLURM handle signals.
+
+   | Name    | Type        | Params
+-----------------------------------------
+0  | conv11  | Conv2d      | 640   
+1  | bn11    | BatchNorm2d | 128   
+2  | conv12  | Conv2d      | 36.9 K
+3  | bn12    | BatchNorm2d | 128   
+4  | conv21  | Conv2d      | 73.9 K
+5  | bn21    | BatchNorm2d | 256   
+6  | conv22  | Conv2d      | 147 K 
+7  | bn22    | BatchNorm2d | 256   
+8  | conv31  | Conv2d      | 295 K 
+9  | bn31    | BatchNorm2d | 512   
+10 | conv32  | Conv2d      | 590 K 
+11 | bn32    | BatchNorm2d | 512   
+12 | conv32d | Conv2d      | 590 K 
+13 | bn32d   | BatchNorm2d | 512   
+14 | conv31d | Conv2d      | 295 K 
+15 | bn31d   | BatchNorm2d | 256   
+16 | conv22d | Conv2d      | 147 K 
+17 | bn22d   | BatchNorm2d | 256   
+18 | conv21d | Conv2d      | 73.8 K
+19 | bn21d   | BatchNorm2d | 128   
+20 | conv12d | Conv2d      | 36.9 K
+21 | bn12d   | BatchNorm2d | 128   
+22 | conv11d | Conv2d      | 1.2 K 
+23 | bn11d   | BatchNorm2d | 4     
+24 | softmax | Softmax2d   | 0     
+-----------------------------------------
+2.3 M     Trainable params
+0         Non-trainable params
+2.3 M     Total params
+9.168     Total estimated model params size (MB)
+Validation sanity check: 0it [00:00, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, val dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Validation sanity check:   0%|          | 0/1 [00:00<?, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py:693: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448238472/work/c10/core/TensorImpl.h:1156.)
+  return torch._C._nn.max_pool2d_with_indices(input, kernel_size, stride, padding, dilation, ceil_mode)
+Validation sanity check: 100%|██████████| 1/1 [00:00<00:00,  1.75it/s]                                                                      /home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, train dataloader, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Training: -1it [00:00, ?it/s]Training:   0%|          | 0/7 [00:00<00:00, 29746.84it/s]Epoch 0:   0%|          | 0/7 [00:00<00:00, 6297.75it/s]  Epoch 0:  14%|█▍        | 1/7 [00:00<00:00, 11.04it/s]  Epoch 0:  14%|█▍        | 1/7 [00:00<00:00, 11.02it/s, loss=0.763, v_num=47, train_loss_step=0.763]Epoch 0:  29%|██▊       | 2/7 [00:00<00:00,  9.18it/s, loss=0.763, v_num=47, train_loss_step=0.763]Epoch 0:  29%|██▊       | 2/7 [00:00<00:00,  9.17it/s, loss=0.716, v_num=47, train_loss_step=0.670]Epoch 0:  43%|████▎     | 3/7 [00:00<00:00,  8.49it/s, loss=0.716, v_num=47, train_loss_step=0.670]Epoch 0:  43%|████▎     | 3/7 [00:00<00:00,  8.48it/s, loss=0.664, v_num=47, train_loss_step=0.560]Epoch 0:  57%|█████▋    | 4/7 [00:00<00:00,  8.14it/s, loss=0.664, v_num=47, train_loss_step=0.560]Epoch 0:  57%|█████▋    | 4/7 [00:00<00:00,  8.14it/s, loss=0.636, v_num=47, train_loss_step=0.553]Epoch 0:  71%|███████▏  | 5/7 [00:00<00:00,  7.93it/s, loss=0.636, v_num=47, train_loss_step=0.553]Epoch 0:  71%|███████▏  | 5/7 [00:00<00:00,  7.92it/s, loss=0.631, v_num=47, train_loss_step=0.608]Epoch 0:  86%|████████▌ | 6/7 [00:00<00:00,  8.07it/s, loss=0.631, v_num=47, train_loss_step=0.608]Epoch 0:  86%|████████▌ | 6/7 [00:00<00:00,  8.07it/s, loss=0.614, v_num=47, train_loss_step=0.533]
+Validating: 0it [00:00, ?it/s][A
+Validating:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validating: 100%|██████████| 1/1 [00:00<00:00,  2.82it/s][AEpoch 0: 100%|██████████| 7/7 [00:01<00:00,  6.52it/s, loss=0.614, v_num=47, train_loss_step=0.533]
+                                                         [AEpoch 0: 100%|██████████| 7/7 [00:01<00:00,  6.17it/s, loss=0.614, v_num=47, train_loss_step=0.533]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/core/datamodule.py:423: LightningDeprecationWarning: DataModule.prepare_data has already been called, so it will not be called again. In v1.6 this behavior will change to always call DataModule.prepare_data.
+  rank_zero_deprecation(
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, test dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+
+Testing: 0it [00:00, ?it/s]Testing:  17%|█▋        | 3/18 [00:00<00:00, 25.46it/s]Testing:  33%|███▎      | 6/18 [00:00<00:00, 27.13it/s]Testing:  50%|█████     | 9/18 [00:00<00:00, 27.58it/s]Testing:  67%|██████▋   | 12/18 [00:00<00:00, 27.98it/s]Testing:  83%|████████▎ | 15/18 [00:00<00:00, 28.08it/s]Testing: 100%|██████████| 18/18 [00:00<00:00, 28.32it/s]--------------------------------------------------------------------------------
+DATALOADER:0 TEST RESULTS
+{'_mean_accuracy': 0.9338023066520691,
+ '_standard_dev_accuracy': 0.0642809271812439,
+ '_variance_accuracy': 0.004132037982344627,
+ 'test_acc': 0.9338023066520691,
+ 'test_dice_c1': 0.04599054157733917,
+ 'test_f2_c1': 0.03365382179617882,
+ 'test_loss': 0.68454509973526,
+ 'test_mean_c1': 0.08437735587358475,
+ 'test_prec_c1': 0.30010759830474854,
+ 'test_sens_c1': 0.02868065983057022,
+ 'test_spec_c1': 0.9987395405769348}
+--------------------------------------------------------------------------------
+Testing: 100%|██████████| 18/18 [00:00<00:00, 27.67it/s]
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Set SLURM handle signals.
+
+   | Name    | Type        | Params
+-----------------------------------------
+0  | conv11  | Conv2d      | 640   
+1  | bn11    | BatchNorm2d | 128   
+2  | conv12  | Conv2d      | 36.9 K
+3  | bn12    | BatchNorm2d | 128   
+4  | conv21  | Conv2d      | 73.9 K
+5  | bn21    | BatchNorm2d | 256   
+6  | conv22  | Conv2d      | 147 K 
+7  | bn22    | BatchNorm2d | 256   
+8  | conv31  | Conv2d      | 295 K 
+9  | bn31    | BatchNorm2d | 512   
+10 | conv32  | Conv2d      | 590 K 
+11 | bn32    | BatchNorm2d | 512   
+12 | conv32d | Conv2d      | 590 K 
+13 | bn32d   | BatchNorm2d | 512   
+14 | conv31d | Conv2d      | 295 K 
+15 | bn31d   | BatchNorm2d | 256   
+16 | conv22d | Conv2d      | 147 K 
+17 | bn22d   | BatchNorm2d | 256   
+18 | conv21d | Conv2d      | 73.8 K
+19 | bn21d   | BatchNorm2d | 128   
+20 | conv12d | Conv2d      | 36.9 K
+21 | bn12d   | BatchNorm2d | 128   
+22 | conv11d | Conv2d      | 1.2 K 
+23 | bn11d   | BatchNorm2d | 4     
+24 | softmax | Softmax2d   | 0     
+-----------------------------------------
+2.3 M     Trainable params
+0         Non-trainable params
+2.3 M     Total params
+9.168     Total estimated model params size (MB)
+Validation sanity check: 0it [00:00, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, val dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Validation sanity check:   0%|          | 0/2 [00:00<?, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py:693: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448238472/work/c10/core/TensorImpl.h:1156.)
+  return torch._C._nn.max_pool2d_with_indices(input, kernel_size, stride, padding, dilation, ceil_mode)
+Validation sanity check:  50%|█████     | 1/2 [00:00<00:00,  2.67it/s]Validation sanity check: 100%|██████████| 2/2 [00:00<00:00,  3.92it/s]                                                                      /home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, train dataloader, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Training: -1it [00:00, ?it/s]Training:   0%|          | 0/21 [00:00<00:00, 31775.03it/s]Epoch 0:   0%|          | 0/21 [00:00<00:00, 6523.02it/s]  Epoch 0:   5%|▍         | 1/21 [00:00<00:00, 28.41it/s, loss=0.68, v_num=48, train_loss_step=0.680]Epoch 0:  10%|▉         | 2/21 [00:00<00:00, 23.49it/s, loss=0.68, v_num=48, train_loss_step=0.680]Epoch 0:  10%|▉         | 2/21 [00:00<00:00, 23.43it/s, loss=0.655, v_num=48, train_loss_step=0.631]Epoch 0:  14%|█▍        | 3/21 [00:00<00:00, 21.66it/s, loss=0.638, v_num=48, train_loss_step=0.604]Epoch 0:  19%|█▉        | 4/21 [00:00<00:00, 20.91it/s, loss=0.638, v_num=48, train_loss_step=0.604]Epoch 0:  19%|█▉        | 4/21 [00:00<00:00, 20.88it/s, loss=0.63, v_num=48, train_loss_step=0.606] Epoch 0:  24%|██▍       | 5/21 [00:00<00:00, 20.43it/s, loss=0.611, v_num=48, train_loss_step=0.534]Epoch 0:  29%|██▊       | 6/21 [00:00<00:00, 20.14it/s, loss=0.611, v_num=48, train_loss_step=0.534]Epoch 0:  29%|██▊       | 6/21 [00:00<00:00, 20.12it/s, loss=0.594, v_num=48, train_loss_step=0.511]Epoch 0:  33%|███▎      | 7/21 [00:00<00:00, 19.97it/s, loss=0.603, v_num=48, train_loss_step=0.653]Epoch 0:  38%|███▊      | 8/21 [00:00<00:00, 19.87it/s, loss=0.603, v_num=48, train_loss_step=0.653]Epoch 0:  38%|███▊      | 8/21 [00:00<00:00, 19.85it/s, loss=0.591, v_num=48, train_loss_step=0.511]Epoch 0:  43%|████▎     | 9/21 [00:00<00:00, 19.77it/s, loss=0.583, v_num=48, train_loss_step=0.515]Epoch 0:  48%|████▊     | 10/21 [00:00<00:00, 19.70it/s, loss=0.583, v_num=48, train_loss_step=0.515]Epoch 0:  48%|████▊     | 10/21 [00:00<00:00, 19.69it/s, loss=0.578, v_num=48, train_loss_step=0.539]Epoch 0:  52%|█████▏    | 11/21 [00:00<00:00, 19.61it/s, loss=0.571, v_num=48, train_loss_step=0.504]Epoch 0:  57%|█████▋    | 12/21 [00:00<00:00, 19.58it/s, loss=0.571, v_num=48, train_loss_step=0.504]Epoch 0:  57%|█████▋    | 12/21 [00:00<00:00, 19.57it/s, loss=0.568, v_num=48, train_loss_step=0.535]Epoch 0:  62%|██████▏   | 13/21 [00:00<00:00, 19.55it/s, loss=0.564, v_num=48, train_loss_step=0.513]Epoch 0:  67%|██████▋   | 14/21 [00:00<00:00, 19.54it/s, loss=0.564, v_num=48, train_loss_step=0.513]Epoch 0:  67%|██████▋   | 14/21 [00:00<00:00, 19.53it/s, loss=0.562, v_num=48, train_loss_step=0.534]Epoch 0:  71%|███████▏  | 15/21 [00:00<00:00, 19.52it/s, loss=0.558, v_num=48, train_loss_step=0.498]Epoch 0:  76%|███████▌  | 16/21 [00:00<00:00, 19.49it/s, loss=0.558, v_num=48, train_loss_step=0.498]Epoch 0:  76%|███████▌  | 16/21 [00:00<00:00, 19.48it/s, loss=0.555, v_num=48, train_loss_step=0.515]Epoch 0:  81%|████████  | 17/21 [00:00<00:00, 19.47it/s, loss=0.555, v_num=48, train_loss_step=0.560]Epoch 0:  86%|████████▌ | 18/21 [00:00<00:00, 19.66it/s, loss=0.558, v_num=48, train_loss_step=0.602]
+Validating: 0it [00:00, ?it/s][A
+Validating:   0%|          | 0/3 [00:00<?, ?it/s][A
+Validating:  33%|███▎      | 1/3 [00:00<00:00,  5.76it/s][AEpoch 0:  95%|█████████▌| 20/21 [00:01<00:00, 18.38it/s, loss=0.558, v_num=48, train_loss_step=0.602]
+Validating:  67%|██████▋   | 2/3 [00:00<00:00,  5.82it/s][AEpoch 0: 100%|██████████| 21/21 [00:01<00:00, 15.68it/s, loss=0.558, v_num=48, train_loss_step=0.602]
+                                                         [AEpoch 0: 100%|██████████| 21/21 [00:01<00:00, 14.87it/s, loss=0.558, v_num=48, train_loss_step=0.602]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/core/datamodule.py:423: LightningDeprecationWarning: DataModule.prepare_data has already been called, so it will not be called again. In v1.6 this behavior will change to always call DataModule.prepare_data.
+  rank_zero_deprecation(
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, test dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+
+Testing: 0it [00:00, ?it/s]Testing:  17%|█▋        | 3/18 [00:00<00:00, 23.31it/s]Testing:  33%|███▎      | 6/18 [00:00<00:00, 23.98it/s]Testing:  50%|█████     | 9/18 [00:00<00:00, 23.94it/s]Testing:  67%|██████▋   | 12/18 [00:00<00:00, 24.20it/s]Testing:  83%|████████▎ | 15/18 [00:00<00:00, 24.28it/s]Testing: 100%|██████████| 18/18 [00:00<00:00, 24.31it/s]--------------------------------------------------------------------------------
+DATALOADER:0 TEST RESULTS
+{'_mean_accuracy': 0.8945083618164062,
+ '_standard_dev_accuracy': 0.063651442527771,
+ '_variance_accuracy': 0.004051506519317627,
+ 'test_acc': 0.8945083618164062,
+ 'test_dice_c1': 0.36885514855384827,
+ 'test_f2_c1': 0.5166293382644653,
+ 'test_loss': 0.5493998527526855,
+ 'test_mean_c1': 0.7578305006027222,
+ 'test_prec_c1': 0.25915420055389404,
+ 'test_sens_c1': 0.743254542350769,
+ 'test_spec_c1': 0.8946349024772644}
+--------------------------------------------------------------------------------
+Testing: 100%|██████████| 18/18 [00:00<00:00, 24.01it/s]
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Set SLURM handle signals.
+
+   | Name    | Type        | Params
+-----------------------------------------
+0  | conv11  | Conv2d      | 640   
+1  | bn11    | BatchNorm2d | 128   
+2  | conv12  | Conv2d      | 36.9 K
+3  | bn12    | BatchNorm2d | 128   
+4  | conv21  | Conv2d      | 73.9 K
+5  | bn21    | BatchNorm2d | 256   
+6  | conv22  | Conv2d      | 147 K 
+7  | bn22    | BatchNorm2d | 256   
+8  | conv31  | Conv2d      | 295 K 
+9  | bn31    | BatchNorm2d | 512   
+10 | conv32  | Conv2d      | 590 K 
+11 | bn32    | BatchNorm2d | 512   
+12 | conv32d | Conv2d      | 590 K 
+13 | bn32d   | BatchNorm2d | 512   
+14 | conv31d | Conv2d      | 295 K 
+15 | bn31d   | BatchNorm2d | 256   
+16 | conv22d | Conv2d      | 147 K 
+17 | bn22d   | BatchNorm2d | 256   
+18 | conv21d | Conv2d      | 73.8 K
+19 | bn21d   | BatchNorm2d | 128   
+20 | conv12d | Conv2d      | 36.9 K
+21 | bn12d   | BatchNorm2d | 128   
+22 | conv11d | Conv2d      | 1.2 K 
+23 | bn11d   | BatchNorm2d | 4     
+24 | softmax | Softmax2d   | 0     
+-----------------------------------------
+2.3 M     Trainable params
+0         Non-trainable params
+2.3 M     Total params
+9.168     Total estimated model params size (MB)
+Validation sanity check: 0it [00:00, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, val dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Validation sanity check:   0%|          | 0/2 [00:00<?, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py:693: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448238472/work/c10/core/TensorImpl.h:1156.)
+  return torch._C._nn.max_pool2d_with_indices(input, kernel_size, stride, padding, dilation, ceil_mode)
+Validation sanity check:  50%|█████     | 1/2 [00:00<00:00,  1.81it/s]                                                                      /home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, train dataloader, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Training: -1it [00:00, ?it/s]Training:   0%|          | 0/11 [00:00<00:00, 26715.31it/s]Epoch 0:   0%|          | 0/11 [00:00<00:00, 5667.98it/s]  Epoch 0:   9%|▉         | 1/11 [00:00<00:00, 16.63it/s]  Epoch 0:   9%|▉         | 1/11 [00:00<00:00, 16.59it/s, loss=0.737, v_num=49, train_loss_step=0.737]Epoch 0:  18%|█▊        | 2/11 [00:00<00:00, 13.70it/s, loss=0.675, v_num=49, train_loss_step=0.613]Epoch 0:  27%|██▋       | 3/11 [00:00<00:00, 12.58it/s, loss=0.675, v_num=49, train_loss_step=0.613]Epoch 0:  27%|██▋       | 3/11 [00:00<00:00, 12.56it/s, loss=0.657, v_num=49, train_loss_step=0.621]Epoch 0:  36%|███▋      | 4/11 [00:00<00:00, 12.03it/s, loss=0.64, v_num=49, train_loss_step=0.589] Epoch 0:  45%|████▌     | 5/11 [00:00<00:00, 11.71it/s, loss=0.64, v_num=49, train_loss_step=0.589]Epoch 0:  45%|████▌     | 5/11 [00:00<00:00, 11.70it/s, loss=0.626, v_num=49, train_loss_step=0.571]Epoch 0:  55%|█████▍    | 6/11 [00:00<00:00, 11.45it/s, loss=0.612, v_num=49, train_loss_step=0.538]Epoch 0:  64%|██████▎   | 7/11 [00:00<00:00, 11.28it/s, loss=0.612, v_num=49, train_loss_step=0.538]Epoch 0:  64%|██████▎   | 7/11 [00:00<00:00, 11.27it/s, loss=0.598, v_num=49, train_loss_step=0.517]Epoch 0:  73%|███████▎  | 8/11 [00:00<00:00, 11.14it/s, loss=0.588, v_num=49, train_loss_step=0.513]Epoch 0:  82%|████████▏ | 9/11 [00:00<00:00, 11.31it/s, loss=0.588, v_num=49, train_loss_step=0.513]Epoch 0:  82%|████████▏ | 9/11 [00:00<00:00, 11.31it/s, loss=0.579, v_num=49, train_loss_step=0.511]
+Validating: 0it [00:00, ?it/s][A
+Validating:   0%|          | 0/2 [00:00<?, ?it/s][A
+Validating:  50%|█████     | 1/2 [00:00<00:00,  2.88it/s][AEpoch 0: 100%|██████████| 11/11 [00:01<00:00,  9.71it/s, loss=0.579, v_num=49, train_loss_step=0.511]Epoch 0: 100%|██████████| 11/11 [00:01<00:00,  9.05it/s, loss=0.579, v_num=49, train_loss_step=0.511]
+                                                         [AEpoch 0: 100%|██████████| 11/11 [00:01<00:00,  8.60it/s, loss=0.579, v_num=49, train_loss_step=0.511]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/core/datamodule.py:423: LightningDeprecationWarning: DataModule.prepare_data has already been called, so it will not be called again. In v1.6 this behavior will change to always call DataModule.prepare_data.
+  rank_zero_deprecation(
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, test dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+
+Testing: 0it [00:00, ?it/s]Testing:  17%|█▋        | 3/18 [00:00<00:00, 22.59it/s]Testing:  33%|███▎      | 6/18 [00:00<00:00, 23.56it/s]Testing:  50%|█████     | 9/18 [00:00<00:00, 23.77it/s]Testing:  67%|██████▋   | 12/18 [00:00<00:00, 24.10it/s]Testing:  83%|████████▎ | 15/18 [00:00<00:00, 24.17it/s]Testing: 100%|██████████| 18/18 [00:00<00:00, 24.21it/s]--------------------------------------------------------------------------------
+DATALOADER:0 TEST RESULTS
+{'_mean_accuracy': 0.7937350869178772,
+ '_standard_dev_accuracy': 0.09556141495704651,
+ '_variance_accuracy': 0.00913198385387659,
+ 'test_acc': 0.7937350869178772,
+ 'test_dice_c1': 0.3314254581928253,
+ 'test_f2_c1': 0.5080159902572632,
+ 'test_loss': 0.5793288350105286,
+ 'test_mean_c1': 0.8320298194885254,
+ 'test_prec_c1': 0.21713374555110931,
+ 'test_sens_c1': 0.9134992957115173,
+ 'test_spec_c1': 0.7741047143936157}
+--------------------------------------------------------------------------------
+Testing: 100%|██████████| 18/18 [00:00<00:00, 23.84it/s]
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Set SLURM handle signals.
+
+   | Name    | Type        | Params
+-----------------------------------------
+0  | conv11  | Conv2d      | 640   
+1  | bn11    | BatchNorm2d | 128   
+2  | conv12  | Conv2d      | 36.9 K
+3  | bn12    | BatchNorm2d | 128   
+4  | conv21  | Conv2d      | 73.9 K
+5  | bn21    | BatchNorm2d | 256   
+6  | conv22  | Conv2d      | 147 K 
+7  | bn22    | BatchNorm2d | 256   
+8  | conv31  | Conv2d      | 295 K 
+9  | bn31    | BatchNorm2d | 512   
+10 | conv32  | Conv2d      | 590 K 
+11 | bn32    | BatchNorm2d | 512   
+12 | conv32d | Conv2d      | 590 K 
+13 | bn32d   | BatchNorm2d | 512   
+14 | conv31d | Conv2d      | 295 K 
+15 | bn31d   | BatchNorm2d | 256   
+16 | conv22d | Conv2d      | 147 K 
+17 | bn22d   | BatchNorm2d | 256   
+18 | conv21d | Conv2d      | 73.8 K
+19 | bn21d   | BatchNorm2d | 128   
+20 | conv12d | Conv2d      | 36.9 K
+21 | bn12d   | BatchNorm2d | 128   
+22 | conv11d | Conv2d      | 1.2 K 
+23 | bn11d   | BatchNorm2d | 4     
+24 | softmax | Softmax2d   | 0     
+-----------------------------------------
+2.3 M     Trainable params
+0         Non-trainable params
+2.3 M     Total params
+9.168     Total estimated model params size (MB)
+Validation sanity check: 0it [00:00, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, val dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Validation sanity check:   0%|          | 0/1 [00:00<?, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py:693: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448238472/work/c10/core/TensorImpl.h:1156.)
+  return torch._C._nn.max_pool2d_with_indices(input, kernel_size, stride, padding, dilation, ceil_mode)
+Validation sanity check: 100%|██████████| 1/1 [00:00<00:00,  1.74it/s]                                                                      /home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, train dataloader, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Training: -1it [00:00, ?it/s]Training:   0%|          | 0/7 [00:00<00:00, 31068.92it/s]Epoch 0:   0%|          | 0/7 [00:00<00:00, 6204.59it/s]  Epoch 0:  14%|█▍        | 1/7 [00:00<00:00, 11.03it/s]  Epoch 0:  14%|█▍        | 1/7 [00:00<00:00, 11.00it/s, loss=0.774, v_num=50, train_loss_step=0.774]Epoch 0:  29%|██▊       | 2/7 [00:00<00:00,  9.18it/s, loss=0.774, v_num=50, train_loss_step=0.774]Epoch 0:  29%|██▊       | 2/7 [00:00<00:00,  9.17it/s, loss=0.697, v_num=50, train_loss_step=0.621]Epoch 0:  43%|████▎     | 3/7 [00:00<00:00,  8.49it/s, loss=0.697, v_num=50, train_loss_step=0.621]Epoch 0:  43%|████▎     | 3/7 [00:00<00:00,  8.49it/s, loss=0.658, v_num=50, train_loss_step=0.579]Epoch 0:  57%|█████▋    | 4/7 [00:00<00:00,  8.14it/s, loss=0.658, v_num=50, train_loss_step=0.579]Epoch 0:  57%|█████▋    | 4/7 [00:00<00:00,  8.13it/s, loss=0.641, v_num=50, train_loss_step=0.591]Epoch 0:  71%|███████▏  | 5/7 [00:00<00:00,  7.91it/s, loss=0.641, v_num=50, train_loss_step=0.591]Epoch 0:  71%|███████▏  | 5/7 [00:00<00:00,  7.91it/s, loss=0.626, v_num=50, train_loss_step=0.563]Epoch 0:  86%|████████▌ | 6/7 [00:00<00:00,  8.06it/s, loss=0.626, v_num=50, train_loss_step=0.563]Epoch 0:  86%|████████▌ | 6/7 [00:00<00:00,  8.06it/s, loss=0.61, v_num=50, train_loss_step=0.534] 
+Validating: 0it [00:00, ?it/s][A
+Validating:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validating: 100%|██████████| 1/1 [00:00<00:00,  2.80it/s][AEpoch 0: 100%|██████████| 7/7 [00:01<00:00,  6.50it/s, loss=0.61, v_num=50, train_loss_step=0.534]
+                                                         [AEpoch 0: 100%|██████████| 7/7 [00:01<00:00,  6.19it/s, loss=0.61, v_num=50, train_loss_step=0.534]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/core/datamodule.py:423: LightningDeprecationWarning: DataModule.prepare_data has already been called, so it will not be called again. In v1.6 this behavior will change to always call DataModule.prepare_data.
+  rank_zero_deprecation(
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, test dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+
+Testing: 0it [00:00, ?it/s]Testing:  17%|█▋        | 3/18 [00:00<00:00, 25.33it/s]Testing:  33%|███▎      | 6/18 [00:00<00:00, 27.16it/s]Testing:  50%|█████     | 9/18 [00:00<00:00, 27.88it/s]Testing:  67%|██████▋   | 12/18 [00:00<00:00, 28.13it/s]Testing:  83%|████████▎ | 15/18 [00:00<00:00, 28.13it/s]Testing: 100%|██████████| 18/18 [00:00<00:00, 28.25it/s]--------------------------------------------------------------------------------
+DATALOADER:0 TEST RESULTS
+{'_mean_accuracy': 0.6731414794921875,
+ '_standard_dev_accuracy': 0.1244933009147644,
+ '_variance_accuracy': 0.015498582273721695,
+ 'test_acc': 0.6731414794921875,
+ 'test_dice_c1': 0.3459334373474121,
+ 'test_f2_c1': 0.5463429689407349,
+ 'test_loss': 0.5711213946342468,
+ 'test_mean_c1': 0.789244532585144,
+ 'test_prec_c1': 0.21796873211860657,
+ 'test_sens_c1': 0.9899658560752869,
+ 'test_spec_c1': 0.6383345127105713}
+--------------------------------------------------------------------------------
+Testing: 100%|██████████| 18/18 [00:00<00:00, 27.69it/s]
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n510
+Job ID: 19841783
+Cluster: uc2
+User/Group: hd_ei260/hd_hd
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 20
+CPU Utilized: 00:01:16
+CPU Efficiency: 2.10% of 01:00:20 core-walltime
+Job Wall-clock time: 00:03:01
+Memory Utilized: 2.57 GB
+Memory Efficiency: 25.70% of 10.00 GB

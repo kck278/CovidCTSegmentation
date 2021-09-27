@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "trainer_5_fold_cross_validation.py", line 3, in <module>
+    import pytorch_lightning as pl
+ModuleNotFoundError: No module named 'pytorch_lightning'
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n487
+Job ID: 19954025
+Cluster: uc2
+User/Group: hd_ei260/hd_hd
+State: FAILED (exit code 1)
+Nodes: 1
+Cores per node: 80
+CPU Utilized: 00:00:01
+CPU Efficiency: 0.05% of 00:33:20 core-walltime
+Job Wall-clock time: 00:00:25
+Memory Utilized: 2.04 MB
+Memory Efficiency: 0.02% of 10.00 GB

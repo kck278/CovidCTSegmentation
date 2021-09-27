@@ -132,7 +132,6 @@ dmypy.json
 
 nnUNet/
 lightning_logs/
-slurm_output/
 
 # Exclude too big files
 **/extended/

@@ -1,0 +1,807 @@
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Set SLURM handle signals.
+
+   | Name    | Type        | Params
+-----------------------------------------
+0  | conv11  | Conv2d      | 640   
+1  | bn11    | BatchNorm2d | 128   
+2  | conv12  | Conv2d      | 36.9 K
+3  | bn12    | BatchNorm2d | 128   
+4  | conv21  | Conv2d      | 73.9 K
+5  | bn21    | BatchNorm2d | 256   
+6  | conv22  | Conv2d      | 147 K 
+7  | bn22    | BatchNorm2d | 256   
+8  | conv31  | Conv2d      | 295 K 
+9  | bn31    | BatchNorm2d | 512   
+10 | conv32  | Conv2d      | 590 K 
+11 | bn32    | BatchNorm2d | 512   
+12 | conv32d | Conv2d      | 590 K 
+13 | bn32d   | BatchNorm2d | 512   
+14 | conv31d | Conv2d      | 295 K 
+15 | bn31d   | BatchNorm2d | 256   
+16 | conv22d | Conv2d      | 147 K 
+17 | bn22d   | BatchNorm2d | 256   
+18 | conv21d | Conv2d      | 73.8 K
+19 | bn21d   | BatchNorm2d | 128   
+20 | conv12d | Conv2d      | 36.9 K
+21 | bn12d   | BatchNorm2d | 128   
+22 | conv11d | Conv2d      | 2.3 K 
+23 | bn11d   | BatchNorm2d | 8     
+24 | softmax | Softmax2d   | 0     
+-----------------------------------------
+2.3 M     Trainable params
+0         Non-trainable params
+2.3 M     Total params
+9.172     Total estimated model params size (MB)
+Validation sanity check: 0it [00:00, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, val dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Validation sanity check:   0%|          | 0/2 [00:00<?, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py:693: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448238472/work/c10/core/TensorImpl.h:1156.)
+  return torch._C._nn.max_pool2d_with_indices(input, kernel_size, stride, padding, dilation, ceil_mode)
+Traceback (most recent call last):
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/trainer.py", line 111, in <module>
+    trainer.fit(model, covid_data_module)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 552, in fit
+    self._run(model)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 917, in _run
+    self._dispatch()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 985, in _dispatch
+    self.accelerator.start_training(self)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/accelerators/accelerator.py", line 92, in start_training
+    self.training_type_plugin.start_training(trainer)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/plugins/training_type/training_type_plugin.py", line 161, in start_training
+    self._results = trainer.run_stage()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 995, in run_stage
+    return self._run_train()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1030, in _run_train
+    self._run_sanity_check(self.lightning_module)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1114, in _run_sanity_check
+    self._evaluation_loop.run()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 111, in run
+    self.advance(*args, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/dataloader/evaluation_loop.py", line 109, in advance
+    dl_outputs = self.epoch_loop.run(
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 111, in run
+    self.advance(*args, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 111, in advance
+    output = self.evaluation_step(batch, batch_idx, dataloader_idx)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 158, in evaluation_step
+    output = self.trainer.accelerator.validation_step(step_kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/accelerators/accelerator.py", line 211, in validation_step
+    return self.training_type_plugin.validation_step(*step_kwargs.values())
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/plugins/training_type/training_type_plugin.py", line 178, in validation_step
+    return self.model.validation_step(*args, **kwargs)
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/models/segnet.py", line 104, in validation_step
+    metrics = calculate_metrics(y_hat, y, self.num_classes, self.class_weights, 'val')
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/metrics.py", line 26, in calculate_metrics
+    loss = cross_entropy_loss(y_hat, y, class_weights)
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/metrics.py", line 93, in cross_entropy_loss
+    return cross_entropy(y_hat, y.type(torch.LongTensor).to(device=device))
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/modules/loss.py", line 1120, in forward
+    return F.cross_entropy(input, target, weight=self.weight,
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py", line 2824, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(input, target, weight, _Reduction.get_enum(reduction), ignore_index)
+RuntimeError: weight tensor should be defined either for all or no classes at /opt/conda/conda-bld/pytorch_1623448238472/work/aten/src/THCUNN/generic/SpatialClassNLLCriterion.cu:27
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Set SLURM handle signals.
+
+   | Name    | Type        | Params
+-----------------------------------------
+0  | conv11  | Conv2d      | 640   
+1  | bn11    | BatchNorm2d | 128   
+2  | conv12  | Conv2d      | 36.9 K
+3  | bn12    | BatchNorm2d | 128   
+4  | conv21  | Conv2d      | 73.9 K
+5  | bn21    | BatchNorm2d | 256   
+6  | conv22  | Conv2d      | 147 K 
+7  | bn22    | BatchNorm2d | 256   
+8  | conv31  | Conv2d      | 295 K 
+9  | bn31    | BatchNorm2d | 512   
+10 | conv32  | Conv2d      | 590 K 
+11 | bn32    | BatchNorm2d | 512   
+12 | conv32d | Conv2d      | 590 K 
+13 | bn32d   | BatchNorm2d | 512   
+14 | conv31d | Conv2d      | 295 K 
+15 | bn31d   | BatchNorm2d | 256   
+16 | conv22d | Conv2d      | 147 K 
+17 | bn22d   | BatchNorm2d | 256   
+18 | conv21d | Conv2d      | 73.8 K
+19 | bn21d   | BatchNorm2d | 128   
+20 | conv12d | Conv2d      | 36.9 K
+21 | bn12d   | BatchNorm2d | 128   
+22 | conv11d | Conv2d      | 2.3 K 
+23 | bn11d   | BatchNorm2d | 8     
+24 | softmax | Softmax2d   | 0     
+-----------------------------------------
+2.3 M     Trainable params
+0         Non-trainable params
+2.3 M     Total params
+9.172     Total estimated model params size (MB)
+Validation sanity check: 0it [00:00, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, val dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Validation sanity check:   0%|          | 0/2 [00:00<?, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py:693: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448238472/work/c10/core/TensorImpl.h:1156.)
+  return torch._C._nn.max_pool2d_with_indices(input, kernel_size, stride, padding, dilation, ceil_mode)
+Traceback (most recent call last):
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/trainer.py", line 111, in <module>
+    trainer.fit(model, covid_data_module)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 552, in fit
+    self._run(model)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 917, in _run
+    self._dispatch()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 985, in _dispatch
+    self.accelerator.start_training(self)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/accelerators/accelerator.py", line 92, in start_training
+    self.training_type_plugin.start_training(trainer)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/plugins/training_type/training_type_plugin.py", line 161, in start_training
+    self._results = trainer.run_stage()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 995, in run_stage
+    return self._run_train()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1030, in _run_train
+    self._run_sanity_check(self.lightning_module)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1114, in _run_sanity_check
+    self._evaluation_loop.run()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 111, in run
+    self.advance(*args, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/dataloader/evaluation_loop.py", line 109, in advance
+    dl_outputs = self.epoch_loop.run(
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 111, in run
+    self.advance(*args, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 111, in advance
+    output = self.evaluation_step(batch, batch_idx, dataloader_idx)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 158, in evaluation_step
+    output = self.trainer.accelerator.validation_step(step_kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/accelerators/accelerator.py", line 211, in validation_step
+    return self.training_type_plugin.validation_step(*step_kwargs.values())
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/plugins/training_type/training_type_plugin.py", line 178, in validation_step
+    return self.model.validation_step(*args, **kwargs)
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/models/segnet.py", line 104, in validation_step
+    metrics = calculate_metrics(y_hat, y, self.num_classes, self.class_weights, 'val')
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/metrics.py", line 26, in calculate_metrics
+    loss = cross_entropy_loss(y_hat, y, class_weights)
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/metrics.py", line 93, in cross_entropy_loss
+    return cross_entropy(y_hat, y.type(torch.LongTensor).to(device=device))
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/modules/loss.py", line 1120, in forward
+    return F.cross_entropy(input, target, weight=self.weight,
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py", line 2824, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(input, target, weight, _Reduction.get_enum(reduction), ignore_index)
+RuntimeError: weight tensor should be defined either for all or no classes at /opt/conda/conda-bld/pytorch_1623448238472/work/aten/src/THCUNN/generic/SpatialClassNLLCriterion.cu:27
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Set SLURM handle signals.
+
+   | Name    | Type        | Params
+-----------------------------------------
+0  | conv11  | Conv2d      | 640   
+1  | bn11    | BatchNorm2d | 128   
+2  | conv12  | Conv2d      | 36.9 K
+3  | bn12    | BatchNorm2d | 128   
+4  | conv21  | Conv2d      | 73.9 K
+5  | bn21    | BatchNorm2d | 256   
+6  | conv22  | Conv2d      | 147 K 
+7  | bn22    | BatchNorm2d | 256   
+8  | conv31  | Conv2d      | 295 K 
+9  | bn31    | BatchNorm2d | 512   
+10 | conv32  | Conv2d      | 590 K 
+11 | bn32    | BatchNorm2d | 512   
+12 | conv32d | Conv2d      | 590 K 
+13 | bn32d   | BatchNorm2d | 512   
+14 | conv31d | Conv2d      | 295 K 
+15 | bn31d   | BatchNorm2d | 256   
+16 | conv22d | Conv2d      | 147 K 
+17 | bn22d   | BatchNorm2d | 256   
+18 | conv21d | Conv2d      | 73.8 K
+19 | bn21d   | BatchNorm2d | 128   
+20 | conv12d | Conv2d      | 36.9 K
+21 | bn12d   | BatchNorm2d | 128   
+22 | conv11d | Conv2d      | 2.3 K 
+23 | bn11d   | BatchNorm2d | 8     
+24 | softmax | Softmax2d   | 0     
+-----------------------------------------
+2.3 M     Trainable params
+0         Non-trainable params
+2.3 M     Total params
+9.172     Total estimated model params size (MB)
+Validation sanity check: 0it [00:00, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, val dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Validation sanity check:   0%|          | 0/1 [00:00<?, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py:693: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448238472/work/c10/core/TensorImpl.h:1156.)
+  return torch._C._nn.max_pool2d_with_indices(input, kernel_size, stride, padding, dilation, ceil_mode)
+Traceback (most recent call last):
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/trainer.py", line 111, in <module>
+    trainer.fit(model, covid_data_module)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 552, in fit
+    self._run(model)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 917, in _run
+    self._dispatch()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 985, in _dispatch
+    self.accelerator.start_training(self)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/accelerators/accelerator.py", line 92, in start_training
+    self.training_type_plugin.start_training(trainer)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/plugins/training_type/training_type_plugin.py", line 161, in start_training
+    self._results = trainer.run_stage()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 995, in run_stage
+    return self._run_train()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1030, in _run_train
+    self._run_sanity_check(self.lightning_module)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1114, in _run_sanity_check
+    self._evaluation_loop.run()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 111, in run
+    self.advance(*args, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/dataloader/evaluation_loop.py", line 109, in advance
+    dl_outputs = self.epoch_loop.run(
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 111, in run
+    self.advance(*args, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 111, in advance
+    output = self.evaluation_step(batch, batch_idx, dataloader_idx)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 158, in evaluation_step
+    output = self.trainer.accelerator.validation_step(step_kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/accelerators/accelerator.py", line 211, in validation_step
+    return self.training_type_plugin.validation_step(*step_kwargs.values())
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/plugins/training_type/training_type_plugin.py", line 178, in validation_step
+    return self.model.validation_step(*args, **kwargs)
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/models/segnet.py", line 104, in validation_step
+    metrics = calculate_metrics(y_hat, y, self.num_classes, self.class_weights, 'val')
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/metrics.py", line 26, in calculate_metrics
+    loss = cross_entropy_loss(y_hat, y, class_weights)
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/metrics.py", line 93, in cross_entropy_loss
+    return cross_entropy(y_hat, y.type(torch.LongTensor).to(device=device))
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/modules/loss.py", line 1120, in forward
+    return F.cross_entropy(input, target, weight=self.weight,
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py", line 2824, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(input, target, weight, _Reduction.get_enum(reduction), ignore_index)
+RuntimeError: weight tensor should be defined either for all or no classes at /opt/conda/conda-bld/pytorch_1623448238472/work/aten/src/THCUNN/generic/SpatialClassNLLCriterion.cu:27
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Set SLURM handle signals.
+
+   | Name    | Type        | Params
+-----------------------------------------
+0  | conv11  | Conv2d      | 640   
+1  | bn11    | BatchNorm2d | 128   
+2  | conv12  | Conv2d      | 36.9 K
+3  | bn12    | BatchNorm2d | 128   
+4  | conv21  | Conv2d      | 73.9 K
+5  | bn21    | BatchNorm2d | 256   
+6  | conv22  | Conv2d      | 147 K 
+7  | bn22    | BatchNorm2d | 256   
+8  | conv31  | Conv2d      | 295 K 
+9  | bn31    | BatchNorm2d | 512   
+10 | conv32  | Conv2d      | 590 K 
+11 | bn32    | BatchNorm2d | 512   
+12 | conv32d | Conv2d      | 590 K 
+13 | bn32d   | BatchNorm2d | 512   
+14 | conv31d | Conv2d      | 295 K 
+15 | bn31d   | BatchNorm2d | 256   
+16 | conv22d | Conv2d      | 147 K 
+17 | bn22d   | BatchNorm2d | 256   
+18 | conv21d | Conv2d      | 73.8 K
+19 | bn21d   | BatchNorm2d | 128   
+20 | conv12d | Conv2d      | 36.9 K
+21 | bn12d   | BatchNorm2d | 128   
+22 | conv11d | Conv2d      | 2.3 K 
+23 | bn11d   | BatchNorm2d | 8     
+24 | softmax | Softmax2d   | 0     
+-----------------------------------------
+2.3 M     Trainable params
+0         Non-trainable params
+2.3 M     Total params
+9.172     Total estimated model params size (MB)
+Validation sanity check: 0it [00:00, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, val dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Validation sanity check:   0%|          | 0/2 [00:00<?, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py:693: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448238472/work/c10/core/TensorImpl.h:1156.)
+  return torch._C._nn.max_pool2d_with_indices(input, kernel_size, stride, padding, dilation, ceil_mode)
+Traceback (most recent call last):
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/trainer.py", line 111, in <module>
+    trainer.fit(model, covid_data_module)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 552, in fit
+    self._run(model)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 917, in _run
+    self._dispatch()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 985, in _dispatch
+    self.accelerator.start_training(self)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/accelerators/accelerator.py", line 92, in start_training
+    self.training_type_plugin.start_training(trainer)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/plugins/training_type/training_type_plugin.py", line 161, in start_training
+    self._results = trainer.run_stage()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 995, in run_stage
+    return self._run_train()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1030, in _run_train
+    self._run_sanity_check(self.lightning_module)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1114, in _run_sanity_check
+    self._evaluation_loop.run()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 111, in run
+    self.advance(*args, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/dataloader/evaluation_loop.py", line 109, in advance
+    dl_outputs = self.epoch_loop.run(
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 111, in run
+    self.advance(*args, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 111, in advance
+    output = self.evaluation_step(batch, batch_idx, dataloader_idx)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 158, in evaluation_step
+    output = self.trainer.accelerator.validation_step(step_kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/accelerators/accelerator.py", line 211, in validation_step
+    return self.training_type_plugin.validation_step(*step_kwargs.values())
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/plugins/training_type/training_type_plugin.py", line 178, in validation_step
+    return self.model.validation_step(*args, **kwargs)
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/models/segnet.py", line 104, in validation_step
+    metrics = calculate_metrics(y_hat, y, self.num_classes, self.class_weights, 'val')
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/metrics.py", line 26, in calculate_metrics
+    loss = cross_entropy_loss(y_hat, y, class_weights)
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/metrics.py", line 93, in cross_entropy_loss
+    return cross_entropy(y_hat, y.type(torch.LongTensor).to(device=device))
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/modules/loss.py", line 1120, in forward
+    return F.cross_entropy(input, target, weight=self.weight,
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py", line 2824, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(input, target, weight, _Reduction.get_enum(reduction), ignore_index)
+RuntimeError: weight tensor should be defined either for all or no classes at /opt/conda/conda-bld/pytorch_1623448238472/work/aten/src/THCUNN/generic/SpatialClassNLLCriterion.cu:27
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Set SLURM handle signals.
+
+   | Name    | Type        | Params
+-----------------------------------------
+0  | conv11  | Conv2d      | 640   
+1  | bn11    | BatchNorm2d | 128   
+2  | conv12  | Conv2d      | 36.9 K
+3  | bn12    | BatchNorm2d | 128   
+4  | conv21  | Conv2d      | 73.9 K
+5  | bn21    | BatchNorm2d | 256   
+6  | conv22  | Conv2d      | 147 K 
+7  | bn22    | BatchNorm2d | 256   
+8  | conv31  | Conv2d      | 295 K 
+9  | bn31    | BatchNorm2d | 512   
+10 | conv32  | Conv2d      | 590 K 
+11 | bn32    | BatchNorm2d | 512   
+12 | conv32d | Conv2d      | 590 K 
+13 | bn32d   | BatchNorm2d | 512   
+14 | conv31d | Conv2d      | 295 K 
+15 | bn31d   | BatchNorm2d | 256   
+16 | conv22d | Conv2d      | 147 K 
+17 | bn22d   | BatchNorm2d | 256   
+18 | conv21d | Conv2d      | 73.8 K
+19 | bn21d   | BatchNorm2d | 128   
+20 | conv12d | Conv2d      | 36.9 K
+21 | bn12d   | BatchNorm2d | 128   
+22 | conv11d | Conv2d      | 2.3 K 
+23 | bn11d   | BatchNorm2d | 8     
+24 | softmax | Softmax2d   | 0     
+-----------------------------------------
+2.3 M     Trainable params
+0         Non-trainable params
+2.3 M     Total params
+9.172     Total estimated model params size (MB)
+Validation sanity check: 0it [00:00, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, val dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Validation sanity check:   0%|          | 0/2 [00:00<?, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py:693: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448238472/work/c10/core/TensorImpl.h:1156.)
+  return torch._C._nn.max_pool2d_with_indices(input, kernel_size, stride, padding, dilation, ceil_mode)
+Traceback (most recent call last):
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/trainer.py", line 111, in <module>
+    trainer.fit(model, covid_data_module)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 552, in fit
+    self._run(model)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 917, in _run
+    self._dispatch()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 985, in _dispatch
+    self.accelerator.start_training(self)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/accelerators/accelerator.py", line 92, in start_training
+    self.training_type_plugin.start_training(trainer)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/plugins/training_type/training_type_plugin.py", line 161, in start_training
+    self._results = trainer.run_stage()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 995, in run_stage
+    return self._run_train()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1030, in _run_train
+    self._run_sanity_check(self.lightning_module)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1114, in _run_sanity_check
+    self._evaluation_loop.run()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 111, in run
+    self.advance(*args, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/dataloader/evaluation_loop.py", line 109, in advance
+    dl_outputs = self.epoch_loop.run(
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 111, in run
+    self.advance(*args, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 111, in advance
+    output = self.evaluation_step(batch, batch_idx, dataloader_idx)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 158, in evaluation_step
+    output = self.trainer.accelerator.validation_step(step_kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/accelerators/accelerator.py", line 211, in validation_step
+    return self.training_type_plugin.validation_step(*step_kwargs.values())
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/plugins/training_type/training_type_plugin.py", line 178, in validation_step
+    return self.model.validation_step(*args, **kwargs)
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/models/segnet.py", line 104, in validation_step
+    metrics = calculate_metrics(y_hat, y, self.num_classes, self.class_weights, 'val')
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/metrics.py", line 26, in calculate_metrics
+    loss = cross_entropy_loss(y_hat, y, class_weights)
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/metrics.py", line 93, in cross_entropy_loss
+    return cross_entropy(y_hat, y.type(torch.LongTensor).to(device=device))
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/modules/loss.py", line 1120, in forward
+    return F.cross_entropy(input, target, weight=self.weight,
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py", line 2824, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(input, target, weight, _Reduction.get_enum(reduction), ignore_index)
+RuntimeError: weight tensor should be defined either for all or no classes at /opt/conda/conda-bld/pytorch_1623448238472/work/aten/src/THCUNN/generic/SpatialClassNLLCriterion.cu:27
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Set SLURM handle signals.
+
+   | Name    | Type        | Params
+-----------------------------------------
+0  | conv11  | Conv2d      | 640   
+1  | bn11    | BatchNorm2d | 128   
+2  | conv12  | Conv2d      | 36.9 K
+3  | bn12    | BatchNorm2d | 128   
+4  | conv21  | Conv2d      | 73.9 K
+5  | bn21    | BatchNorm2d | 256   
+6  | conv22  | Conv2d      | 147 K 
+7  | bn22    | BatchNorm2d | 256   
+8  | conv31  | Conv2d      | 295 K 
+9  | bn31    | BatchNorm2d | 512   
+10 | conv32  | Conv2d      | 590 K 
+11 | bn32    | BatchNorm2d | 512   
+12 | conv32d | Conv2d      | 590 K 
+13 | bn32d   | BatchNorm2d | 512   
+14 | conv31d | Conv2d      | 295 K 
+15 | bn31d   | BatchNorm2d | 256   
+16 | conv22d | Conv2d      | 147 K 
+17 | bn22d   | BatchNorm2d | 256   
+18 | conv21d | Conv2d      | 73.8 K
+19 | bn21d   | BatchNorm2d | 128   
+20 | conv12d | Conv2d      | 36.9 K
+21 | bn12d   | BatchNorm2d | 128   
+22 | conv11d | Conv2d      | 2.3 K 
+23 | bn11d   | BatchNorm2d | 8     
+24 | softmax | Softmax2d   | 0     
+-----------------------------------------
+2.3 M     Trainable params
+0         Non-trainable params
+2.3 M     Total params
+9.172     Total estimated model params size (MB)
+Validation sanity check: 0it [00:00, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, val dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Validation sanity check:   0%|          | 0/1 [00:00<?, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py:693: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448238472/work/c10/core/TensorImpl.h:1156.)
+  return torch._C._nn.max_pool2d_with_indices(input, kernel_size, stride, padding, dilation, ceil_mode)
+Traceback (most recent call last):
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/trainer.py", line 111, in <module>
+    trainer.fit(model, covid_data_module)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 552, in fit
+    self._run(model)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 917, in _run
+    self._dispatch()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 985, in _dispatch
+    self.accelerator.start_training(self)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/accelerators/accelerator.py", line 92, in start_training
+    self.training_type_plugin.start_training(trainer)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/plugins/training_type/training_type_plugin.py", line 161, in start_training
+    self._results = trainer.run_stage()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 995, in run_stage
+    return self._run_train()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1030, in _run_train
+    self._run_sanity_check(self.lightning_module)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1114, in _run_sanity_check
+    self._evaluation_loop.run()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 111, in run
+    self.advance(*args, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/dataloader/evaluation_loop.py", line 109, in advance
+    dl_outputs = self.epoch_loop.run(
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 111, in run
+    self.advance(*args, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 111, in advance
+    output = self.evaluation_step(batch, batch_idx, dataloader_idx)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 158, in evaluation_step
+    output = self.trainer.accelerator.validation_step(step_kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/accelerators/accelerator.py", line 211, in validation_step
+    return self.training_type_plugin.validation_step(*step_kwargs.values())
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/plugins/training_type/training_type_plugin.py", line 178, in validation_step
+    return self.model.validation_step(*args, **kwargs)
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/models/segnet.py", line 104, in validation_step
+    metrics = calculate_metrics(y_hat, y, self.num_classes, self.class_weights, 'val')
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/metrics.py", line 26, in calculate_metrics
+    loss = cross_entropy_loss(y_hat, y, class_weights)
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/metrics.py", line 93, in cross_entropy_loss
+    return cross_entropy(y_hat, y.type(torch.LongTensor).to(device=device))
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/modules/loss.py", line 1120, in forward
+    return F.cross_entropy(input, target, weight=self.weight,
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py", line 2824, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(input, target, weight, _Reduction.get_enum(reduction), ignore_index)
+RuntimeError: weight tensor should be defined either for all or no classes at /opt/conda/conda-bld/pytorch_1623448238472/work/aten/src/THCUNN/generic/SpatialClassNLLCriterion.cu:27
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Set SLURM handle signals.
+
+   | Name    | Type        | Params
+-----------------------------------------
+0  | conv11  | Conv2d      | 640   
+1  | bn11    | BatchNorm2d | 128   
+2  | conv12  | Conv2d      | 36.9 K
+3  | bn12    | BatchNorm2d | 128   
+4  | conv21  | Conv2d      | 73.9 K
+5  | bn21    | BatchNorm2d | 256   
+6  | conv22  | Conv2d      | 147 K 
+7  | bn22    | BatchNorm2d | 256   
+8  | conv31  | Conv2d      | 295 K 
+9  | bn31    | BatchNorm2d | 512   
+10 | conv32  | Conv2d      | 590 K 
+11 | bn32    | BatchNorm2d | 512   
+12 | conv32d | Conv2d      | 590 K 
+13 | bn32d   | BatchNorm2d | 512   
+14 | conv31d | Conv2d      | 295 K 
+15 | bn31d   | BatchNorm2d | 256   
+16 | conv22d | Conv2d      | 147 K 
+17 | bn22d   | BatchNorm2d | 256   
+18 | conv21d | Conv2d      | 73.8 K
+19 | bn21d   | BatchNorm2d | 128   
+20 | conv12d | Conv2d      | 36.9 K
+21 | bn12d   | BatchNorm2d | 128   
+22 | conv11d | Conv2d      | 2.3 K 
+23 | bn11d   | BatchNorm2d | 8     
+24 | softmax | Softmax2d   | 0     
+-----------------------------------------
+2.3 M     Trainable params
+0         Non-trainable params
+2.3 M     Total params
+9.172     Total estimated model params size (MB)
+Validation sanity check: 0it [00:00, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, val dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Validation sanity check:   0%|          | 0/2 [00:00<?, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py:693: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448238472/work/c10/core/TensorImpl.h:1156.)
+  return torch._C._nn.max_pool2d_with_indices(input, kernel_size, stride, padding, dilation, ceil_mode)
+Traceback (most recent call last):
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/trainer.py", line 111, in <module>
+    trainer.fit(model, covid_data_module)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 552, in fit
+    self._run(model)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 917, in _run
+    self._dispatch()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 985, in _dispatch
+    self.accelerator.start_training(self)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/accelerators/accelerator.py", line 92, in start_training
+    self.training_type_plugin.start_training(trainer)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/plugins/training_type/training_type_plugin.py", line 161, in start_training
+    self._results = trainer.run_stage()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 995, in run_stage
+    return self._run_train()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1030, in _run_train
+    self._run_sanity_check(self.lightning_module)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1114, in _run_sanity_check
+    self._evaluation_loop.run()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 111, in run
+    self.advance(*args, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/dataloader/evaluation_loop.py", line 109, in advance
+    dl_outputs = self.epoch_loop.run(
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 111, in run
+    self.advance(*args, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 111, in advance
+    output = self.evaluation_step(batch, batch_idx, dataloader_idx)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 158, in evaluation_step
+    output = self.trainer.accelerator.validation_step(step_kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/accelerators/accelerator.py", line 211, in validation_step
+    return self.training_type_plugin.validation_step(*step_kwargs.values())
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/plugins/training_type/training_type_plugin.py", line 178, in validation_step
+    return self.model.validation_step(*args, **kwargs)
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/models/segnet.py", line 104, in validation_step
+    metrics = calculate_metrics(y_hat, y, self.num_classes, self.class_weights, 'val')
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/metrics.py", line 26, in calculate_metrics
+    loss = cross_entropy_loss(y_hat, y, class_weights)
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/metrics.py", line 93, in cross_entropy_loss
+    return cross_entropy(y_hat, y.type(torch.LongTensor).to(device=device))
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/modules/loss.py", line 1120, in forward
+    return F.cross_entropy(input, target, weight=self.weight,
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py", line 2824, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(input, target, weight, _Reduction.get_enum(reduction), ignore_index)
+RuntimeError: weight tensor should be defined either for all or no classes at /opt/conda/conda-bld/pytorch_1623448238472/work/aten/src/THCUNN/generic/SpatialClassNLLCriterion.cu:27
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Set SLURM handle signals.
+
+   | Name    | Type        | Params
+-----------------------------------------
+0  | conv11  | Conv2d      | 640   
+1  | bn11    | BatchNorm2d | 128   
+2  | conv12  | Conv2d      | 36.9 K
+3  | bn12    | BatchNorm2d | 128   
+4  | conv21  | Conv2d      | 73.9 K
+5  | bn21    | BatchNorm2d | 256   
+6  | conv22  | Conv2d      | 147 K 
+7  | bn22    | BatchNorm2d | 256   
+8  | conv31  | Conv2d      | 295 K 
+9  | bn31    | BatchNorm2d | 512   
+10 | conv32  | Conv2d      | 590 K 
+11 | bn32    | BatchNorm2d | 512   
+12 | conv32d | Conv2d      | 590 K 
+13 | bn32d   | BatchNorm2d | 512   
+14 | conv31d | Conv2d      | 295 K 
+15 | bn31d   | BatchNorm2d | 256   
+16 | conv22d | Conv2d      | 147 K 
+17 | bn22d   | BatchNorm2d | 256   
+18 | conv21d | Conv2d      | 73.8 K
+19 | bn21d   | BatchNorm2d | 128   
+20 | conv12d | Conv2d      | 36.9 K
+21 | bn12d   | BatchNorm2d | 128   
+22 | conv11d | Conv2d      | 2.3 K 
+23 | bn11d   | BatchNorm2d | 8     
+24 | softmax | Softmax2d   | 0     
+-----------------------------------------
+2.3 M     Trainable params
+0         Non-trainable params
+2.3 M     Total params
+9.172     Total estimated model params size (MB)
+Validation sanity check: 0it [00:00, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, val dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Validation sanity check:   0%|          | 0/2 [00:00<?, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py:693: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448238472/work/c10/core/TensorImpl.h:1156.)
+  return torch._C._nn.max_pool2d_with_indices(input, kernel_size, stride, padding, dilation, ceil_mode)
+Traceback (most recent call last):
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/trainer.py", line 111, in <module>
+    trainer.fit(model, covid_data_module)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 552, in fit
+    self._run(model)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 917, in _run
+    self._dispatch()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 985, in _dispatch
+    self.accelerator.start_training(self)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/accelerators/accelerator.py", line 92, in start_training
+    self.training_type_plugin.start_training(trainer)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/plugins/training_type/training_type_plugin.py", line 161, in start_training
+    self._results = trainer.run_stage()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 995, in run_stage
+    return self._run_train()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1030, in _run_train
+    self._run_sanity_check(self.lightning_module)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1114, in _run_sanity_check
+    self._evaluation_loop.run()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 111, in run
+    self.advance(*args, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/dataloader/evaluation_loop.py", line 109, in advance
+    dl_outputs = self.epoch_loop.run(
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 111, in run
+    self.advance(*args, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 111, in advance
+    output = self.evaluation_step(batch, batch_idx, dataloader_idx)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 158, in evaluation_step
+    output = self.trainer.accelerator.validation_step(step_kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/accelerators/accelerator.py", line 211, in validation_step
+    return self.training_type_plugin.validation_step(*step_kwargs.values())
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/plugins/training_type/training_type_plugin.py", line 178, in validation_step
+    return self.model.validation_step(*args, **kwargs)
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/models/segnet.py", line 104, in validation_step
+    metrics = calculate_metrics(y_hat, y, self.num_classes, self.class_weights, 'val')
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/metrics.py", line 26, in calculate_metrics
+    loss = cross_entropy_loss(y_hat, y, class_weights)
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/metrics.py", line 93, in cross_entropy_loss
+    return cross_entropy(y_hat, y.type(torch.LongTensor).to(device=device))
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/modules/loss.py", line 1120, in forward
+    return F.cross_entropy(input, target, weight=self.weight,
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py", line 2824, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(input, target, weight, _Reduction.get_enum(reduction), ignore_index)
+RuntimeError: weight tensor should be defined either for all or no classes at /opt/conda/conda-bld/pytorch_1623448238472/work/aten/src/THCUNN/generic/SpatialClassNLLCriterion.cu:27
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Set SLURM handle signals.
+
+   | Name    | Type        | Params
+-----------------------------------------
+0  | conv11  | Conv2d      | 640   
+1  | bn11    | BatchNorm2d | 128   
+2  | conv12  | Conv2d      | 36.9 K
+3  | bn12    | BatchNorm2d | 128   
+4  | conv21  | Conv2d      | 73.9 K
+5  | bn21    | BatchNorm2d | 256   
+6  | conv22  | Conv2d      | 147 K 
+7  | bn22    | BatchNorm2d | 256   
+8  | conv31  | Conv2d      | 295 K 
+9  | bn31    | BatchNorm2d | 512   
+10 | conv32  | Conv2d      | 590 K 
+11 | bn32    | BatchNorm2d | 512   
+12 | conv32d | Conv2d      | 590 K 
+13 | bn32d   | BatchNorm2d | 512   
+14 | conv31d | Conv2d      | 295 K 
+15 | bn31d   | BatchNorm2d | 256   
+16 | conv22d | Conv2d      | 147 K 
+17 | bn22d   | BatchNorm2d | 256   
+18 | conv21d | Conv2d      | 73.8 K
+19 | bn21d   | BatchNorm2d | 128   
+20 | conv12d | Conv2d      | 36.9 K
+21 | bn12d   | BatchNorm2d | 128   
+22 | conv11d | Conv2d      | 2.3 K 
+23 | bn11d   | BatchNorm2d | 8     
+24 | softmax | Softmax2d   | 0     
+-----------------------------------------
+2.3 M     Trainable params
+0         Non-trainable params
+2.3 M     Total params
+9.172     Total estimated model params size (MB)
+Validation sanity check: 0it [00:00, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/data_loading.py:105: UserWarning: The dataloader, val dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 80 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Validation sanity check:   0%|          | 0/1 [00:00<?, ?it/s]/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py:693: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448238472/work/c10/core/TensorImpl.h:1156.)
+  return torch._C._nn.max_pool2d_with_indices(input, kernel_size, stride, padding, dilation, ceil_mode)
+Traceback (most recent call last):
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/trainer.py", line 111, in <module>
+    trainer.fit(model, covid_data_module)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 552, in fit
+    self._run(model)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 917, in _run
+    self._dispatch()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 985, in _dispatch
+    self.accelerator.start_training(self)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/accelerators/accelerator.py", line 92, in start_training
+    self.training_type_plugin.start_training(trainer)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/plugins/training_type/training_type_plugin.py", line 161, in start_training
+    self._results = trainer.run_stage()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 995, in run_stage
+    return self._run_train()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1030, in _run_train
+    self._run_sanity_check(self.lightning_module)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1114, in _run_sanity_check
+    self._evaluation_loop.run()
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 111, in run
+    self.advance(*args, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/dataloader/evaluation_loop.py", line 109, in advance
+    dl_outputs = self.epoch_loop.run(
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/base.py", line 111, in run
+    self.advance(*args, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 111, in advance
+    output = self.evaluation_step(batch, batch_idx, dataloader_idx)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/loops/epoch/evaluation_epoch_loop.py", line 158, in evaluation_step
+    output = self.trainer.accelerator.validation_step(step_kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/accelerators/accelerator.py", line 211, in validation_step
+    return self.training_type_plugin.validation_step(*step_kwargs.values())
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/pytorch_lightning/plugins/training_type/training_type_plugin.py", line 178, in validation_step
+    return self.model.validation_step(*args, **kwargs)
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/models/segnet.py", line 104, in validation_step
+    metrics = calculate_metrics(y_hat, y, self.num_classes, self.class_weights, 'val')
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/metrics.py", line 26, in calculate_metrics
+    loss = cross_entropy_loss(y_hat, y, class_weights)
+  File "/pfs/data5/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/metrics.py", line 93, in cross_entropy_loss
+    return cross_entropy(y_hat, y.type(torch.LongTensor).to(device=device))
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/modules/loss.py", line 1120, in forward
+    return F.cross_entropy(input, target, weight=self.weight,
+  File "/home/hd/hd_hd/hd_ei260/miniconda3/envs/covid_seg/lib/python3.9/site-packages/torch/nn/functional.py", line 2824, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(input, target, weight, _Reduction.get_enum(reduction), ignore_index)
+RuntimeError: weight tensor should be defined either for all or no classes at /opt/conda/conda-bld/pytorch_1623448238472/work/aten/src/THCUNN/generic/SpatialClassNLLCriterion.cu:27
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n481
+Job ID: 19841697
+Cluster: uc2
+User/Group: hd_ei260/hd_hd
+State: FAILED (exit code 1)
+Nodes: 1
+Cores per node: 20
+CPU Utilized: 00:00:54
+CPU Efficiency: 1.49% of 01:00:20 core-walltime
+Job Wall-clock time: 00:03:01
+Memory Utilized: 2.43 GB
+Memory Efficiency: 24.26% of 10.00 GB
