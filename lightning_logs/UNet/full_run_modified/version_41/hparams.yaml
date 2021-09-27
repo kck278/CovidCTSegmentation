@@ -1,0 +1,6 @@
+batch_size: 2
+epochs: 160
+extended: true
+learning_rate: 0.0005
+num_classes: 4
+resolution: 256

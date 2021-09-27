@@ -1,0 +1,4 @@
+batch_size: 12
+epochs: 160
+learning_rate: 0.001
+num_classes: 4
