@@ -137,4 +137,3 @@ tr_mask.nii.gz
 tr_scan.nii.gz
 *.model
 *.model.pkl
-lightning_logs/
