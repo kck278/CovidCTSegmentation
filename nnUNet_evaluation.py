@@ -106,6 +106,7 @@ y_hat, y = get_y(
     ground_truth_folder="data/images/prediction/nnU-Net/true_binary"
 )
 
+# Set num_classes (third parameter) either to 2 or 4 depending on binary / muli class prediction
 metrics = calculate_metrics(y_hat, y, 2)
 pp = pprint.PrettyPrinter(indent=4)
 pp.pprint(metrics)
