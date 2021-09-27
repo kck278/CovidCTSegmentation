@@ -130,7 +130,7 @@ dmypy.json
 
 .idea/
 
-nnUNet/
+
 lightning_logs/
 
 # Exclude too big files
@@ -138,3 +138,5 @@ lightning_logs/
 tr_lung_mask.nii.gz
 tr_mask.nii.gz
 tr_scan.nii.gz
+*.model
+*.model.pkl

@@ -1,0 +1,1587 @@
+{
+    "author": "Fabian",
+    "description": "",
+    "id": "ace80ee09c75",
+    "name": "",
+    "results": {
+        "all": [
+            {
+                "1": {
+                    "Accuracy": 0.9999847412109375,
+                    "Dice": 0.9999441075370986,
+                    "False Discovery Rate": 0.00011177867821710041,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 1.7670732407659706e-05,
+                    "Jaccard": 0.9998882213217829,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.9998882213217829,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 35781,
+                    "Total Positives Test": 35785,
+                    "True Negative Rate": 0.9999823292675923
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_001.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_001.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9998893737792969,
+                    "Dice": 0.9997642448926501,
+                    "False Discovery Rate": 0.0004226542688081647,
+                    "False Negative Rate": 4.8786040687587295e-05,
+                    "False Omission Rate": 1.4953047431066452e-05,
+                    "False Positive Rate": 0.0001295782228845077,
+                    "Jaccard": 0.9995286009200409,
+                    "Negative Predictive Value": 0.999985046952569,
+                    "Precision": 0.9995773457311918,
+                    "Recall": 0.9999512139593124,
+                    "Total Positives Reference": 61493,
+                    "Total Positives Test": 61516,
+                    "True Negative Rate": 0.9998704217771155
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_002.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_002.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999961853027344,
+                    "Dice": 0.9993891264508247,
+                    "False Discovery Rate": 0.0012210012210012167,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 3.826637992365711e-06,
+                    "Jaccard": 0.9987789987789988,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.9987789987789988,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 818,
+                    "Total Positives Test": 819,
+                    "True Negative Rate": 0.9999961733620076
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_003.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_003.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999656677246094,
+                    "Dice": 0.999721853076614,
+                    "False Discovery Rate": 0.0003708281829418736,
+                    "False Negative Rate": 0.0001854484762316977,
+                    "False Omission Rate": 1.2196906864419183e-05,
+                    "False Positive Rate": 2.439351620342478e-05,
+                    "Jaccard": 0.999443860841624,
+                    "Negative Predictive Value": 0.9999878030931356,
+                    "Precision": 0.9996291718170581,
+                    "Recall": 0.9998145515237683,
+                    "Total Positives Reference": 16177,
+                    "Total Positives Test": 16180,
+                    "True Negative Rate": 0.9999756064837966
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_004.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_004.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999961853027344,
+                    "Dice": 0.9999231655781791,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 0.0001536570374923718,
+                    "False Omission Rate": 3.911796805626729e-06,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 0.9998463429625076,
+                    "Negative Predictive Value": 0.9999960882031944,
+                    "Precision": 1.0,
+                    "Recall": 0.9998463429625076,
+                    "Total Positives Reference": 6508,
+                    "Total Positives Test": 6507,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_005.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_005.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999885559082031,
+                    "Dice": 0.999677592692101,
+                    "False Discovery Rate": 0.00021496130696474491,
+                    "False Negative Rate": 0.00042983021706421987,
+                    "False Omission Rate": 7.767231603311948e-06,
+                    "False Positive Rate": 3.8836308842160605e-06,
+                    "Jaccard": 0.9993553932101418,
+                    "Negative Predictive Value": 0.9999922327683967,
+                    "Precision": 0.9997850386930353,
+                    "Recall": 0.9995701697829358,
+                    "Total Positives Reference": 4653,
+                    "Total Positives Test": 4652,
+                    "True Negative Rate": 0.9999961163691158
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_006.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_006.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999961853027344,
+                    "Dice": 0.9999247950665564,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 0.00015039855617382525,
+                    "False Omission Rate": 3.913955600087673e-06,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 0.9998496014438262,
+                    "Negative Predictive Value": 0.9999960860443999,
+                    "Precision": 1.0,
+                    "Recall": 0.9998496014438262,
+                    "Total Positives Reference": 6649,
+                    "Total Positives Test": 6648,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_007.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_007.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999809265136719,
+                    "Dice": 0.9999631862994132,
+                    "False Discovery Rate": 7.362469077631939e-05,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 2.5741748482577265e-05,
+                    "Jaccard": 0.9999263753092237,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.9999263753092237,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 67907,
+                    "Total Positives Test": 67912,
+                    "True Negative Rate": 0.9999742582515174
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_008.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_008.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9998931884765625,
+                    "Dice": 0.999725861089898,
+                    "False Discovery Rate": 0.0003915810083211513,
+                    "False Negative Rate": 0.00015666921254131605,
+                    "False Omission Rate": 3.790229735299831e-05,
+                    "False Positive Rate": 9.475035649819663e-05,
+                    "Jaccard": 0.999451872442887,
+                    "Negative Predictive Value": 0.999962097702647,
+                    "Precision": 0.9996084189916788,
+                    "Recall": 0.9998433307874587,
+                    "Total Positives Reference": 51063,
+                    "Total Positives Test": 51075,
+                    "True Negative Rate": 0.9999052496435018
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_009.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_009.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999504089355469,
+                    "Dice": 0.9997642065550578,
+                    "False Discovery Rate": 0.00036271309394264595,
+                    "False Negative Rate": 0.00010884156296486758,
+                    "False Omission Rate": 1.2789141166540196e-05,
+                    "False Positive Rate": 4.262919844322255e-05,
+                    "Jaccard": 0.9995285242809995,
+                    "Negative Predictive Value": 0.9999872108588335,
+                    "Precision": 0.9996372869060574,
+                    "Recall": 0.9998911584370351,
+                    "Total Positives Reference": 27563,
+                    "Total Positives Test": 27570,
+                    "True Negative Rate": 0.9999573708015568
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_010.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_010.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999809265136719,
+                    "Dice": 0.9998317234880355,
+                    "False Discovery Rate": 0.0003364963994885173,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 2.0219175866365013e-05,
+                    "Jaccard": 0.9996635036005115,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.9996635036005115,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 14854,
+                    "Total Positives Test": 14859,
+                    "True Negative Rate": 0.9999797808241336
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_011.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_011.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999961853027344,
+                    "Dice": 0.9999762148276764,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 4.756921320525631e-05,
+                    "False Omission Rate": 4.147260941511179e-06,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 0.9999524307867947,
+                    "Negative Predictive Value": 0.9999958527390584,
+                    "Precision": 1.0,
+                    "Recall": 0.9999524307867947,
+                    "Total Positives Reference": 21022,
+                    "Total Positives Test": 21021,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_012.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_012.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999732971191406,
+                    "Dice": 0.9997119460104522,
+                    "False Discovery Rate": 0.0004937052579609968,
+                    "False Negative Rate": 8.23180770497256e-05,
+                    "False Omission Rate": 4.000144005184187e-06,
+                    "False Positive Rate": 2.4000384006184206e-05,
+                    "Jaccard": 0.9994240579233175,
+                    "Negative Predictive Value": 0.9999959998559949,
+                    "Precision": 0.999506294742039,
+                    "Recall": 0.9999176819229503,
+                    "Total Positives Reference": 12148,
+                    "Total Positives Test": 12153,
+                    "True Negative Rate": 0.9999759996159938
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_013.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_013.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999809265136719,
+                    "Dice": 0.9998247520241141,
+                    "False Discovery Rate": 0.0001402032947773746,
+                    "False Negative Rate": 0.00021029020047669267,
+                    "False Omission Rate": 1.2102679129736687e-05,
+                    "False Positive Rate": 8.068485303214246e-06,
+                    "Jaccard": 0.9996495654611719,
+                    "Negative Predictive Value": 0.9999878973208702,
+                    "Precision": 0.9998597967052226,
+                    "Recall": 0.9997897097995233,
+                    "Total Positives Reference": 14266,
+                    "Total Positives Test": 14265,
+                    "True Negative Rate": 0.9999919315146968
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_014.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_014.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999961853027344,
+                    "Dice": 0.9999307239348805,
+                    "False Discovery Rate": 0.00013854253255751736,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 3.9226915941048546e-06,
+                    "Jaccard": 0.9998614574674425,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.9998614574674425,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 7217,
+                    "Total Positives Test": 7218,
+                    "True Negative Rate": 0.9999960773084059
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_019.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_019.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999656677246094,
+                    "Dice": 0.9998863334975183,
+                    "False Discovery Rate": 0.00017680339462522454,
+                    "False Negative Rate": 5.0521635890588e-05,
+                    "False Omission Rate": 8.986663790934254e-06,
+                    "False Positive Rate": 3.145261663306531e-05,
+                    "Jaccard": 0.9997726928322473,
+                    "Negative Predictive Value": 0.9999910133362091,
+                    "Precision": 0.9998231966053748,
+                    "Recall": 0.9999494783641094,
+                    "Total Positives Reference": 39587,
+                    "Total Positives Test": 39592,
+                    "True Negative Rate": 0.9999685473833669
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_020.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_020.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999923706054688,
+                    "Dice": 0.999873625679262,
+                    "False Discovery Rate": 0.00025271670457416295,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 7.866830296743288e-06,
+                    "Jaccard": 0.9997472832954258,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.9997472832954258,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 7912,
+                    "Total Positives Test": 7914,
+                    "True Negative Rate": 0.9999921331697033
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_021.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_021.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 1.0,
+                    "Dice": 1.0,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 1.0,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 1.0,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 203,
+                    "Total Positives Test": 203,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_023.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_023.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999923706054688,
+                    "Dice": 0.9999678580611983,
+                    "False Discovery Rate": 6.428181146145295e-05,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 8.656771976256472e-06,
+                    "Jaccard": 0.9999357181885385,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.9999357181885385,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 31111,
+                    "Total Positives Test": 31113,
+                    "True Negative Rate": 0.9999913432280237
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_024.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_024.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 1.0,
+                    "Dice": 1.0,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 1.0,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 1.0,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 1882,
+                    "Total Positives Test": 1882,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_025.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_025.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999809265136719,
+                    "Dice": 0.9999021775282217,
+                    "False Discovery Rate": 3.913128546273459e-05,
+                    "False Negative Rate": 0.0001565067689177635,
+                    "False Omission Rate": 1.6906956790045183e-05,
+                    "False Positive Rate": 4.226792794215228e-06,
+                    "Jaccard": 0.9998043741930436,
+                    "Negative Predictive Value": 0.99998309304321,
+                    "Precision": 0.9999608687145373,
+                    "Recall": 0.9998434932310822,
+                    "Total Positives Reference": 25558,
+                    "Total Positives Test": 25555,
+                    "True Negative Rate": 0.9999957732072058
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_026.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_026.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999923706054688,
+                    "Dice": 0.9998264491496008,
+                    "False Discovery Rate": 0.0003470414714558112,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 7.800829228132855e-06,
+                    "Jaccard": 0.9996529585285442,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.9996529585285442,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 5761,
+                    "Total Positives Test": 5763,
+                    "True Negative Rate": 0.9999921991707719
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_027.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_027.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999809265136719,
+                    "Dice": 0.9994386437633322,
+                    "False Discovery Rate": 0.001122082585278239,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 1.9402932947332197e-05,
+                    "Jaccard": 0.9988779174147218,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.9988779174147218,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 4451,
+                    "Total Positives Test": 4456,
+                    "True Negative Rate": 0.9999805970670527
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_028.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_028.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999732971191406,
+                    "Dice": 0.9996755203263339,
+                    "False Discovery Rate": 0.00046347793845014085,
+                    "False Negative Rate": 0.00018544274455256637,
+                    "False Omission Rate": 7.956842088511912e-06,
+                    "False Positive Rate": 1.9891867806598462e-05,
+                    "Jaccard": 0.9993512511584801,
+                    "Negative Predictive Value": 0.9999920431579115,
+                    "Precision": 0.9995365220615499,
+                    "Recall": 0.9998145572554474,
+                    "Total Positives Reference": 10785,
+                    "Total Positives Test": 10788,
+                    "True Negative Rate": 0.9999801081321934
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_029.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_029.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9998931884765625,
+                    "Dice": 0.9997097783950746,
+                    "False Discovery Rate": 0.0003731111249299923,
+                    "False Negative Rate": 0.0002073183373069165,
+                    "False Omission Rate": 4.675059957643957e-05,
+                    "False Positive Rate": 8.414793206457105e-05,
+                    "Jaccard": 0.9994197251984333,
+                    "Negative Predictive Value": 0.9999532494004235,
+                    "Precision": 0.99962688887507,
+                    "Recall": 0.9997926816626931,
+                    "Total Positives Reference": 48235,
+                    "Total Positives Test": 48243,
+                    "True Negative Rate": 0.9999158520679354
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_030.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_030.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999542236328125,
+                    "Dice": 0.9997521070897373,
+                    "False Discovery Rate": 0.00037179328293468483,
+                    "False Negative Rate": 0.00012396181975948828,
+                    "False Omission Rate": 1.2608379529034997e-05,
+                    "False Positive Rate": 3.782418478370797e-05,
+                    "Jaccard": 0.9995043370508054,
+                    "Negative Predictive Value": 0.999987391620471,
+                    "Precision": 0.9996282067170653,
+                    "Recall": 0.9998760381802405,
+                    "Total Positives Reference": 24201,
+                    "Total Positives Test": 24207,
+                    "True Negative Rate": 0.9999621758152163
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_031.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_031.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999885559082031,
+                    "Dice": 0.9999101608121462,
+                    "False Discovery Rate": 5.989458552946303e-05,
+                    "False Negative Rate": 0.00011978199676587753,
+                    "False Omission Rate": 8.14836543789316e-06,
+                    "False Positive Rate": 4.074199318027105e-06,
+                    "Jaccard": 0.9998203377650018,
+                    "Negative Predictive Value": 0.9999918516345621,
+                    "Precision": 0.9999401054144705,
+                    "Recall": 0.9998802180032341,
+                    "Total Positives Reference": 16697,
+                    "Total Positives Test": 16696,
+                    "True Negative Rate": 0.999995925800682
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_032.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_032.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999732971191406,
+                    "Dice": 0.9995241008906112,
+                    "False Discovery Rate": 0.00027199782401743366,
+                    "False Negative Rate": 0.0006797172376291627,
+                    "False Omission Rate": 1.9623927061787897e-05,
+                    "False Positive Rate": 7.84966324940406e-06,
+                    "Jaccard": 0.9990486545256864,
+                    "Negative Predictive Value": 0.9999803760729382,
+                    "Precision": 0.9997280021759826,
+                    "Recall": 0.9993202827623708,
+                    "Total Positives Reference": 7356,
+                    "Total Positives Test": 7353,
+                    "True Negative Rate": 0.9999921503367506
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_034.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_034.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999847412109375,
+                    "Dice": 0.9998430387694239,
+                    "False Discovery Rate": 0.0003138731952291307,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 1.60382351526156e-05,
+                    "Jaccard": 0.9996861268047709,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.9996861268047709,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 12740,
+                    "Total Positives Test": 12744,
+                    "True Negative Rate": 0.9999839617648474
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_035.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_035.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999732971191406,
+                    "Dice": 0.9996891237731492,
+                    "False Discovery Rate": 0.0005328123612468039,
+                    "False Negative Rate": 8.884150675192437e-05,
+                    "False Omission Rate": 3.985921724469175e-06,
+                    "False Positive Rate": 2.391505372911773e-05,
+                    "Jaccard": 0.9993784407742852,
+                    "Negative Predictive Value": 0.9999960140782755,
+                    "Precision": 0.9994671876387532,
+                    "Recall": 0.9999111584932481,
+                    "Total Positives Reference": 11256,
+                    "Total Positives Test": 11261,
+                    "True Negative Rate": 0.9999760849462709
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_037.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_037.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999885559082031,
+                    "Dice": 0.9998381615148082,
+                    "False Discovery Rate": 0.0001078981441519078,
+                    "False Negative Rate": 0.00021577300679687106,
+                    "False Omission Rate": 7.909014694949303e-06,
+                    "False Positive Rate": 3.954522985627484e-06,
+                    "Jaccard": 0.9996763754045307,
+                    "Negative Predictive Value": 0.9999920909853051,
+                    "Precision": 0.9998921018558481,
+                    "Recall": 0.9997842269932031,
+                    "Total Positives Reference": 9269,
+                    "Total Positives Test": 9268,
+                    "True Negative Rate": 0.9999960454770144
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_038.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_038.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999771118164062,
+                    "Dice": 0.9997725894481504,
+                    "False Discovery Rate": 0.0003789601333940018,
+                    "False Negative Rate": 7.581501137221558e-05,
+                    "False Omission Rate": 4.016870857601928e-06,
+                    "False Positive Rate": 2.0084031588152307e-05,
+                    "Jaccard": 0.999545282303903,
+                    "Negative Predictive Value": 0.9999959831291424,
+                    "Precision": 0.999621039866606,
+                    "Recall": 0.9999241849886278,
+                    "Total Positives Reference": 13190,
+                    "Total Positives Test": 13194,
+                    "True Negative Rate": 0.9999799159684118
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_039.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_039.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999656677246094,
+                    "Dice": 0.9997601854565803,
+                    "False Discovery Rate": 0.0004262574595055302,
+                    "False Negative Rate": 5.3302062789861715e-05,
+                    "False Omission Rate": 4.108868581947275e-06,
+                    "False Positive Rate": 3.287000324592171e-05,
+                    "Jaccard": 0.9995204859076137,
+                    "Negative Predictive Value": 0.9999958911314181,
+                    "Precision": 0.9995737425404945,
+                    "Recall": 0.9999466979372101,
+                    "Total Positives Reference": 18761,
+                    "Total Positives Test": 18768,
+                    "True Negative Rate": 0.9999671299967541
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_040.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_040.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999885559082031,
+                    "Dice": 0.9999249793693266,
+                    "False Discovery Rate": 0.00010002500625161392,
+                    "False Negative Rate": 5.0015004501302585e-05,
+                    "False Omission Rate": 4.129688745359262e-06,
+                    "False Positive Rate": 8.259343382222006e-06,
+                    "Jaccard": 0.9998499699939988,
+                    "Negative Predictive Value": 0.9999958703112546,
+                    "Precision": 0.9998999749937484,
+                    "Recall": 0.9999499849954987,
+                    "Total Positives Reference": 19994,
+                    "Total Positives Test": 19995,
+                    "True Negative Rate": 0.9999917406566178
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_042.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_042.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999885559082031,
+                    "Dice": 0.9998789199660976,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 0.0002421307506053072,
+                    "False Omission Rate": 1.2011675348438682e-05,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 0.9997578692493947,
+                    "Negative Predictive Value": 0.9999879883246515,
+                    "Precision": 1.0,
+                    "Recall": 0.9997578692493947,
+                    "Total Positives Reference": 12390,
+                    "Total Positives Test": 12387,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_044.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_044.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999885559082031,
+                    "Dice": 0.9995610826627652,
+                    "False Discovery Rate": 0.0005851375073142595,
+                    "False Negative Rate": 0.00029265437518288806,
+                    "False Omission Rate": 3.865092800878149e-06,
+                    "False Positive Rate": 7.730155723972842e-06,
+                    "Jaccard": 0.999122550453349,
+                    "Negative Predictive Value": 0.9999961349071991,
+                    "Precision": 0.9994148624926857,
+                    "Recall": 0.9997073456248171,
+                    "Total Positives Reference": 3417,
+                    "Total Positives Test": 3418,
+                    "True Negative Rate": 0.999992269844276
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_045.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_045.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999885559082031,
+                    "Dice": 0.9998639270649068,
+                    "False Discovery Rate": 0.00027210884353745524,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 1.1946384625760587e-05,
+                    "Jaccard": 0.9997278911564625,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.9997278911564625,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 11022,
+                    "Total Positives Test": 11025,
+                    "True Negative Rate": 0.9999880536153742
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_046.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_046.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 1.0,
+                    "Dice": 1.0,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 1.0,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 1.0,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 3860,
+                    "Total Positives Test": 3860,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_047.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_047.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 1.0,
+                    "Dice": NaN,
+                    "False Discovery Rate": NaN,
+                    "False Negative Rate": NaN,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": NaN,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": NaN,
+                    "Recall": NaN,
+                    "Total Positives Reference": 0,
+                    "Total Positives Test": 0,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_049.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_049.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999923706054688,
+                    "Dice": 0.9998295260825094,
+                    "False Discovery Rate": 0.0003408897221748308,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 7.80399486499661e-06,
+                    "Jaccard": 0.9996591102778252,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.9996591102778252,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 5865,
+                    "Total Positives Test": 5867,
+                    "True Negative Rate": 0.999992196005135
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_050.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_050.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999771118164062,
+                    "Dice": 0.9995979630125972,
+                    "False Discovery Rate": 0.000535977488945516,
+                    "False Negative Rate": 0.00026806058169148717,
+                    "False Omission Rate": 7.852961155327646e-06,
+                    "False Positive Rate": 1.5705798973586482e-05,
+                    "Jaccard": 0.9991962491627595,
+                    "Negative Predictive Value": 0.9999921470388446,
+                    "Precision": 0.9994640225110545,
+                    "Recall": 0.9997319394183085,
+                    "Total Positives Reference": 7461,
+                    "Total Positives Test": 7463,
+                    "True Negative Rate": 0.9999842942010264
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_051.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_051.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.999969482421875,
+                    "Dice": 0.9999248275732462,
+                    "False Discovery Rate": 0.0001503335525697702,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 3.828905363822965e-05,
+                    "Jaccard": 0.9998496664474302,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.9998496664474302,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 53207,
+                    "Total Positives Test": 53215,
+                    "True Negative Rate": 0.9999617109463618
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_052.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_052.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999961853027344,
+                    "Dice": 0.9998909606367898,
+                    "False Discovery Rate": 0.0002180549498473905,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 3.882605538962913e-06,
+                    "Jaccard": 0.9997819450501526,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.9997819450501526,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 4585,
+                    "Total Positives Test": 4586,
+                    "True Negative Rate": 0.999996117394461
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_053.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_053.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999885559082031,
+                    "Dice": 0.99996107384292,
+                    "False Discovery Rate": 5.1900869339593925e-05,
+                    "False Negative Rate": 2.595110811232093e-05,
+                    "False Omission Rate": 4.4720919104329435e-06,
+                    "False Positive Rate": 8.944143821798534e-06,
+                    "Jaccard": 0.9999221507162134,
+                    "Negative Predictive Value": 0.9999955279080895,
+                    "Precision": 0.9999480991306604,
+                    "Recall": 0.9999740488918877,
+                    "Total Positives Reference": 38534,
+                    "Total Positives Test": 38535,
+                    "True Negative Rate": 0.9999910558561782
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_054.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_054.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999847412109375,
+                    "Dice": 0.9998648922515706,
+                    "False Discovery Rate": 0.00020264793299107353,
+                    "False Negative Rate": 6.755843804895356e-05,
+                    "False Omission Rate": 4.043017708417563e-06,
+                    "False Positive Rate": 1.2128955050094703e-05,
+                    "Jaccard": 0.9997298210064167,
+                    "Negative Predictive Value": 0.9999959569822916,
+                    "Precision": 0.9997973520670089,
+                    "Recall": 0.999932441561951,
+                    "Total Positives Reference": 14802,
+                    "Total Positives Test": 14804,
+                    "True Negative Rate": 0.9999878710449499
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_055.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_055.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999847412109375,
+                    "Dice": 0.9994805194805195,
+                    "False Discovery Rate": 0.0005194805194804752,
+                    "False Negative Rate": 0.0005194805194804752,
+                    "False Omission Rate": 7.743114435488243e-06,
+                    "False Positive Rate": 7.743114435521115e-06,
+                    "Jaccard": 0.9989615784008308,
+                    "Negative Predictive Value": 0.9999922568855645,
+                    "Precision": 0.9994805194805195,
+                    "Recall": 0.9994805194805195,
+                    "Total Positives Reference": 3850,
+                    "Total Positives Test": 3850,
+                    "True Negative Rate": 0.9999922568855645
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_057.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_057.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999885559082031,
+                    "Dice": 0.9999426682209949,
+                    "False Discovery Rate": 3.822191644686779e-05,
+                    "False Negative Rate": 7.644091117564589e-05,
+                    "False Omission Rate": 8.475258601328073e-06,
+                    "False Positive Rate": 4.23764725820952e-06,
+                    "Jaccard": 0.9998853430154787,
+                    "Negative Predictive Value": 0.9999915247413986,
+                    "Precision": 0.9999617780835531,
+                    "Recall": 0.9999235590888244,
+                    "Total Positives Reference": 26164,
+                    "Total Positives Test": 26163,
+                    "True Negative Rate": 0.9999957623527418
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_058.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_058.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.999969482421875,
+                    "Dice": 0.9998948226446845,
+                    "False Discovery Rate": 0.00015775773670234639,
+                    "False Negative Rate": 5.259144337221855e-05,
+                    "False Omission Rate": 8.924149193926224e-06,
+                    "False Positive Rate": 2.6771969747652058e-05,
+                    "Jaccard": 0.9997896674115946,
+                    "Negative Predictive Value": 0.999991075850806,
+                    "Precision": 0.9998422422632977,
+                    "Recall": 0.9999474085566278,
+                    "Total Positives Reference": 38029,
+                    "Total Positives Test": 38033,
+                    "True Negative Rate": 0.9999732280302523
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_060.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_060.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999923706054688,
+                    "Dice": 0.9997797841885048,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 0.00044033465433734875,
+                    "False Omission Rate": 7.763854598531078e-06,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 0.9995596653456627,
+                    "Negative Predictive Value": 0.9999922361454014,
+                    "Precision": 1.0,
+                    "Recall": 0.9995596653456627,
+                    "Total Positives Reference": 4542,
+                    "Total Positives Test": 4540,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_062.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_062.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999961853027344,
+                    "Dice": 0.9998589761669722,
+                    "False Discovery Rate": 0.0002820078962211259,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 3.866990978318441e-06,
+                    "Jaccard": 0.9997179921037789,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.9997179921037789,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 3545,
+                    "Total Positives Test": 3546,
+                    "True Negative Rate": 0.9999961330090217
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_063.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_063.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999847412109375,
+                    "Dice": 0.9996832937450515,
+                    "False Discovery Rate": 0.0004749841671943811,
+                    "False Negative Rate": 0.00015837820715869366,
+                    "False Omission Rate": 3.908876276248104e-06,
+                    "False Positive Rate": 1.1726537153533556e-05,
+                    "Jaccard": 0.9993667880322938,
+                    "Negative Predictive Value": 0.9999960911237238,
+                    "Precision": 0.9995250158328056,
+                    "Recall": 0.9998416217928413,
+                    "Total Positives Reference": 6314,
+                    "Total Positives Test": 6316,
+                    "True Negative Rate": 0.9999882734628465
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_064.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_064.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999923706054688,
+                    "Dice": 0.9993891264508247,
+                    "False Discovery Rate": 0.0012210012210012167,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 7.677307414688528e-06,
+                    "Jaccard": 0.9987789987789988,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.9987789987789988,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 1636,
+                    "Total Positives Test": 1638,
+                    "True Negative Rate": 0.9999923226925853
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_065.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_065.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999923706054688,
+                    "Dice": 0.9998707843390618,
+                    "False Discovery Rate": 0.00025839793281656753,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 7.86144980857717e-06,
+                    "Jaccard": 0.9997416020671834,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.9997416020671834,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 7738,
+                    "Total Positives Test": 7740,
+                    "True Negative Rate": 0.9999921385501914
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_066.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_066.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999923706054688,
+                    "Dice": 0.9997018485390579,
+                    "False Discovery Rate": 0.00029815146094214207,
+                    "False Negative Rate": 0.00029815146094214207,
+                    "False Omission Rate": 3.864136945013331e-06,
+                    "False Positive Rate": 3.864136944975449e-06,
+                    "Jaccard": 0.9994038748137108,
+                    "Negative Predictive Value": 0.999996135863055,
+                    "Precision": 0.9997018485390579,
+                    "Recall": 0.9997018485390579,
+                    "Total Positives Reference": 3354,
+                    "Total Positives Test": 3354,
+                    "True Negative Rate": 0.999996135863055
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_067.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_067.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999923706054688,
+                    "Dice": 0.9999208234362629,
+                    "False Discovery Rate": 0.00015834059061037298,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 8.015550167272956e-06,
+                    "Jaccard": 0.9998416594093896,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.9998416594093896,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 12629,
+                    "Total Positives Test": 12631,
+                    "True Negative Rate": 0.9999919844498327
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_068.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_068.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999732971191406,
+                    "Dice": 0.9998995940731816,
+                    "False Discovery Rate": 0.00014343086632240265,
+                    "False Negative Rate": 5.73772843330822e-05,
+                    "False Omission Rate": 8.799563541648334e-06,
+                    "False Positive Rate": 2.199861848672935e-05,
+                    "Jaccard": 0.9997992083070392,
+                    "Negative Predictive Value": 0.9999912004364584,
+                    "Precision": 0.9998565691336776,
+                    "Recall": 0.9999426227156669,
+                    "Total Positives Reference": 34857,
+                    "Total Positives Test": 34860,
+                    "True Negative Rate": 0.9999780013815133
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_070.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_070.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999771118164062,
+                    "Dice": 0.9998290500883241,
+                    "False Discovery Rate": 0.0002279202279201753,
+                    "False Negative Rate": 0.00011397310234784186,
+                    "False Omission Rate": 8.176815457451941e-06,
+                    "False Positive Rate": 1.6353497195420452e-05,
+                    "Jaccard": 0.9996581586144029,
+                    "Negative Predictive Value": 0.9999918231845425,
+                    "Precision": 0.9997720797720798,
+                    "Recall": 0.9998860268976522,
+                    "Total Positives Reference": 17548,
+                    "Total Positives Test": 17550,
+                    "True Negative Rate": 0.9999836465028046
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_071.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_071.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999771118164062,
+                    "Dice": 0.9998770592574379,
+                    "False Discovery Rate": 0.00016391427283535265,
+                    "False Negative Rate": 8.196385394043659e-05,
+                    "False Omission Rate": 8.412516141515346e-06,
+                    "False Positive Rate": 1.6824890743394327e-05,
+                    "Jaccard": 0.9997541487400123,
+                    "Negative Predictive Value": 0.9999915874838585,
+                    "Precision": 0.9998360857271646,
+                    "Recall": 0.9999180361460596,
+                    "Total Positives Reference": 24401,
+                    "Total Positives Test": 24403,
+                    "True Negative Rate": 0.9999831751092566
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_072.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_072.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999656677246094,
+                    "Dice": 0.9998329776375615,
+                    "False Discovery Rate": 0.0002597884579699228,
+                    "False Negative Rate": 7.42390497401324e-05,
+                    "False Omission Rate": 8.503437514615284e-06,
+                    "False Positive Rate": 2.976139861565752e-05,
+                    "Jaccard": 0.999666011058745,
+                    "Negative Predictive Value": 0.9999914965624854,
+                    "Precision": 0.9997402115420301,
+                    "Recall": 0.9999257609502599,
+                    "Total Positives Reference": 26940,
+                    "Total Positives Test": 26945,
+                    "True Negative Rate": 0.9999702386013843
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_073.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_073.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999847412109375,
+                    "Dice": 0.9997918834547347,
+                    "False Discovery Rate": 0.00031214233690557425,
+                    "False Negative Rate": 0.00010406910188365259,
+                    "False Omission Rate": 3.959878510927284e-06,
+                    "False Positive Rate": 1.1879541449655306e-05,
+                    "Jaccard": 0.9995838535164377,
+                    "Negative Predictive Value": 0.9999960401214891,
+                    "Precision": 0.9996878576630944,
+                    "Recall": 0.9998959308981163,
+                    "Total Positives Reference": 9609,
+                    "Total Positives Test": 9611,
+                    "True Negative Rate": 0.9999881204585503
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_074.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_074.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999732971191406,
+                    "Dice": 0.9990790685436127,
+                    "False Discovery Rate": 0.0015777018143571242,
+                    "False Negative Rate": 0.0002632964718273234,
+                    "False Omission Rate": 3.8708528650117484e-06,
+                    "False Positive Rate": 2.322466769366649e-05,
+                    "Jaccard": 0.9981598317560463,
+                    "Negative Predictive Value": 0.999996129147135,
+                    "Precision": 0.9984222981856429,
+                    "Recall": 0.9997367035281727,
+                    "Total Positives Reference": 3798,
+                    "Total Positives Test": 3803,
+                    "True Negative Rate": 0.9999767753323063
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_075.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_075.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999542236328125,
+                    "Dice": 0.9996164663768857,
+                    "False Discovery Rate": 0.00038353362311427386,
+                    "False Negative Rate": 0.00038353362311427386,
+                    "False Omission Rate": 2.434077079107505e-05,
+                    "False Positive Rate": 2.434077079105368e-05,
+                    "Jaccard": 0.9992332268370607,
+                    "Negative Predictive Value": 0.999975659229209,
+                    "Precision": 0.9996164663768857,
+                    "Recall": 0.9996164663768857,
+                    "Total Positives Reference": 15644,
+                    "Total Positives Test": 15644,
+                    "True Negative Rate": 0.999975659229209
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_076.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_076.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999465942382812,
+                    "Dice": 0.9996568459238198,
+                    "False Discovery Rate": 0.0006370987503062642,
+                    "False Negative Rate": 4.9036434070504065e-05,
+                    "False Omission Rate": 4.136692879510546e-06,
+                    "False Positive Rate": 5.3774338058532045e-05,
+                    "Jaccard": 0.9993139272762913,
+                    "Negative Predictive Value": 0.9999958633071205,
+                    "Precision": 0.9993629012496937,
+                    "Recall": 0.9999509635659295,
+                    "Total Positives Reference": 20393,
+                    "Total Positives Test": 20405,
+                    "True Negative Rate": 0.9999462256619415
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_078.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_078.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999580383300781,
+                    "Dice": 0.9998975343027209,
+                    "False Discovery Rate": 0.00018628565041634015,
+                    "False Negative Rate": 1.8631688776249433e-05,
+                    "False Omission Rate": 4.797014338275857e-06,
+                    "False Positive Rate": 4.796807245099899e-05,
+                    "Jaccard": 0.9997950896017287,
+                    "Negative Predictive Value": 0.9999952029856617,
+                    "Precision": 0.9998137143495837,
+                    "Recall": 0.9999813683112238,
+                    "Total Positives Reference": 53672,
+                    "Total Positives Test": 53681,
+                    "True Negative Rate": 0.999952031927549
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_080.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_080.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999771118164062,
+                    "Dice": 0.9998348563250028,
+                    "False Discovery Rate": 0.00011010184420590097,
+                    "False Negative Rate": 0.0002201794462487472,
+                    "False Omission Rate": 1.6394853655437557e-05,
+                    "False Positive Rate": 8.197494026029872e-06,
+                    "Jaccard": 0.9996697671858661,
+                    "Negative Predictive Value": 0.9999836051463445,
+                    "Precision": 0.9998898981557941,
+                    "Recall": 0.9997798205537513,
+                    "Total Positives Reference": 18167,
+                    "Total Positives Test": 18165,
+                    "True Negative Rate": 0.999991802505974
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_081.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_081.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999923706054688,
+                    "Dice": 0.9996886674968867,
+                    "False Discovery Rate": 0.0003113325031133263,
+                    "False Negative Rate": 0.0003113325031133263,
+                    "False Omission Rate": 3.86201782707429e-06,
+                    "False Positive Rate": 3.862017827094277e-06,
+                    "Jaccard": 0.9993775287892935,
+                    "Negative Predictive Value": 0.9999961379821729,
+                    "Precision": 0.9996886674968867,
+                    "Recall": 0.9996886674968867,
+                    "Total Positives Reference": 3212,
+                    "Total Positives Test": 3212,
+                    "True Negative Rate": 0.9999961379821729
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_082.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_082.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999885559082031,
+                    "Dice": 0.9996746556772584,
+                    "False Discovery Rate": 0.0002169197396962863,
+                    "False Negative Rate": 0.0004337453914552425,
+                    "False Omission Rate": 7.765964882306802e-06,
+                    "False Positive Rate": 3.8829975187448795e-06,
+                    "Jaccard": 0.9993495229835212,
+                    "Negative Predictive Value": 0.9999922340351177,
+                    "Precision": 0.9997830802603037,
+                    "Recall": 0.9995662546085448,
+                    "Total Positives Reference": 4611,
+                    "Total Positives Test": 4610,
+                    "True Negative Rate": 0.9999961170024813
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_084.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_084.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999961853027344,
+                    "Dice": 0.9999636218123613,
+                    "False Discovery Rate": 7.275372862858287e-05,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 4.025764895332351e-06,
+                    "Jaccard": 0.9999272462713714,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.9999272462713714,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 13744,
+                    "Total Positives Test": 13745,
+                    "True Negative Rate": 0.9999959742351047
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_085.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_085.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999771118164062,
+                    "Dice": 0.9995597299677136,
+                    "False Discovery Rate": 0.0007335680751173745,
+                    "False Negative Rate": 0.00014679976512033122,
+                    "False Omission Rate": 3.9165308935956885e-06,
+                    "False Positive Rate": 1.9582347688507085e-05,
+                    "Jaccard": 0.999119847440223,
+                    "Negative Predictive Value": 0.9999960834691064,
+                    "Precision": 0.9992664319248826,
+                    "Recall": 0.9998532002348797,
+                    "Total Positives Reference": 6812,
+                    "Total Positives Test": 6816,
+                    "True Negative Rate": 0.9999804176523115
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_087.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_087.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999504089355469,
+                    "Dice": 0.9998430539290846,
+                    "False Discovery Rate": 0.0001931573991356128,
+                    "False Negative Rate": 0.00012073211957308594,
+                    "False Omission Rate": 2.2652416786346937e-05,
+                    "False Positive Rate": 3.624337425811586e-05,
+                    "Jaccard": 0.9996861571145768,
+                    "Negative Predictive Value": 0.9999773475832137,
+                    "Precision": 0.9998068426008644,
+                    "Recall": 0.9998792678804269,
+                    "Total Positives Reference": 41414,
+                    "Total Positives Test": 41417,
+                    "True Negative Rate": 0.9999637566257419
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_088.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_088.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999809265136719,
+                    "Dice": 0.9998352390681121,
+                    "False Discovery Rate": 0.00032946758039009705,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 2.0245128009910296e-05,
+                    "Jaccard": 0.9996705324196099,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.9996705324196099,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 15171,
+                    "Total Positives Test": 15176,
+                    "True Negative Rate": 0.9999797548719901
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_089.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_089.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999923706054688,
+                    "Dice": 0.999129677980853,
+                    "False Discovery Rate": 0.0008703220191470518,
+                    "False Negative Rate": 0.0008703220191470518,
+                    "False Omission Rate": 3.8314910247322745e-06,
+                    "False Positive Rate": 3.831491024786082e-06,
+                    "Jaccard": 0.9982608695652174,
+                    "Negative Predictive Value": 0.9999961685089752,
+                    "Precision": 0.999129677980853,
+                    "Recall": 0.999129677980853,
+                    "Total Positives Reference": 1149,
+                    "Total Positives Test": 1149,
+                    "True Negative Rate": 0.9999961685089752
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_090.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_090.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999427795410156,
+                    "Dice": 0.9995129079396006,
+                    "False Discovery Rate": 0.0007142393351080578,
+                    "False Negative Rate": 0.00025984149668700773,
+                    "False Omission Rate": 1.6211199507179536e-05,
+                    "False Positive Rate": 4.457953394121361e-05,
+                    "Jaccard": 0.9990262901655307,
+                    "Negative Predictive Value": 0.9999837888004928,
+                    "Precision": 0.9992857606648919,
+                    "Recall": 0.999740158503313,
+                    "Total Positives Reference": 15394,
+                    "Total Positives Test": 15401,
+                    "True Negative Rate": 0.9999554204660588
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_091.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_091.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999923706054688,
+                    "Dice": 0.9998752027954574,
+                    "False Discovery Rate": 0.0001247972045426149,
+                    "False Negative Rate": 0.0001247972045426149,
+                    "False Omission Rate": 3.934978416643385e-06,
+                    "False Positive Rate": 3.9349784166642365e-06,
+                    "Jaccard": 0.9997504367357125,
+                    "Negative Predictive Value": 0.9999960650215833,
+                    "Precision": 0.9998752027954574,
+                    "Recall": 0.9998752027954574,
+                    "Total Positives Reference": 8013,
+                    "Total Positives Test": 8013,
+                    "True Negative Rate": 0.9999960650215833
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_092.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_092.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999923706054688,
+                    "Dice": 0.9998992037093035,
+                    "False Discovery Rate": 0.000100796290696481,
+                    "False Negative Rate": 0.000100796290696481,
+                    "False Omission Rate": 3.964745483163708e-06,
+                    "False Positive Rate": 3.964745483142629e-06,
+                    "Jaccard": 0.9997984277363435,
+                    "Negative Predictive Value": 0.9999960352545169,
+                    "Precision": 0.9998992037093035,
+                    "Recall": 0.9998992037093035,
+                    "Total Positives Reference": 9921,
+                    "Total Positives Test": 9921,
+                    "True Negative Rate": 0.9999960352545169
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_093.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_093.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 1.0,
+                    "Dice": 1.0,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 1.0,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 1.0,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 7754,
+                    "Total Positives Test": 7754,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_094.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_094.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999847412109375,
+                    "Dice": 0.9997823721436344,
+                    "False Discovery Rate": 0.00021762785636558757,
+                    "False Negative Rate": 0.00021762785636558757,
+                    "False Omission Rate": 7.906575899175345e-06,
+                    "False Positive Rate": 7.90657589921917e-06,
+                    "Jaccard": 0.9995648389904265,
+                    "Negative Predictive Value": 0.9999920934241008,
+                    "Precision": 0.9997823721436344,
+                    "Recall": 0.9997823721436344,
+                    "Total Positives Reference": 9190,
+                    "Total Positives Test": 9190,
+                    "True Negative Rate": 0.9999920934241008
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_095.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_095.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.999969482421875,
+                    "Dice": 0.9994765083104306,
+                    "False Discovery Rate": 0.001046435578809679,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 3.143332010513422e-05,
+                    "Jaccard": 0.9989535644211903,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.9989535644211903,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 7637,
+                    "Total Positives Test": 7645,
+                    "True Negative Rate": 0.9999685666798949
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_096.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_096.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999618530273438,
+                    "Dice": 0.999899404474489,
+                    "False Discovery Rate": 0.00016094312672254585,
+                    "False Negative Rate": 4.0240639021305036e-05,
+                    "False Omission Rate": 9.414555844791632e-06,
+                    "False Positive Rate": 3.7657159802861884e-05,
+                    "Jaccard": 0.9997988291858617,
+                    "Negative Predictive Value": 0.9999905854441552,
+                    "Precision": 0.9998390568732775,
+                    "Recall": 0.9999597593609787,
+                    "Total Positives Reference": 49701,
+                    "Total Positives Test": 49707,
+                    "True Negative Rate": 0.9999623428401971
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_097.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_097.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 1.0,
+                    "Dice": 1.0,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 1.0,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 1.0,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 6529,
+                    "Total Positives Test": 6529,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_098.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_098.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999237060546875,
+                    "Dice": 0.9997743122164797,
+                    "False Discovery Rate": 0.00033849347835901433,
+                    "False Negative Rate": 0.00011285662694116017,
+                    "False Omission Rate": 2.2953679474819815e-05,
+                    "False Positive Rate": 6.885787734112192e-05,
+                    "Jaccard": 0.9995487262799251,
+                    "Negative Predictive Value": 0.9999770463205252,
+                    "Precision": 0.999661506521641,
+                    "Recall": 0.9998871433730588,
+                    "Total Positives Reference": 44304,
+                    "Total Positives Test": 44314,
+                    "True Negative Rate": 0.9999311421226589
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_099.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_099.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999656677246094,
+                    "Dice": 0.9997077067974408,
+                    "False Discovery Rate": 0.0004546044940901828,
+                    "False Negative Rate": 0.00012992918859222602,
+                    "False Omission Rate": 8.105501203666929e-06,
+                    "False Positive Rate": 2.8368679356960413e-05,
+                    "Jaccard": 0.9994155844155844,
+                    "Negative Predictive Value": 0.9999918944987963,
+                    "Precision": 0.9995453955059098,
+                    "Recall": 0.9998700708114078,
+                    "Total Positives Reference": 15393,
+                    "Total Positives Test": 15398,
+                    "True Negative Rate": 0.999971631320643
+                },
+                "reference": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_preprocessed/Task504_CovidBinary/gt_segmentations/cov_100.nii.gz",
+                "test": "/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/nnUNet/nnUNet_trained_models/nnUNet/2d/Task504_CovidBinary/nnUNetTrainerV2__nnUNetPlansv2.1/all/validation_raw_postprocessed/cov_100.nii.gz"
+            }
+        ],
+        "mean": {
+            "1": {
+                "Accuracy": 0.9999779491889768,
+                "Dice": 0.9997802685636512,
+                "False Discovery Rate": 0.0003127533186008292,
+                "False Negative Rate": 0.00012664023869836104,
+                "False Omission Rate": 6.556741971859169e-06,
+                "False Positive Rate": 1.8267020353339605e-05,
+                "Jaccard": 0.999560701066645,
+                "Negative Predictive Value": 0.9999934432580281,
+                "Precision": 0.9996872466813991,
+                "Recall": 0.9998733597613015,
+                "Total Positives Reference": 17134.024390243903,
+                "Total Positives Test": 17136.70731707317,
+                "True Negative Rate": 0.9999817329796467
+            }
+        }
+    },
+    "task": "",
+    "timestamp": "2021-09-22 17:14:37.065484"
+}
