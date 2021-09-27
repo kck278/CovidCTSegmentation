@@ -5,7 +5,7 @@ from PIL import Image
 
 
 def calculate_statistics(num_classes: int=2, extended: bool=False) -> pd.DataFrame:
-    mask_dir = '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/mask/multilabel/512'
+    mask_dir = 'data/images/png/mask/multi_class/512'
     mask_names = []
 
     if extended:
@@ -70,18 +70,18 @@ def print_statistics():
     df_binary = calculate_statistics(num_classes=2, extended=False)
     print(df_binary)
     print('-----------------------------------------------------------')
-    print('MULTILABEL')
-    df_multilabel = calculate_statistics(num_classes=4, extended=False)
-    print(df_multilabel)
+    print('MULTI-CLASS')
+    df_multiclass = calculate_statistics(num_classes=4, extended=False)
+    print(df_multiclass)
     print('-----------------------------------------------------------')
     print('-----------------------------------------------------------')
     print('BINARY - EXTENDED')
     df_binary = calculate_statistics(num_classes=2, extended=True)
     print(df_binary)
     print('-----------------------------------------------------------')
-    print('MULTILABEL - EXTENDED')
-    df_multilabel = calculate_statistics(num_classes=4, extended=True)
-    print(df_multilabel)
+    print('MULTI-CLASS - EXTENDED')
+    df_multiclass = calculate_statistics(num_classes=4, extended=True)
+    print(df_multiclass)
     print('-----------------------------------------------------------')
     print('-----------------------------------------------------------')
 

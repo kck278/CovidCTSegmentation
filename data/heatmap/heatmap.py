@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 def heatmap_paper():
-    img = nib.load('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/nifti/mask/tr_mask.nii.gz')
+    img = nib.load('data/images/nifti/mask/tr_mask.nii.gz')
     img_arr = np.array(img.dataobj)
     print(img_arr.shape)
 
@@ -14,14 +14,14 @@ def heatmap_paper():
     plt.imshow(summed, cmap='hot', interpolation='nearest')
     plt.axis('off')
     plt.savefig(
-        '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/heatmap/heatmap_paper.png',
+        'data/heatmap/heatmap_paper.png',
         bbox_inches='tight',
         pad_inches=0
     )
 
 
 def heatmap_class_specific(class_number: float):
-    img = nib.load('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/nifti/mask/tr_mask.nii.gz')
+    img = nib.load('data/images/nifti/mask/tr_mask.nii.gz')
     img_arr = np.array(img.dataobj)
     img_arr = (img_arr == class_number).astype(int)
     print(img_arr.shape)
@@ -32,14 +32,14 @@ def heatmap_class_specific(class_number: float):
     plt.imshow(summed, cmap='hot', interpolation='nearest')
     plt.axis('off')
     plt.savefig(
-        '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/heatmap/heatmap_class_{}.png'.format(class_number),
+        'data/heatmap/heatmap_class_{}.png'.format(class_number),
         bbox_inches='tight',
         pad_inches=0
     )
 
 
 def heatmap_infected_tissue():
-    img = nib.load('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/nifti/mask/tr_mask.nii.gz')
+    img = nib.load('data/images/nifti/mask/tr_mask.nii.gz')
     img_arr = np.array(img.dataobj)
     img_arr = (img_arr > 0).astype(int)
     print(img_arr.shape)
@@ -50,7 +50,7 @@ def heatmap_infected_tissue():
     plt.imshow(summed, cmap='hot', interpolation='nearest')
     plt.axis('off')
     plt.savefig(
-        '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/heatmap/heatmap_infected_tissue.png',
+        'data/heatmap/heatmap_infected_tissue.png',
         bbox_inches='tight',
         pad_inches=0
     )

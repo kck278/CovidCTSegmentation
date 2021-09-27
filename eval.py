@@ -12,7 +12,7 @@ from data.util import sorted_alphanumeric
 
 
 def eval_img(model_name: str, num_classes: int, version_name: str, image_name: Optional[str], resolution: int=256):
-    versions_dir = os.path.join('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/lightning_logs', model_name)
+    versions_dir = os.path.join('lightning_logs', model_name)
 
     if version_name == 'latest':
         version_name = sorted_alphanumeric(os.listdir(versions_dir))[-1]
@@ -31,7 +31,7 @@ def eval_img(model_name: str, num_classes: int, version_name: str, image_name: O
 
     model.eval()
 
-    img_dir = os.path.join('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/lung', str(resolution))
+    img_dir = os.path.join('data/images/png/lung', str(resolution))
 
     if image_name is None:
         img_names = os.listdir(img_dir)
@@ -39,10 +39,10 @@ def eval_img(model_name: str, num_classes: int, version_name: str, image_name: O
         img_names = [image_name]
 
     save_dir = os.path.join(
-        '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/prediction/', 
+        'data/images/prediction/', 
         model_name, 
         version_name,
-        'binary' if num_classes == 2 else 'multilabel',
+        'binary' if num_classes == 2 else 'multi_class',
         str(resolution)
     )
 
@@ -72,4 +72,4 @@ def eval_img(model_name: str, num_classes: int, version_name: str, image_name: O
         img.save(save_path)
 
 
-eval_img(model_name='UNet', num_classes=4, version_name='version_1', image_name=None, resolution=256)
+eval_img(model_name='UNet', num_classes=4, version_name='version_59', image_name=None, resolution=256)

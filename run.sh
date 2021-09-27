@@ -1,46 +1,15 @@
 #!/bin/bash
 #SBATCH --ntasks=20
-#SBATCH --time=12:00:00
-#SBATCH --mem=10GB
-#SBATCH --gres=gpu:8
-#SBATCH --job-name=unet
+#SBATCH --time=10:00:00
+#SBATCH --mem=50GB
+#SBATCH --gres=gpu:4
+#SBATCH --job-name=segnet_modified_dataset
 
-python trainer.py -m "UNet" -c 2 -b 2 -l 1e-4 -e 160
-python trainer.py -m "UNet" -c 2 -b 8 -l 1e-4 -e 160
-python trainer.py -m "UNet" -c 2 -b 12 -l 1e-4 -e 160
-python trainer.py -m "UNet" -c 2 -b 2 -l 5e-4 -e 160
-python trainer.py -m "UNet" -c 2 -b 8 -l 5e-4 -e 160
-python trainer.py -m "UNet" -c 2 -b 12 -l 5e-4 -e 160
-python trainer.py -m "UNet" -c 2 -b 2 -l 1e-3 -e 160
-python trainer.py -m "UNet" -c 2 -b 8 -l 1e-3 -e 160
-python trainer.py -m "UNet" -c 2 -b 12 -l 1e-3 -e 160
+python trainer.py -m "SegNet" -c 2 -b 12 -l 1e-4 -e 160 -r 512 # 3
+python trainer.py -m "SegNet" -c 4 -b 4 -l 3e-3 -e 160 -r 512 # 7
 
-python trainer.py -m "UNet" -c 4 -b 2 -l 1e-4 -e 160
-python trainer.py -m "UNet" -c 4 -b 8 -l 1e-4 -e 160
-python trainer.py -m "UNet" -c 4 -b 12 -l 1e-4 -e 160
-python trainer.py -m "UNet" -c 4 -b 2 -l 5e-4 -e 160
-python trainer.py -m "UNet" -c 4 -b 8 -l 5e-4 -e 160
-python trainer.py -m "UNet" -c 4 -b 12 -l 5e-4 -e 160
-python trainer.py -m "UNet" -c 4 -b 2 -l 1e-3 -e 160
-python trainer.py -m "UNet" -c 4 -b 8 -l 1e-3 -e 160
-python trainer.py -m "UNet" -c 4 -b 12 -l 1e-3 -e 160
+python trainer.py -m "SegNet" -c 2 -b 12 -l 1e-4 -e 160 -ext True # 3
+python trainer.py -m "SegNet" -c 4 -b 4 -l 3e-3 -e 160 -ext True # 7
 
-python trainer.py -m "UNet" -c 2 -b 2 -l 1e-4 -e 160 -ext True
-python trainer.py -m "UNet" -c 2 -b 8 -l 1e-4 -e 160 -ext True
-python trainer.py -m "UNet" -c 2 -b 12 -l 1e-4 -e 160 -ext True
-python trainer.py -m "UNet" -c 2 -b 2 -l 5e-4 -e 160 -ext True
-python trainer.py -m "UNet" -c 2 -b 8 -l 5e-4 -e 160 -ext True
-python trainer.py -m "UNet" -c 2 -b 12 -l 5e-4 -e 160 -ext True
-python trainer.py -m "UNet" -c 2 -b 2 -l 1e-3 -e 160 -ext True
-python trainer.py -m "UNet" -c 2 -b 8 -l 1e-3 -e 160 -ext True
-python trainer.py -m "UNet" -c 2 -b 12 -l 1e-3 -e 160 -ext True
-
-python trainer.py -m "UNet" -c 4 -b 2 -l 1e-4 -e 160 -ext True
-python trainer.py -m "UNet" -c 4 -b 8 -l 1e-4 -e 160 -ext True
-python trainer.py -m "UNet" -c 4 -b 12 -l 1e-4 -e 160 -ext True
-python trainer.py -m "UNet" -c 4 -b 2 -l 5e-4 -e 160 -ext True
-python trainer.py -m "UNet" -c 4 -b 8 -l 5e-4 -e 160 -ext True
-python trainer.py -m "UNet" -c 4 -b 12 -l 5e-4 -e 160 -ext True
-python trainer.py -m "UNet" -c 4 -b 2 -l 1e-3 -e 160 -ext True
-python trainer.py -m "UNet" -c 4 -b 8 -l 1e-3 -e 160 -ext True
-python trainer.py -m "UNet" -c 4 -b 12 -l 1e-3 -e 160 -ext True
+python trainer.py -m "SegNet" -c 2 -b 12 -l 1e-4 -e 160 -ext True -r 512 # 3
+python trainer.py -m "SegNet" -c 4 -b 4 -l 3e-3 -e 160 -ext True -r 512 # 7

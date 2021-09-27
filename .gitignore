@@ -129,12 +129,8 @@ dmypy.json
 .pyre/
 
 .idea/
+
+nnUNet/
+data/
 lightning_logs/
-
-# images
-data/images/
-*.png
-*.nii.gz
-
-# Logs
-slurm-*.out
+slurm_output/

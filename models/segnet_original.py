@@ -1,10 +1,8 @@
 import torch
-from torch import nn
-import pytorch_lightning as pl
-from torch.nn import functional as F
-import torchmetrics
 import numpy as np
-from pytorch_lightning.loggers import TensorBoardLogger
+import pytorch_lightning as pl
+from torch import nn
+from torch.nn import functional as F
 from metrics import calculate_accuracy_metrics, calculate_metrics, class_weights, cross_entropy_loss
 
 
@@ -86,6 +84,7 @@ class SegNetOriginal(pl.LightningModule):
         self.resolution = resolution
         self.extended = extended
 
+
     def forward(self, x):
         # Stage 1e
         x11 = F.relu(self.bn11(self.conv11(x)))
@@ -144,15 +143,16 @@ class SegNetOriginal(pl.LightningModule):
         x11d = self.conv11d(x12d)
 
         xsoftmax = self.softmax(x11d)
-
         return xsoftmax
+
 
     def training_step(self, batch, batch_nb):
         x, y = batch
         y_hat = self(x)
-        loss = cross_entropy_loss(y_hat, y, self.class_weights)
-        self.log('train_loss', loss, on_step=True, on_epoch=True, prog_bar=True, logger=True)
-        return loss
+        metrics = calculate_metrics(y_hat, y, self.num_classes, self.class_weights, 'train')
+        self.log_dict(metrics, sync_dist=True)
+        return metrics['train_loss']
+
 
     def validation_step(self, batch, batch_idx):
         # OPTIONAL
@@ -162,6 +162,7 @@ class SegNetOriginal(pl.LightningModule):
         self.log_dict(metrics)
         return metrics
     
+
     def test_step(self, batch, batch_idx):
         x, y = batch
         y_hat = self(x)
@@ -169,13 +170,26 @@ class SegNetOriginal(pl.LightningModule):
         self.log_dict(metrics)
         return metrics
 
+
     def test_epoch_end(self, outputs) -> None:
-        accuracies = np.array([out['test_acc'] for out in outputs])
+        accuracies = np.array([out['test_acc'].cpu() for out in outputs])
         metrics = calculate_accuracy_metrics(accuracies)
         self.log_dict(metrics)
         return metrics
 
+
     def configure_optimizers(self):
-        return torch.optim.Adam(self.parameters(), lr=self.learning_rate)
+        # Adam: extension to stochastic gradient descent with optimizations
+        optimizer = torch.optim.Adam(
+            self.parameters(), 
+            lr=self.learning_rate,
+            weight_decay=0.0001
+        )
+        scheduler = torch.optim.lr_scheduler.StepLR(
+            optimizer, 
+            gamma=0.95,
+            step_size=12
+        )
+        return [optimizer], [scheduler]
 
 

@@ -64,13 +64,13 @@ learning_rate = args.learning_rate
 batch_size = args.batch_size
 extended = args.extended
 
-images_dir = os.path.join('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/lung', str(resolution))
-mask_dir = '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/mask'
+images_dir = os.path.join('data/images/png/lung', str(resolution))
+mask_dir = 'data/images/png/mask'
 
 if num_classes == 2:
     masks_dir = os.path.join(mask_dir, 'binary', str(resolution))
 else:
-    masks_dir = os.path.join(mask_dir, 'multilabel', str(resolution))
+    masks_dir = os.path.join(mask_dir, 'multi_class', str(resolution))
 
 covid_data_module = CovidDataModule(
     images_dir=images_dir, 

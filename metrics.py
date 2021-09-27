@@ -7,10 +7,10 @@ from typing import Optional
 
 
 def calculate_metrics(
-    y_hat: torch.FloatTensor, 
-    y: torch.FloatTensor, 
-    num_classes: int, 
-    class_weights: torch.FloatTensor, 
+    y_hat: torch.FloatTensor,
+    y: torch.FloatTensor,
+    num_classes: int,
+    class_weights: torch.FloatTensor,
     step: str
 ) -> dict:
     '''Calculates different metrices for given batch.
@@ -22,7 +22,7 @@ def calculate_metrics(
     Returns:
         Dictionary containing the metrices (accuracy, sensitivity, specificity, 
         sorensen dice, geometric mean, precision, f2-score).
-    '''
+    '''    
     y_pred = y_hat.argmax(dim=1)
     loss = cross_entropy_loss(y_hat, y, class_weights)
 
@@ -39,9 +39,7 @@ def calculate_metrics(
         y_copy[y_copy != i] = 0
 
         tp, tn, fp, fn = confusion_matrix(y_pred_copy, y_copy)
-
         tp_count += tp
-        loss = cross_entropy_loss(y_hat, y_copy, class_weights)
 
         sens = sensitivity(tp, fn)
         spec = specificity(tn, fp)
@@ -71,7 +69,7 @@ def calculate_accuracy_metrics(accuracies: np.ndarray) -> dict:
         Dict containing the mean, standard deviation and variance over all accuracies.
     '''
     return {
-        "_mean_accuracy": np.mean(accuracies), 
+        "_mean_accuracy": np.mean(accuracies),
         "_standard_dev_accuracy": np.std(accuracies),
         "_variance_accuracy": np.var(accuracies)
     }
@@ -153,7 +151,7 @@ def specificity(tn: int, fp: int):
 
 
 def sorensen_dice(tp: int, fp: int, fn: int):
-    '''Calculates the similiarity between two samples (prediction and ground truth).
+    '''Calculates the similarity between two samples (prediction and ground truth).
 
     Args:
         tp: Number of true positives.
@@ -180,7 +178,7 @@ def g_mean(sens: float, spec: float):
 
 
 def precision(tp: int, fp: int):
-    '''Calculates the roportion of positive identifications that were actually correct.
+    '''Calculates the proportion of positive identifications that were actually correct.
 
     Args:
         tp: Number of true positives.

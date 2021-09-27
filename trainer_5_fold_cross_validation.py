@@ -1,7 +1,6 @@
 import os
 import torch
 import pytorch_lightning as pl
-from typing import Optional
 
 from torch.utils.data.dataset import Subset
 from dataset import CovidDataset
@@ -9,6 +8,8 @@ from torch.utils.data import random_split, DataLoader
 from pytorch_lightning.loggers import TensorBoardLogger
 from models.unet import UNet
 from models.segnet import SegNet
+from models.unet_monai import UNetMonai
+from models.segnet_original import SegNetOriginal
 from arguments import parse_arguments
 from sklearn.model_selection import KFold
 import numpy as np
@@ -23,17 +24,6 @@ class CovidDataModule(pl.LightningDataModule):
         self.batch_size = batch_size
         self.dims = (1, 256, 256)
         self.extended = extended
-
-
-    #def setup(self, stage: Optional[str]=None):
-        # Assign datasets for use in dataloaders
-        # if stage == 'fit':
-        #     covid_full = CovidDataset(images_dir=self.images_dir, masks_dir=self.masks_dir, num_classes=self.num_classes)
-        #     train_len = int(0.3 * len(covid_full))
-        #     val_len = int(0.10 * len(covid_full))
-        #     test_len = len(covid_full) - (train_len + val_len)
-        #     self.covid_train, self.covid_val, self.covid_test = random_split(covid_full, [train_len, val_len, test_len])
-
 
 
     def train_dataloader(self, train_data):
@@ -63,21 +53,13 @@ learning_rate = args.learning_rate
 batch_size = args.batch_size
 extended = args.extended
 
-images_dir = os.path.join('/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/lung', str(resolution))
-mask_dir = '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/mask'
+images_dir = os.path.join('data/images/png/lung', str(resolution))
+mask_dir = 'data/images/png/mask'
 
 if num_classes == 2:
     masks_dir = os.path.join(mask_dir, 'binary', str(resolution))
 else:
-    masks_dir = os.path.join(mask_dir, 'multilabel', str(resolution))
-
-covid_data_module = CovidDataModule(
-    images_dir=images_dir, 
-    masks_dir=masks_dir, 
-    num_classes=num_classes,
-    batch_size=batch_size,
-    extended=extended
-)
+    masks_dir = os.path.join(mask_dir, 'multi_class', str(resolution))
 
 if model_name == "UNet":
     model = UNet(
@@ -88,7 +70,16 @@ if model_name == "UNet":
         resolution=resolution,
         extended=extended
     )
-else:
+elif model_name == "UNetMonai":
+    model = UNetMonai(
+        num_classes=num_classes, 
+        epochs=epochs, 
+        learning_rate=learning_rate, 
+        batch_size=batch_size,
+        resolution=resolution,
+        extended=extended
+    )
+elif model_name == "SegNet":
     model = SegNet(
         num_classes=num_classes, 
         epochs=epochs, 
@@ -97,9 +88,19 @@ else:
         resolution=resolution,
         extended=extended
     )
+elif model_name == "SegNetOriginal":
+    model = SegNetOriginal(
+        num_classes=num_classes, 
+        epochs=epochs, 
+        learning_rate=learning_rate, 
+        batch_size=batch_size,
+        resolution=resolution,
+        extended=extended
+    )
+
 
 covid_full = CovidDataset(images_dir=images_dir, masks_dir=masks_dir, num_classes=num_classes, extended=extended)
-k = 2
+k = 5
 kf = KFold(n_splits=k, shuffle=True)
 
 test_results = []
@@ -124,37 +125,39 @@ for train_idx, test_idx in kf.split(covid_full):
     results = trainer.test(model, test_dataloaders=test_loader)
     test_results.append(results[0])
 
-# calculate sensitivity
-mean_sensitivity = np.mean(np.array([res['test_sens_c1'] for res in test_results]))
-std_dev_sensitivity = np.std(np.array([res['test_sens_c1'] for res in test_results]))
+metrics_dict = {}
 
-# calculate specificity
-mean_specificity = np.mean(np.array([res['test_spec_c1'] for res in test_results]))
-std_dev_specificity = np.std(np.array([res['test_spec_c1'] for res in test_results]))
+for i in range(1, num_classes):
+    # calculate sensitivity
+    mean_sensitivity = np.mean(np.array([res['test_sens_c' + str(i)] for res in test_results]))
+    std_dev_sensitivity = np.std(np.array([res['test_sens_c' + str(i)] for res in test_results]))
 
-# calculate dice
-mean_dice = np.mean(np.array([res['test_dice_c1'] for res in test_results]))
-std_dev_dice = np.std(np.array([res['test_dice_c1'] for res in test_results]))
+    # calculate specificity
+    mean_specificity = np.mean(np.array([res['test_spec_c' + str(i)] for res in test_results]))
+    std_dev_specificity = np.std(np.array([res['test_spec_c' + str(i)] for res in test_results]))
 
-# calculate g-mean
-mean_gmean = np.mean(np.array([res['test_mean_c1'] for res in test_results]))
-std_dev_gmean = np.std(np.array([res['test_mean_c1'] for res in test_results]))
+    # calculate dice
+    mean_dice = np.mean(np.array([res['test_dice_c' + str(i)] for res in test_results]))
+    std_dev_dice = np.std(np.array([res['test_dice_c' + str(i)] for res in test_results]))
 
-# calculate f2
-mean_f2 = np.mean(np.array([res['test_f2_c1'] for res in test_results]))
-std_dev_f2 = np.std(np.array([res['test_f2_c1'] for res in test_results]))
+    # calculate g-mean
+    mean_gmean = np.mean(np.array([res['test_mean_c' + str(i)] for res in test_results]))
+    std_dev_gmean = np.std(np.array([res['test_mean_c' + str(i)] for res in test_results]))
 
-metrics_dict = {
-    "5_fold_mean_sensitivity": mean_sensitivity,
-    "5_fold_std_dev_sensitivity": std_dev_sensitivity,
-    "5_fold_mean_specificity": mean_specificity,
-    "5_fold_std_dev_specificity": std_dev_specificity,
-    "5_fold_mean_dice": mean_dice,
-    "5_fold_std_dev_dice": std_dev_dice,
-    "5_fold_mean_gmean": mean_gmean,
-    "5_fold_std_dev_gmean": std_dev_gmean,
-    "5_fold_mean_f2": mean_f2,
-    "5_fold_std_dev_f2": std_dev_f2,
-    }
+    # calculate f2
+    mean_f2 = np.mean(np.array([res['test_f2_c' + str(i)] for res in test_results]))
+    std_dev_f2 = np.std(np.array([res['test_f2_c' + str(i)] for res in test_results]))
+
+    metrics_dict["5_fold_mean_sensitivity_c" + str(i)] = mean_sensitivity
+    metrics_dict["5_fold_std_dev_sensitivity_c" + str(i)] = std_dev_sensitivity
+    metrics_dict["5_fold_mean_specificity_c" + str(i)] = mean_specificity
+    metrics_dict["5_fold_std_dev_specificity_c" + str(i)] = std_dev_specificity
+    metrics_dict["5_fold_mean_dice_c" + str(i)] = mean_dice
+    metrics_dict["5_fold_std_dev_dice_c" + str(i)] = std_dev_dice
+    metrics_dict["5_fold_mean_gmean_c" + str(i)] = mean_gmean
+    metrics_dict["5_fold_std_dev_gmean_c" + str(i)] = std_dev_gmean
+    metrics_dict["5_fold_mean_f2_c" + str(i)] = mean_f2
+    metrics_dict["5_fold_std_dev_f2_c" + str(i)] = std_dev_f2
+print(metrics_dict)
 logger.log_metrics(metrics_dict)
-
+logger.save()

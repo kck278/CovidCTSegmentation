@@ -13,14 +13,14 @@ class CovidDataset(Dataset):
         self.extended = extended
         self.transforms = transforms.Compose(
             [
-                transforms.Grayscale(num_output_channels=1), 
+                transforms.Grayscale(num_output_channels=1),
                 transforms.ToTensor()
             ]
         )
         self.augmentations = transforms.Compose(
             [
                 transforms.RandomHorizontalFlip(),
-                transforms.RandomAffine(0, shear=(10, 10, 10, 10))
+                transforms.RandomAffine(0, shear=(-10, 10, -10, 10))
             ]
         )
         self.mask_transforms = transforms.Compose(
@@ -45,12 +45,12 @@ class CovidDataset(Dataset):
 
         image = self.transforms(image)
         mask = self.transforms(mask)
+        mask = self.mask_transforms(mask)
 
         stacked = torch.cat([image, mask], dim=0)
         stacked = self.augmentations(stacked)
         image, mask = torch.chunk(stacked, chunks=2, dim=0)
 
-        mask = self.mask_transforms(mask)
         mask = torch.squeeze(mask)
         return image, mask
 

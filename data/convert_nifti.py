@@ -9,7 +9,7 @@ from util import sorted_alphanumeric
 
 
 def niftis_to_png(input: str, resolution: int=512, binary: bool=True):
-    base_dir = '/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images'
+    base_dir = 'data/images'
     nifti_path = os.path.join(base_dir, 'nifti', input, 'tr_' + input + '.nii.gz')
     extended_nifti_dir = os.path.join(base_dir, 'nifti', input, 'extended')
     save_dir = os.path.join(base_dir, 'png', input)
@@ -19,7 +19,7 @@ def niftis_to_png(input: str, resolution: int=512, binary: bool=True):
         if binary:
             save_dir = os.path.join(save_dir, 'binary', str(resolution))
         else:
-            save_dir = os.path.join(save_dir, 'multilabel', str(resolution))
+            save_dir = os.path.join(save_dir, 'multi_class', str(resolution))
     
     nifti_to_png(input=input, nifti_path=nifti_path, save_dir=save_dir, binary=binary, resolution=resolution)
     extended_nifti_names = sorted_alphanumeric(os.listdir(extended_nifti_dir))
@@ -129,15 +129,15 @@ niftis_to_png(input='mask', binary=False, resolution=512)
 
 # Image conversion
 crop_lungmask(
-    scan_dir='/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/scan',
-    lung_mask_dir='/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/lung_mask',
-    save_dir='/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/lung',
+    scan_dir='data/images/png/scan',
+    lung_mask_dir='data/images/png/lung_mask',
+    save_dir='data/images/png/lung',
     resolution=256
 )
 
 crop_lungmask(
-    scan_dir='/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/scan',
-    lung_mask_dir='/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/lung_mask',
-    save_dir='/home/hd/hd_hd/hd_ei260/CovidCTSegmentation/data/images/png/lung',
+    scan_dir='data/images/png/scan',
+    lung_mask_dir='data/images/png/lung_mask',
+    save_dir='data/images/png/lung',
     resolution=512
 )
